@@ -35,7 +35,7 @@ const sections = [
       "Hello, I’m Robert, a 23-year-old programming enthusiast and experienced developer, recently graduated from Stockholm Institute of Technology. With a passion for technology, I specialize in frontend and full-stack development, thriving on the excitement of crafting innovative digital solutions.",
       "My journey has been marked by numerous achievements, including founding my own coding studio, Rovenkodev, and receiving two scholarships: Bästa Studieresultat and Bästa Examensarbete. My love for learning drives me to stay at the forefront of this ever-evolving field. Join me as I explore the boundless possibilities of programming and development.",
     ],
-    imageUrl: "/images/robertstipendriumbild.jpg",
+    imageUrl: "/images/home/robertstipendriumbild.jpg",
   },
   {
     id: "developer",
@@ -44,7 +44,7 @@ const sections = [
       "Starting my programming journey at 16, I immersed myself in game and web development during my gymnasium years. With six years of hands-on programming experience, I’ve not only honed my technical skills but also developed a business-oriented mindset that sets me apart in the tech industry.",
       "My passion for innovation drives me to create cutting-edge solutions that seamlessly blend technology with user-centric design, and I’m determined to make a lasting impact in the tech world.",
     ],
-    imageUrl: "/images/codingimage.jpg",
+    imageUrl: "/images/home/codingimage.jpg",
   },
   {
     id: "designer",
@@ -53,7 +53,7 @@ const sections = [
       "Alongside my strong foundation in frontend development, I’ve had the opportunity to dive into the world of UX/UI design. This multidisciplinary approach has enabled me to create not only visually appealing interfaces but also engaging user experiences that resonate emotionally.",
       "By combining programming and design, I’ve expanded my skill set and gained a deep appreciation for how thoughtful design can significantly impact user satisfaction and technology.",
     ],
-    imageUrl: "/images/designingimage.jpg",
+    imageUrl: "/images/home/designingimage.jpg",
   },
   {
     id: "summary",
@@ -131,7 +131,7 @@ export default function Home() {
   return (
     <div className="relative font-sans text-gray-900">
       <img
-        src="/images/joel-filipe-VuwAfoHpxgs-unsplash.jpg"
+        src="/images/home/joel-filipe-VuwAfoHpxgs-unsplash.jpg"
         alt="Background"
         className="absolute inset-0 w-full h-full object-cover"
       />
@@ -221,7 +221,7 @@ export default function Home() {
             className="hidden md:block flex-1 mt-10 md:mt-0 md:ml-12 w-[300px] md:w-[400px] pointer-events-none"
           >
             <img
-              src="/images/30dfe.png"
+              src="/images/home/30dfe.png"
               alt="App Preview"
               className="w-full h-auto object-contain"
             />

@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const links = ["Home", "Education", "Portfolio", "Career", "Athlete"];
+
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
     return () => (document.body.style.overflow = "auto");
   }, [isOpen]);
+
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-md shadow-sm border-b border-white/20">
       <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
@@ -19,14 +21,14 @@ export default function Navbar() {
         {/* Desktop nav */}
         <nav className="hidden md:flex gap-10 text-base font-medium text-gray-800">
           {links.map((item) => (
-            <a
+            <Link
               key={item}
-              href={`#${item.toLowerCase()}`}
+              to={`/${item.toLowerCase()}`}
               className="relative px-1 py-1 hover:text-black transition-transform transform hover:scale-105 duration-200 group"
             >
               {item}
               <span className="absolute left-0 bottom-0 h-0.5 w-full scale-x-0 group-hover:scale-x-100 bg-black transition-transform origin-left duration-300" />
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -86,14 +88,14 @@ export default function Navbar() {
           </button>
 
           {links.map((item) => (
-            <a
+            <Link
               key={item}
-              href={`#${item.toLowerCase()}`}
+              to={`/${item.toLowerCase()}`}
               onClick={() => setIsOpen(false)}
               className="hover:text-black transition-transform transform hover:scale-105 duration-200 py-5 px-6 block"
             >
               {item}
-            </a>
+            </Link>
           ))}
         </div>
       )}
