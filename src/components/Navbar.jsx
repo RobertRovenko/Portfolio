@@ -14,9 +14,12 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-md shadow-sm border-b border-white/20">
       <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
         {/* Logo */}
-        <div className="text-2xl font-semibold tracking-tight text-gray-900 hover:opacity-80 transition cursor-pointer">
+        <Link
+          to="/"
+          className="text-2xl font-semibold tracking-tight text-gray-900 hover:opacity-80 transition cursor-pointer"
+        >
           rovenko
-        </div>
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex gap-10 text-base font-medium text-gray-800">

@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 // Reusable Article component
 function Article({ article, imageWrapperClassName, subtitle }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.2, once: true });
+  const isInView = useInView(ref, { amount: 0.1, once: true });
 
   return (
     <motion.article
@@ -62,7 +62,7 @@ function Article({ article, imageWrapperClassName, subtitle }) {
 
 export default function EducationPage() {
   return (
-    <div className="relative font-sans text-gray-900 bg-white">
+    <div className="relative font-sans bg-white">
       <main className="max-w-6xl mx-auto px-12 pt-60 pb-60 md:pt-1 relative z-10">
         {/* Hero Section */}
         <section className="w-full flex flex-col md:flex-row items-center justify-center h-[700px]">
@@ -125,19 +125,19 @@ export default function EducationPage() {
                   content: `
 #App Developer
 
-#Hybrid app development
-React Native, node.js, Expo go, TypeScript
+#Hybrid App Development
+React Native, node.js, Expo go, JavaScript TypeScript
 
-#Native app development
-Android Studio, Kotlin, Java
+#Native Android App Development
+Android Studio, Kotlin, Java, Jetpack Compose
 
-#iOS X-code
-SwiftUI, Storyboard, Swift
+#Native iOS App Development 
+X-Code, SwiftUI, Storyboard, Swift
 
-#Web app development
-VSCode: HTML, CSS, JavaScript, Next.js, TypeScript
+#Web App Development
+HTML, CSS, JavaScript, Next.js, TypeScript, React
 
-#Project methodology
+#Project Methodology
 Scrum, Kanban, Extreme Programming
 
 #Extra
@@ -158,9 +158,11 @@ Git, GitHub, Firebase, API, Backend
                   imageUrl: "/images/education/ntilogo.jpg",
                   imageClassName: "",
                   content: `
-                  #Game development
+                  #Software Engineering
 
-C#, Unity, Unreal Engine, RPG maker
+#Game Development
+
+Visual Studio C#, Unity, Unreal Engine, RPG maker
 
 #Web app development
 
@@ -227,7 +229,7 @@ Computer Science, Entrepreneurship, Technology
             Digital Marketing Certificate from Google
           </h2>
           <div className="flex flex-col md:flex-row items-start gap-12 max-w-4xl mx-auto">
-            <div className="w-[1500px] rounded-lg overflow-hidden">
+            <div className="rounded-lg overflow-hidden">
               <img
                 src="/images/education/gwd.jpg"
                 alt="Google Digital Marketing"

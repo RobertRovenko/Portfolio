@@ -1,6 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, GraduationCap, ChevronDown } from "lucide-react";
+import {
+  ArrowRight,
+  GraduationCap,
+  ChevronDown,
+  Github,
+  Linkedin,
+  Instagram,
+} from "lucide-react";
 
 // Custom hook to detect mobile
 const useIsMobile = () => {
@@ -55,6 +62,7 @@ const sections = [
     ],
     imageUrl: "/images/home/designingimage.jpg",
   },
+
   {
     id: "summary",
     title: "Summary",
@@ -185,7 +193,7 @@ export default function Home() {
               </motion.a>
 
               <motion.a
-                href="#contact"
+                href="education"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 className="border border-indigo-600 text-indigo-600 px-6 py-3 rounded-full text-sm font-semibold flex items-center justify-center gap-2 hover:bg-indigo-600 hover:text-white transition"
@@ -209,6 +217,38 @@ export default function Home() {
                 ))}
               </div>
             </section>
+            <motion.div
+              className="flex justify-center md:justify-start gap-4 mt-8"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0 },
+              }}
+            >
+              <a
+                href="https://github.com/RobertRovenko"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-gray-700 transition"
+              >
+                <Github size={18} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/robert-falkb%C3%A4ck/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-blue-700 text-white rounded-full flex items-center justify-center hover:bg-blue-600 transition"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a
+                href="https://www.instagram.com/robertfalkback/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-pink-600 text-white rounded-full flex items-center justify-center hover:bg-pink-500 transition"
+              >
+                <Instagram size={18} />
+              </a>
+            </motion.div>
           </motion.div>
 
           {/* Right side — Rotating Phone */}
