@@ -1,5 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef, useCallback } from "react";
 import { motion, useInView } from "framer-motion";
+import Particles from "react-tsparticles";
+import { loadSlim } from "tsparticles-slim"; // or loadFull from "tsparticles" for the full version
 
 // Reusable Article component
 function Article({ article, imageWrapperClassName, subtitle }) {
@@ -61,9 +63,97 @@ function Article({ article, imageWrapperClassName, subtitle }) {
 }
 
 export default function EducationPage() {
+  const particlesInit = useCallback(async (engine) => {
+    await loadSlim(engine); // or loadFull(engine)
+  }, []);
+
   return (
     <div className="relative font-sans bg-white">
-      <main className="max-w-6xl mx-auto px-12 pt-60 pb-60 md:pt-1 relative z-10">
+      <Particles
+        init={particlesInit}
+        options={{
+          particles: {
+            number: {
+              value: 20,
+              density: {
+                enable: true,
+                value_area: 800,
+              },
+            },
+            color: {
+              value: "#5a5a5a",
+            },
+            shape: {
+              type: "polygon",
+              stroke: {
+                width: 0,
+                color: "#000000",
+              },
+              polygon: {
+                nb_sides: 4,
+              },
+            },
+            opacity: {
+              value: 0.5,
+              random: false,
+              anim: {
+                enable: false,
+                speed: 1,
+                opacity_min: 0.1,
+                sync: false,
+              },
+            },
+            size: {
+              value: 3,
+              random: true,
+              anim: {
+                enable: false,
+                speed: 40,
+                size_min: 0.1,
+                sync: false,
+              },
+            },
+            line_linked: {
+              enable: true,
+              distance: 180,
+              color: "#5a5a5a",
+              opacity: 0.4,
+              width: 1,
+            },
+            move: {
+              enable: true,
+              speed: 1,
+              direction: "none",
+              random: false,
+              straight: false,
+              out_mode: "out",
+              bounce: false,
+              attract: {
+                enable: false,
+                rotateX: 600,
+                rotateY: 1200,
+              },
+            },
+          },
+          interactivity: {
+            detect_on: "canvas",
+            events: {
+              onhover: {
+                enable: false, // DISABLED for better performance
+                mode: "repulse",
+              },
+              onclick: {
+                enable: false,
+                mode: "push",
+              },
+              resize: true,
+            },
+          },
+          retina_detect: false,
+        }}
+      />
+
+      <main className="max-w-6xl mx-auto px-12 pt-40 md:pt-20 pb-60 md:pt-1 relative z-10">
         {/* Hero Section */}
         <section className="w-full flex flex-col md:flex-row items-center justify-center h-[700px]">
           <motion.div
@@ -110,7 +200,7 @@ export default function EducationPage() {
         </section>
 
         {/* University & High School */}
-        <section className="space-y-16">
+        <section className="space-y-16 bg-white">
           <h2 className="text-3xl font-bold border-b pb-1 border-gray-200">
             Education
           </h2>

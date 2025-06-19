@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import {
   motion,
   useScroll,
   useTransform,
   AnimatePresence,
 } from "framer-motion";
-import { ArrowRight, Github, Linkedin, Instagram } from "lucide-react";
+import { ArrowRight, Github } from "lucide-react";
+import Particles from "react-tsparticles";
+import { loadSlim } from "tsparticles-slim"; // or loadFull from "tsparticles" for the full version
 
 const projects = [
   {
@@ -102,6 +104,9 @@ export default function Portfolio() {
 
   const [visibility, setVisibility] = useState(projects.map(() => false));
   const isMobile = window.innerWidth < 768;
+  const particlesInit = useCallback(async (engine) => {
+    await loadSlim(engine); // or loadFull(engine)
+  }, []);
 
   const [expandedCard, setExpandedCard] = useState(null); // ✅ valid JS
 
@@ -148,14 +153,90 @@ export default function Portfolio() {
   }, [filteredProjects]);
 
   return (
-    <div className="relative font-sans text-gray-900 min-h-screen ">
-      {/* Background Image */}
-      <img
-        src="/images/home/joel-filipe-VuwAfoHpxgs-unsplash.jpg"
-        alt="Background"
-        className="absolute inset-0 w-full h-full object-cover"
+    <div className="relative bg-white font-sans text-gray-900 min-h-screen ">
+      <Particles
+        init={particlesInit}
+        options={{
+          particles: {
+            number: {
+              value: 20,
+              density: {
+                enable: true,
+                value_area: 800,
+              },
+            },
+            color: {
+              value: "#5a5a5a",
+            },
+            shape: {
+              type: "polygon",
+              stroke: {
+                width: 0,
+                color: "#000000",
+              },
+              polygon: {
+                nb_sides: 4,
+              },
+            },
+            opacity: {
+              value: 0.5,
+              random: false,
+              anim: {
+                enable: false,
+                speed: 1,
+                opacity_min: 0.1,
+                sync: false,
+              },
+            },
+            size: {
+              value: 3,
+              random: true,
+              anim: {
+                enable: false,
+                speed: 40,
+                size_min: 0.1,
+                sync: false,
+              },
+            },
+            line_linked: {
+              enable: true,
+              distance: 180,
+              color: "#5a5a5a",
+              opacity: 0.4,
+              width: 1,
+            },
+            move: {
+              enable: true,
+              speed: 1,
+              direction: "none",
+              random: false,
+              straight: false,
+              out_mode: "out",
+              bounce: false,
+              attract: {
+                enable: false,
+                rotateX: 600,
+                rotateY: 1200,
+              },
+            },
+          },
+          interactivity: {
+            detect_on: "canvas",
+            events: {
+              onhover: {
+                enable: false, // DISABLED for better performance
+                mode: "repulse",
+              },
+              onclick: {
+                enable: false,
+                mode: "push",
+              },
+              resize: true,
+            },
+          },
+          retina_detect: false,
+        }}
       />
-
       <main className="max-w-6xl mx-auto px-12  md:pt-1 relative z-10">
         {/* Hero Section */}
         <section className="w-full h-[600px] flex flex-col md:flex-row items-center justify-center text-left bg-cover bg-center bg-no-repeat">
@@ -208,7 +289,7 @@ export default function Portfolio() {
                 href="#portfolio"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
-                className="border border-indigo-600 text-indigo-600 px-6 py-3 rounded-full text-sm font-semibold flex items-center justify-center gap-2 hover:bg-indigo-600 hover:text-white transition"
+                className="border border-indigo-600 text-indigo-600 px-6 py-3 rounded-full text-sm font-semibold bg-white flex items-center justify-center gap-2 hover:bg-indigo-600 hover:text-white transition"
               >
                 <ArrowRight size={16} /> Projects
               </motion.a>
@@ -246,7 +327,7 @@ export default function Portfolio() {
                 className={`px-5 py-2 rounded-full border text-sm font-medium transition ${
                   filter === cat
                     ? "bg-indigo-600 text-white shadow"
-                    : "text-indigo-600 border-indigo-600 hover:bg-indigo-100"
+                    : "text-indigo-600 bg-white border-indigo-600 hover:bg-indigo-100"
                 }`}
               >
                 {cat[0].toUpperCase() + cat.slice(1)}
@@ -254,7 +335,6 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* Project Cards */}
           {/* Project Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {filteredProjects.map(

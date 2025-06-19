@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
@@ -8,6 +8,8 @@ import {
   Linkedin,
   Instagram,
 } from "lucide-react";
+import Particles from "react-tsparticles";
+import { loadSlim } from "tsparticles-slim"; // or loadFull from "tsparticles" for the full version
 
 // Custom hook to detect mobile
 const useIsMobile = () => {
@@ -78,6 +80,9 @@ export default function Home() {
   const [visibility, setVisibility] = useState(sections.map(() => false));
   const isMobile = useIsMobile();
   const [summaryExpanded, setSummaryExpanded] = useState(false);
+  const particlesInit = useCallback(async (engine) => {
+    await loadSlim(engine); // or loadFull(engine)
+  }, []);
 
   // Use scroll progress of the whole page
   const { scrollYProgress } = useScroll();
@@ -137,13 +142,92 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative font-sans text-gray-900">
-      <img
-        src="/images/home/joel-filipe-VuwAfoHpxgs-unsplash.jpg"
-        alt="Background"
-        className="absolute inset-0 w-full h-full object-cover"
+    <div className="relative bg-white font-sans">
+      <Particles
+        init={particlesInit}
+        options={{
+          particles: {
+            number: {
+              value: 20,
+              density: {
+                enable: true,
+                value_area: 800,
+              },
+            },
+            color: {
+              value: "#525252",
+            },
+            shape: {
+              type: "polygon",
+              stroke: {
+                width: 0,
+                color: "#000000",
+              },
+              polygon: {
+                nb_sides: 4,
+              },
+            },
+            opacity: {
+              value: 0.5,
+              random: false,
+              anim: {
+                enable: false,
+                speed: 1,
+                opacity_min: 0.1,
+                sync: false,
+              },
+            },
+            size: {
+              value: 3,
+              random: true,
+              anim: {
+                enable: false,
+                speed: 40,
+                size_min: 0.1,
+                sync: false,
+              },
+            },
+            line_linked: {
+              enable: true,
+              distance: 180,
+              color: "#5a5a5a",
+              opacity: 0.4,
+              width: 1,
+            },
+            move: {
+              enable: true,
+              speed: 1,
+              direction: "none",
+              random: false,
+              straight: false,
+              out_mode: "out",
+              bounce: false,
+              attract: {
+                enable: false,
+                rotateX: 600,
+                rotateY: 1200,
+              },
+            },
+          },
+          interactivity: {
+            detect_on: "canvas",
+            events: {
+              onhover: {
+                enable: false, // DISABLED for better performance
+                mode: "repulse",
+              },
+              onclick: {
+                enable: false,
+                mode: "push",
+              },
+              resize: true,
+            },
+          },
+          retina_detect: false,
+        }}
       />
-      <main className="max-w-6xl mx-auto px-12 pt-60 md:pt-1 font-sans text-gray-900 relative z-10">
+
+      <main className="max-w-6xl mx-auto px-12 pt-40 md:pt-20 font-sans text-gray-900 relative z-10">
         <section className="w-full h-screen flex flex-col md:flex-row items-center justify-center text-left bg-cover bg-center bg-no-repeat">
           {/* Left side — Text */}
           <motion.div
@@ -184,7 +268,7 @@ export default function Home() {
               }}
             >
               <motion.a
-                href="#portfolio"
+                href="portfolio"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 className="bg-indigo-600 text-white px-6 py-3 rounded-full text-sm font-semibold flex items-center justify-center gap-2 hover:bg-indigo-700 transition"
