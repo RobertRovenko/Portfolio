@@ -12,7 +12,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-md shadow-sm border-b border-white/20">
-      <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div className="max-full mx-auto px-6 py-5 flex items-center justify-between">
         {/* Logo */}
         <Link
           to="/"

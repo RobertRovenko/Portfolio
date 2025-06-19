@@ -14,12 +14,12 @@ function Article({ article, imageWrapperClassName, subtitle }) {
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5 }}
-      className="flex flex-col items-center text-center md:text-left space-y-4"
+      className="flex flex-col items-center text-center md:text-left space-y-4 bg-white"
     >
       <div className={imageWrapperClassName}>
         <img
           src={article.imageUrl}
-          alt={article.title}
+          alt={getAltText(article.title)}
           className="max-h-full max-w-full object-contain rounded-lg transition-transform duration-300 transform hover:scale-105"
           loading="lazy"
         />
@@ -61,6 +61,16 @@ function Article({ article, imageWrapperClassName, subtitle }) {
     </motion.article>
   );
 }
+function getAltText(title) {
+  if (typeof title === "string") return title;
+  if (typeof title === "object" && title.props) {
+    // Simple heuristic: flatten children strings if possible
+    return React.Children.toArray(title.props.children)
+      .filter((child) => typeof child === "string")
+      .join(" ");
+  }
+  return "Image"; // fallback alt text
+}
 
 export default function EducationPage() {
   const particlesInit = useCallback(async (engine) => {
@@ -74,7 +84,7 @@ export default function EducationPage() {
         options={{
           particles: {
             number: {
-              value: 20,
+              value: 15,
               density: {
                 enable: true,
                 value_area: 800,
@@ -153,11 +163,11 @@ export default function EducationPage() {
         }}
       />
 
-      <main className="max-w-6xl mx-auto px-12 pt-40 md:pt-20 pb-60 md:pt-1 relative z-10">
+      <main className="max-w-6xl mx-auto px-12 pt-40 md:pt-20 md:pb-20 pb-10 relative z-10">
         {/* Hero Section */}
-        <section className="w-full flex flex-col md:flex-row items-center justify-center h-[700px]">
+        <section className="w-full flex flex-col md:flex-row items-center justify-center h-auto md:h-[500px] gap-8 md:gap-0 mb-40 md:mb-0">
           <motion.div
-            className="flex-1 space-y-6 text-center md:text-left"
+            className="relative z-10 flex-1 space-y-6 text-center md:text-left"
             initial="hidden"
             animate="show"
             variants={{
@@ -166,13 +176,13 @@ export default function EducationPage() {
             }}
           >
             <motion.h1
-              className="text-5xl sm:text-6xl font-bold tracking-tight bg-black text-transparent bg-clip-text"
+              className="text-5xl sm:text-6xl font-bold"
               variants={{
                 hidden: { opacity: 0, y: 40 },
                 show: { opacity: 1, y: 0 },
               }}
             >
-              Education, Diplomas, Certificates and Achievements
+              Education, Diplomas and Certificates
             </motion.h1>
             <motion.p
               className="text-xl sm:text-2xl text-gray-700"
@@ -194,7 +204,7 @@ export default function EducationPage() {
             <img
               src="/images/education/eduill.jpg"
               alt="Education Illustration"
-              className="w-100 h-100 object-cover rounded-xl transition-transform duration-300 transform hover:scale-105"
+              className="w-full max-w-xs sm:max-w-md md:max-w-lg h-auto object-contain"
             />
           </motion.div>
         </section>
@@ -216,7 +226,7 @@ export default function EducationPage() {
 #App Developer
 
 #Hybrid App Development
-React Native, node.js, Expo go, JavaScript TypeScript
+React Native, JavaScript TypeScript, node.js, Expo Go, 
 
 #Native Android App Development
 Android Studio, Kotlin, Java, Jetpack Compose
@@ -231,8 +241,8 @@ HTML, CSS, JavaScript, Next.js, TypeScript, React
 Scrum, Kanban, Extreme Programming
 
 #Extra
-UX/UI design, Figma, Photoshop
-Kotlin, Java, Swift, C#
+UX/UI design, Figma, AJAX, HTTP, JSON, REST
+Kotlin, Java, Swift, C#, .NET
 Git, GitHub, Firebase, API, Backend
 `,
                 }}
@@ -251,27 +261,19 @@ Git, GitHub, Firebase, API, Backend
                   #Software Engineering
 
 #Game Development
-
 Visual Studio C#, Unity, Unreal Engine, RPG maker
 
 #Web app development
-
 HTML, CSS, JavaScript
 
 #Extra
-
 Animation, Digital Creation, Interface Design
-
 Linux, Virtual Machine, Ubuntu
-
 AR, VR
-
 CAD, Maya, Blender
 
 #Other Subjects
-
 English 7, Mathematics 4, Programming 1 and 2
-
 Computer Science, Entrepreneurship, Technology
 
 `,
@@ -292,10 +294,16 @@ Computer Science, Entrepreneurship, Technology
             <div className="flex-1">
               <Article
                 article={{
-                  title: "Scholarship for Best Academic Performance",
+                  title: (
+                    <>
+                      Scholarship STI 2024
+                      <br />
+                      Best Academic Performance
+                    </>
+                  ),
                   imageUrl: "/images/education/diplom2.jpg",
                   imageClassName: "",
-                  content: `Received for outstanding academic performance throughout the program.`,
+                  content: `Achieved the highest possible grade, excelling well above all peers throughout the program.`,
                 }}
                 imageWrapperClassName="w-full h-100 flex items-center justify-center"
               />
@@ -303,12 +311,57 @@ Computer Science, Entrepreneurship, Technology
             <div className="flex-1">
               <Article
                 article={{
-                  title: "Scholarship for Best Thesis",
+                  title: (
+                    <>
+                      Scholarship STI 2024
+                      <br />
+                      Best Thesis
+                    </>
+                  ),
                   imageUrl: "/images/education/diplom1.jpg",
                   imageClassName: "",
-                  content: `Awarded for Best Thesis — developed the “30 Day Fitness App” project.`,
+                  content: `Developed the mobile app “30 Day Fitness App” and released a study on how/if a solo developer can design, code and publish a mobile app.`,
                 }}
                 imageWrapperClassName="w-full h-100 flex items-center justify-center"
+              />
+            </div>
+          </div>
+        </section>
+        <section className="space-y-16 pt-24">
+          <div className="flex flex-col md:flex-row gap-12">
+            <div className="flex-1">
+              <Article
+                article={{
+                  title: (
+                    <>
+                      Software Developer
+                      <br />
+                      Stockholms Tekniska Institut
+                    </>
+                  ),
+                  imageUrl: "/images/education/STIex.png",
+                  content: `Graduated with an Application/Software Development diploma
+Received two scholarships for Best Thesis & Academic Achievement.`,
+                }}
+                imageWrapperClassName="w-full h-100 flex items-center justify-center border-2 border-blue-800"
+                subtitle=" Higher Education Diploma"
+              />
+            </div>
+
+            <div className="flex-1">
+              <Article
+                article={{
+                  title: (
+                    <>
+                      Technology/Engineering <br /> Nordens Teknikerinstitut
+                    </>
+                  ),
+                  imageUrl: "/images/education/NTIstud.jpg",
+                  content: `Graduated from NTI with a diploma in Technology/Civil Engineering
+Specialized in programming, software design, and game development`,
+                }}
+                imageWrapperClassName="w-full h-100 flex items-center justify-center"
+                subtitle="High School Diploma"
               />
             </div>
           </div>
@@ -318,7 +371,7 @@ Computer Science, Entrepreneurship, Technology
           <h2 className="text-3xl font-bold border-b pb-1 border-gray-200">
             Digital Marketing Certificate from Google
           </h2>
-          <div className="flex flex-col md:flex-row items-start gap-12 max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row items-start gap-12 max-w-4xl mx-auto bg-white">
             <div className="rounded-lg overflow-hidden">
               <img
                 src="/images/education/gwd.jpg"
@@ -348,7 +401,7 @@ Computer Science, Entrepreneurship, Technology
           <div className="flex flex-col md:flex-row gap-12">
             <Article
               article={{
-                title: "Certificate in Entrepreneurship – UF Company Launch",
+                title: "Certificate in Entrepreneurship UF Company Launch",
                 imageUrl: "/images/education/ufintyg.jpg",
                 content: `Launched, operated, and liquidated my own UF company during the year.
 
@@ -424,36 +477,8 @@ Engaged with industry professionals and potential customers.`,
             Degrees & Diplomas
           </h2>
 
-          {/* First Row */}
+          {/* Second Row */}
           <div className="flex flex-col md:flex-row gap-12">
-            <div className="flex-1">
-              <Article
-                article={{
-                  title: "Higher Education Diploma – STI",
-                  imageUrl: "/images/education/STIex.png",
-                  content: `Application/Software Development diploma with top grades.
-
-Received two scholarships for Best Thesis & Academic Achievement.`,
-                }}
-                imageWrapperClassName="w-full h-100 flex items-center justify-center"
-                subtitle="Diploma"
-              />
-            </div>
-
-            <div className="flex-1">
-              <Article
-                article={{
-                  title: "Software Development Student – NTI",
-                  imageUrl: "/images/education/NTIstud.jpg",
-                  content: `Graduated from NTI with a diploma in Software Development.
-
-Specialized in coding, software design, and programming methodologies.`,
-                }}
-                imageWrapperClassName="w-full h-100 flex items-center justify-center"
-                subtitle="High School Diploma"
-              />
-            </div>
-
             <div className="flex-1">
               <Article
                 article={{
@@ -465,22 +490,6 @@ Specialized in coding, software design, and programming methodologies.`,
                 subtitle="Music Award"
               />
             </div>
-          </div>
-
-          {/* Second Row */}
-          <div className="flex flex-col md:flex-row gap-12">
-            <div className="flex-1">
-              <Article
-                article={{
-                  title: "Official WDSF Athlete",
-                  imageUrl: "/images/education/Wdsf.png",
-                  content: `Licensed World DanceSport Federation (WDSF) athlete and Swedish national team representative in competitive dance.`,
-                }}
-                imageWrapperClassName="w-full h-100 flex items-center justify-center"
-                subtitle="Sports Certificate"
-              />
-            </div>
-
             <div className="flex-1">
               <a
                 href="https://play.google.com/store/apps/details?id=com.rovenkodev.FitnessGuru"

@@ -1,31 +1,52 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="w-full px-4 py-6 bg-neutral-100 text-neutral-600 text-center text-sm sm:text-base">
-      <div className="max-w-xl mx-auto space-y-3">
-        <p>
-          © {currentYear}{" "}
-          <a href="https://www.robertrovenko.com" className="hover:underline">
-            www.robertrovenko.com
-          </a>
-          . Designed and built by Robert Falkbäck Rovenko — founder of
-          RovenkoDev Coding Studio.
-        </p>
-        <p>
-          Get my app <span className="font-medium">30 Day Fitness</span> on{" "}
-          <a
-            href="https://play.google.com/store/apps/details?id=com.rovenkodev.FitnessGuru&pli=1"
+    <footer className="relative z-50 w-full bg-white border-t">
+      <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm text-neutral-600">
+        <div className="space-y-2 text-center sm:text-left">
+          <p className="font-semibold text-neutral-800">
+            Robert Falkbäck Rovenko
+          </p>
+          <p>Frontend & Fullstack Developer</p>
+          <p>© {year} www.robertrovenko.com </p>
+        </div>
+
+        <div className="flex justify-center sm:justify-end items-center gap-4 text-neutral-500">
+          <Link
+            to="/portfolio"
+            className="hover:text-neutral-800 transition"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:underline"
           >
-            Google Play
+            Portfolio
+          </Link>
+          <a
+            href="https://github.com/RobertRovenko"
+            className="hover:text-neutral-800 transition"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
           </a>
-          .
-        </p>
+          <a
+            href="mailto:rovenkodev@gmail.com"
+            className="hover:text-neutral-800 transition"
+          >
+            Contact
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.rovenkodev.FitnessGuru"
+            className="hover:text-neutral-800 transition"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            30 Day Fitness
+          </a>
+        </div>
       </div>
     </footer>
   );

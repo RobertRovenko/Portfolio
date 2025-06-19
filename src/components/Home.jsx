@@ -148,7 +148,7 @@ export default function Home() {
         options={{
           particles: {
             number: {
-              value: 20,
+              value: 15,
               density: {
                 enable: true,
                 value_area: 800,
@@ -227,8 +227,9 @@ export default function Home() {
         }}
       />
 
-      <main className="max-w-6xl mx-auto px-12 pt-40 md:pt-20 font-sans text-gray-900 relative z-10">
-        <section className="w-full h-screen flex flex-col md:flex-row items-center justify-center text-left bg-cover bg-center bg-no-repeat">
+      <main className="max-w-6xl mx-auto px-10 pt-40 md:pt-20 pb-10 md:pt-1 relative z-10">
+        {/* Hero Section */}
+        <section className="w-full flex flex-col md:flex-row items-center justify-center h-[800px]">
           {/* Left side — Text */}
           <motion.div
             className="relative z-10 flex-1 space-y-6 text-center md:text-left"
@@ -280,7 +281,7 @@ export default function Home() {
                 href="education"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
-                className="border border-indigo-600 text-indigo-600 px-6 py-3 rounded-full text-sm font-semibold flex items-center justify-center gap-2 hover:bg-indigo-600 hover:text-white transition"
+                className="border border-indigo-600 text-indigo-600 bg-white px-6 py-3 rounded-full text-sm font-semibold flex items-center justify-center gap-2 hover:bg-indigo-600 hover:text-white transition"
               >
                 <GraduationCap size={16} /> Education
               </motion.a>
