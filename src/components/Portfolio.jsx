@@ -18,7 +18,7 @@ const projects = [
       "30 Day Fitness is a mobile application designed to help users achieve their fitness goals through structured 30-day workout challenges. Originally developed as my final project and thesis at university, the app has since grown into a successful product on the Google Play Store.",
     imageUrls: [
       "/images/portfolio/thumbnails/30DayFitnessThumbnail.jpg",
-      "/images/portfolio/group.png",
+      "/images/portfolio/30dayfitnessdemonstration2.png",
     ],
     backgroundColor: "#1D1A2F", // soft indigo tint, for example
     foregroundColor: "#e0e7ff", // darker indigo for text
@@ -186,7 +186,17 @@ export default function Portfolio() {
   const refs = useRef(projects.map(() => React.createRef()));
 
   const [visibility, setVisibility] = useState(projects.map(() => false));
-  const isMobile = window.innerWidth < 768;
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.innerWidth < 768 : false
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const particlesInit = useCallback(async (engine) => {
     await loadSlim(engine); // or loadFull(engine)
   }, []);
@@ -320,9 +330,9 @@ export default function Portfolio() {
           retina_detect: false,
         }}
       />
-      <main className="max-w-7xl mx-auto px-12 pt-40 md:pt-20 md:pb-20 pb-10 relative z-10">
+      <main className="max-w-7xl mx-auto px-0 pt-40 md:pt-20 md:pb-20 pb-10 relative z-10">
         {/* Hero Section */}
-        <section className="w-full flex flex-col md:flex-row items-center justify-center h-auto md:h-[500px] gap-8 md:gap-0 mb-16 md:mb-0">
+        <section className="w-full flex flex-col  px-12 md:flex-row items-center justify-center h-auto md:h-[500px] gap-8 md:gap-0 mb-16 md:mb-0">
           {/* Left side — Text */}
           <motion.div
             className="relative z-10 flex-1 space-y-6 text-center bg-white md:text-left"
@@ -442,14 +452,16 @@ export default function Portfolio() {
                     ref={expandRefs.current[i]}
                     key={id}
                     className={`${
-                      expandedCard === id ? "md:col-span-2 col-span-1" : ""
+                      expandedCard === id
+                        ? "col-span-1 w-full md:col-span-2"
+                        : ""
                     }`}
                   >
                     {expandedCard !== id ? (
                       <motion.div
                         layout="position"
                         onClick={() => setExpandedCard(id)}
-                        className={`group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200 cursor-pointer ${
+                        className={`group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300  cursor-pointer ${
                           expandedCard === id ? "md:col-span-2 col-span-1" : ""
                         }`}
                       >
@@ -507,7 +519,7 @@ export default function Portfolio() {
                               backgroundColor: backgroundColor || "#ffffff",
                               color: foregroundColor || "#000000",
                             }}
-                            className="flex flex-col md:flex-row gap-8 items-start p-6 rounded-2xl border border-gray-200 shadow-sm"
+                            className="flex flex-col md:flex-row gap-8 items-start p-6 rounded-2xl  shadow-sm"
                           >
                             {/* Left: Image */}
                             <div className="md:w-1/2 w-full">
