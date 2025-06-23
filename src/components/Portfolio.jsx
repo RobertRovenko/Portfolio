@@ -192,6 +192,8 @@ const projects = [
     id: "forsakringskassan",
     title: "Försäkringskassan Redesign",
     type: "designed",
+    backgroundColor: "#F5F5F7",
+    foregroundColor: "black",
     description: "Modern Figma redesign of the Försäkringskassan landing page.",
     thumbnail: "/images/portfolio/thumbnails/ForsakringskassanThumbnail.jpg",
     imageUrls: ["/images/portfolio/Forsakringskassan/Forsakringskassan.png"],
@@ -206,6 +208,8 @@ const projects = [
     id: "galleryapp",
     title: "Gallery App",
     type: "designed",
+    backgroundColor: "#F5F5F7",
+    foregroundColor: "black",
     description:
       "A minimalist gallery app UI made in Figma for browsing and viewing images.",
     thumbnail: "/images/portfolio/ModularFinance/ModularFinance1.png",
@@ -224,6 +228,8 @@ const projects = [
     id: "freelancewebsite",
     title: "RovenkoDev Freelance Site",
     type: "designed",
+    backgroundColor: "#F5F5F7",
+    foregroundColor: "black",
     description:
       "Personal freelance site concept for showcasing my development and design work.",
     thumbnail: "/images/portfolio/thumbnails/FreelanceThumbnail.jpg",
@@ -239,7 +245,7 @@ const projects = [
 
 export default function Portfolio() {
   const refs = useRef(projects.map(() => React.createRef()));
-
+  const [isHover, setIsHover] = React.useState(false);
   const [visibility, setVisibility] = useState(projects.map(() => false));
   const [isMobile, setIsMobile] = useState(
     typeof window !== "undefined" ? window.innerWidth < 768 : false
@@ -300,7 +306,23 @@ export default function Portfolio() {
       (_, i) => expandRefs.current[i] || React.createRef()
     );
   }, [filteredProjects]);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const [currentImageIndices, setCurrentImageIndices] = useState({});
+
+  const handleImageChange = (projectId, direction) => {
+    setCurrentImageIndices((prev) => {
+      const project = projects.find((p) => p.id === projectId);
+      const total = project?.imageUrls?.length || 1;
+      const current = prev[projectId] || 0;
+
+      const next =
+        direction === "next"
+          ? (current + 1) % total
+          : (current - 1 + total) % total;
+
+      return { ...prev, [projectId]: next };
+    });
+  };
 
   return (
     <div className="relative bg-white font-sans text-gray-900 min-h-screen ">
@@ -493,7 +515,6 @@ export default function Portfolio() {
                   id,
                   title,
                   description,
-                  imageUrl,
                   imageUrls,
                   thumbnail,
                   features,
@@ -503,6 +524,8 @@ export default function Portfolio() {
                 },
                 i
               ) => {
+                const index = currentImageIndices[id] || 0;
+
                 return (
                   <div
                     ref={expandRefs.current[i]}
@@ -584,39 +607,24 @@ export default function Portfolio() {
                               style={{ minHeight: "200px" }}
                             >
                               <img
-                                src={imageUrls?.[currentImageIndex] || ""}
+                                src={imageUrls?.[index] || ""}
                                 alt={`${title} screenshot`}
                                 className="rounded-xl shadow-md object-cover max-w-full max-h-full"
                                 style={{ width: "auto", height: "700px" }}
                               />
 
-                              {/* Left arrow */}
                               {imageUrls?.length > 1 && (
                                 <button
-                                  onClick={() =>
-                                    setCurrentImageIndex((prev) =>
-                                      prev === 0
-                                        ? imageUrls.length - 1
-                                        : prev - 1
-                                    )
-                                  }
+                                  onClick={() => handleImageChange(id, "prev")}
                                   className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg hover:scale-105 transition-all duration-200 ease-in-out"
                                   aria-label="Previous Image"
                                 >
                                   <ChevronLeft className="w-6 h-6" />
                                 </button>
                               )}
-
-                              {/* Right arrow */}
                               {imageUrls?.length > 1 && (
                                 <button
-                                  onClick={() =>
-                                    setCurrentImageIndex((prev) =>
-                                      prev === imageUrls.length - 1
-                                        ? 0
-                                        : prev + 1
-                                    )
-                                  }
+                                  onClick={() => handleImageChange(id, "next")}
                                   className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg hover:scale-105 transition-all duration-200 ease-in-out"
                                   aria-label="Next Image"
                                 >
@@ -679,13 +687,18 @@ export default function Portfolio() {
                                 >
                                   View Code
                                 </a>
+
                                 <a
                                   href={`https://${id}.rovenko.dev`}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="px-5 py-2 text-sm font-medium border border-indigo-600 rounded-full hover:bg-indigo-700 transition"
+                                  className="px-5 py-2 text-sm font-medium border border-indigo-600 rounded-full transition hover:bg-indigo-700"
+                                  onMouseEnter={() => setIsHover(true)}
+                                  onMouseLeave={() => setIsHover(false)}
                                   style={{
-                                    color: foregroundColor || "#4f46e5",
+                                    color: isHover
+                                      ? "white"
+                                      : foregroundColor || "#4f46e5",
                                   }}
                                 >
                                   Visit Site
