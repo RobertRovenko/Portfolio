@@ -8,6 +8,7 @@ import {
 import { ArrowRight, Github } from "lucide-react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim"; // or loadFull from "tsparticles" for the full version
+import { ChevronLeft, ChevronRight } from "lucide-react"; // Ensure you're using Lucide or install it
 
 const projects = [
   {
@@ -16,13 +17,15 @@ const projects = [
     type: "programmed",
     description:
       "30 Day Fitness is a mobile application designed to help users achieve their fitness goals through structured 30-day workout challenges. Originally developed as my final project and thesis at university, the app has since grown into a successful product on the Google Play Store.",
+    thumbnail: "/images/portfolio/thumbnails/30DayFitnessThumbnail.jpg",
     imageUrls: [
-      "/images/portfolio/thumbnails/30DayFitnessThumbnail.jpg",
-      "/images/portfolio/30dayfitnessdemonstration2.png",
+      "/images/portfolio/30DF/30dayfitnessdemonstration4.png",
+      "/images/portfolio/30DF/30dayfitnessdemonstration3.png",
+      "/images/portfolio/30DF/30dayfitnessdemonstration2.png",
+      "/images/portfolio/30DF/30dayfitnessdemonstration1.png",
     ],
-    backgroundColor: "#1D1A2F", // soft indigo tint, for example
-    foregroundColor: "#e0e7ff", // darker indigo for text
-
+    backgroundColor: "#1D1A2F",
+    foregroundColor: "#e0e7ff",
     techStack: [
       "React Native",
       "TypeScript",
@@ -45,9 +48,15 @@ const projects = [
     id: "githubinsights",
     title: "GitHub Insights",
     type: "programmed",
+    backgroundColor: "#041E42",
+    foregroundColor: "#e0e7ff",
     description:
       "Web app to visualize GitHub repo data. Offers metrics like commits, contributors, and tech stack using secure token access.",
-    imageUrls: ["/images/portfolio/thumbnails/GithubInsightsThumbnail.jpg"],
+    thumbnail: "/images/portfolio/thumbnails/GithubInsightsThumbnail.jpg",
+    imageUrls: [
+      "/images/portfolio/GithubInsights/GithubInsightsLogin.png",
+      "/images/portfolio/GithubInsights/GithubInsightsDachboard.png",
+    ],
     techStack: ["React", "Chart.js", "Node.js"],
     features: [
       "OAuth authentication",
@@ -59,9 +68,16 @@ const projects = [
     id: "jobboardsweden",
     title: "Job Board Sweden",
     type: "programmed",
+    backgroundColor: "#2E1963",
+    foregroundColor: "#e0e7ff",
     description:
       "Job board for software developers in Stockholm. Aggregates listings and offers filters to streamline the search.",
-    imageUrls: ["/images/portfolio/thumbnails/JobBoardSwedenThumbnail.jpg"],
+    thumbnail: "/images/portfolio/thumbnails/JobBoardSwedenThumbnail.jpg",
+    imageUrls: [
+      "/images/portfolio/jobboard/JobboardHomeScreen.png",
+      "/images/portfolio/jobboard/JobboardJobDetails.png",
+      "/images/portfolio/jobboard/JobboardAbout.png",
+    ],
     techStack: ["React", "Chart.js", "Node.js"],
     features: [
       "OAuth authentication",
@@ -73,9 +89,16 @@ const projects = [
     id: "offstage",
     title: "Offstage",
     type: "programmed",
+    backgroundColor: "#111827",
+    foregroundColor: "#e0e7ff",
     description:
       "Subscription-based social platform for creators to monetize and share exclusive content with fans.",
-    imageUrls: ["/images/portfolio/thumbnails/OffstageThumbnail.jpg"],
+    thumbnail: "/images/portfolio/thumbnails/OffstageThumbnail.jpg",
+    imageUrls: [
+      "/images/portfolio/Offstage/OffstageHomePage1.png",
+      "/images/portfolio/Offstage/OffstageHomePage2.png",
+      "/images/portfolio/Offstage/OffstageAbout.png",
+    ],
     techStack: ["React", "Chart.js", "Node.js"],
     features: [
       "OAuth authentication",
@@ -87,9 +110,12 @@ const projects = [
     id: "qrcodegenerator",
     title: "QR Code Generator",
     type: "programmed",
+    backgroundColor: "#F5F5F7",
+    foregroundColor: "black",
     description:
       "SaaS tool to create custom QR codes with styling, logos, and themes. Built with React and deployed on Vercel.",
-    imageUrls: ["/images/portfolio/thumbnails/QrCodeGeneratorThumbnails.jpg"],
+    thumbnail: "/images/portfolio/thumbnails/QrCodeGeneratorThumbnails.jpg",
+    imageUrls: ["/images/portfolio/QRCode/QRCodeHomeScreen.png"],
     techStack: ["React", "Chart.js", "Node.js"],
     features: [
       "OAuth authentication",
@@ -101,9 +127,15 @@ const projects = [
     id: "fragranceshop",
     title: "E-Commerce Fragrance Shop",
     type: "designed",
+    backgroundColor: "#F5F5F7",
+    foregroundColor: "black",
     description:
       "Online store concept for fragrances with modern UI and secure payment integration.",
-    imageUrls: ["/images/portfolio/thumbnails/rovenkofragranceshopmen.png"],
+    thumbnail: "/images/portfolio/thumbnails/rovenkofragranceshopmen.png",
+    imageUrls: [
+      "/images/portfolio/FragranceShopSweden/FragranceMen.png",
+      "/images/portfolio/FragranceShopSweden/FragranceWomen.png",
+    ],
     techStack: ["React", "Chart.js", "Node.js"],
     features: [
       "OAuth authentication",
@@ -115,9 +147,16 @@ const projects = [
     id: "movietheater",
     title: "Movie Theater App",
     type: "designed",
+    backgroundColor: "#F5F5F7",
+    foregroundColor: "black",
     description:
       "Mobile app to browse movie listings and purchase tickets directly from your phone.",
-    imageUrls: ["/images/portfolio/thumbnails/TicketPurchaseThumbnail.jpg"],
+    thumbnail: "/images/portfolio/thumbnails/TicketPurchaseThumbnail.png",
+    imageUrls: [
+      "/images/portfolio/MovieTicket/MovieTicket1.png",
+      "/images/portfolio/MovieTicket/MovieTicket2.png",
+      "/images/portfolio/MovieTicket/MovieTicket3.png",
+    ],
     techStack: ["React", "Chart.js", "Node.js"],
     features: [
       "OAuth authentication",
@@ -129,9 +168,19 @@ const projects = [
     id: "tacoplatedate",
     title: "Taco-Plate-Date",
     type: "designed",
+    backgroundColor: "#F5F5F7",
+    foregroundColor: "black",
     description:
       "Food delivery app concept for quick taco orders. Fully designed and prototyped by me.",
-    imageUrls: ["/images/portfolio/thumbnails/TacoPlateDateThumbnail.jpg"],
+    thumbnail: "/images/portfolio/thumbnails/TacoPlateDateThumbnail.jpg",
+    imageUrls: [
+      "/images/portfolio/TacoPlateDate/TacoPlateDateHomeScreen.png",
+      "/images/portfolio/TacoPlateDate/TacoPlateDateList.png",
+      "/images/portfolio/TacoPlateDate/TacoPlateDateEdit.png",
+      "/images/portfolio/TacoPlateDate/TacoPlateDateCheckout.png",
+      "/images/portfolio/TacoPlateDate/TacoPlateDatePurchase.png",
+      "/images/portfolio/TacoPlateDate/TacoPlateDateRegister.png",
+    ],
     techStack: ["React", "Chart.js", "Node.js"],
     features: [
       "OAuth authentication",
@@ -144,7 +193,8 @@ const projects = [
     title: "Försäkringskassan Redesign",
     type: "designed",
     description: "Modern Figma redesign of the Försäkringskassan landing page.",
-    imageUrls: ["/images/portfolio/thumbnails/ForsakringskassanThumbnail.jpg"],
+    thumbnail: "/images/portfolio/thumbnails/ForsakringskassanThumbnail.jpg",
+    imageUrls: ["/images/portfolio/Forsakringskassan/Forsakringskassan.png"],
     techStack: ["React", "Chart.js", "Node.js"],
     features: [
       "OAuth authentication",
@@ -158,7 +208,11 @@ const projects = [
     type: "designed",
     description:
       "A minimalist gallery app UI made in Figma for browsing and viewing images.",
-    imageUrls: ["/images/portfolio/thumbnails/GalleryAppThumbnail.jpg"],
+    thumbnail: "/images/portfolio/ModularFinance/ModularFinance1.png",
+    imageUrls: [
+      "/images/portfolio/ModularFinance/ModularFinance1.png",
+      "/images/portfolio/ModularFinance/ModularFinance2.png",
+    ],
     techStack: ["React", "Chart.js", "Node.js"],
     features: [
       "OAuth authentication",
@@ -172,7 +226,8 @@ const projects = [
     type: "designed",
     description:
       "Personal freelance site concept for showcasing my development and design work.",
-    imageUrls: ["/images/portfolio/thumbnails/FreelanceThumbnail.jpg"],
+    thumbnail: "/images/portfolio/thumbnails/FreelanceThumbnail.jpg",
+    imageUrls: ["/images/portfolio/FreelanceWeb/FreelancePage.png"],
     techStack: ["React", "Chart.js", "Node.js"],
     features: [
       "OAuth authentication",
@@ -202,6 +257,7 @@ export default function Portfolio() {
   }, []);
 
   const [expandedCard, setExpandedCard] = useState(null); // ✅ valid JS
+  const maxChars = 150; // or whatever limit you want
 
   // Hero scroll rotation
   const { scrollYProgress } = useScroll();
@@ -244,6 +300,7 @@ export default function Portfolio() {
       (_, i) => expandRefs.current[i] || React.createRef()
     );
   }, [filteredProjects]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   return (
     <div className="relative bg-white font-sans text-gray-900 min-h-screen ">
@@ -438,6 +495,7 @@ export default function Portfolio() {
                   description,
                   imageUrl,
                   imageUrls,
+                  thumbnail,
                   features,
                   backgroundColor,
                   foregroundColor,
@@ -445,8 +503,6 @@ export default function Portfolio() {
                 },
                 i
               ) => {
-                const img = imageUrls?.[0] || imageUrl?.[0] || imageUrl || "";
-
                 return (
                   <div
                     ref={expandRefs.current[i]}
@@ -465,15 +521,15 @@ export default function Portfolio() {
                           expandedCard === id ? "md:col-span-2 col-span-1" : ""
                         }`}
                       >
-                        {img && (
+                        {thumbnail && (
                           <motion.div
                             layout
                             className="overflow-hidden rounded-2xl"
                           >
                             <img
-                              src={img}
-                              alt={title}
-                              className="object-cover w-full h-80 group-hover:scale-105 transition-transform duration-300"
+                              src={thumbnail}
+                              alt={`${title} thumbnail`}
+                              className="rounded-xl object-cover shadow-md w-full h-96"
                             />
                           </motion.div>
                         )}
@@ -489,7 +545,9 @@ export default function Portfolio() {
                             layout
                             className="text-base text-gray-800 line-clamp-4"
                           >
-                            {description}
+                            {description.length > maxChars
+                              ? description.slice(0, maxChars) + "..."
+                              : description}
                           </motion.p>
                         </motion.div>
                       </motion.div>
@@ -519,15 +577,52 @@ export default function Portfolio() {
                               backgroundColor: backgroundColor || "#ffffff",
                               color: foregroundColor || "#000000",
                             }}
-                            className="flex flex-col md:flex-row gap-8 items-start p-6 rounded-2xl  shadow-sm"
+                            className="flex flex-col md:flex-row gap-8 items-start p-6 rounded-2xl shadow-sm"
                           >
-                            {/* Left: Image */}
-                            <div className="md:w-1/2 w-full">
+                            <div
+                              className="md:w-1/2 w-full relative flex justify-center items-center"
+                              style={{ minHeight: "200px" }}
+                            >
                               <img
-                                src={imageUrls?.slice(1)[0] || img}
+                                src={imageUrls?.[currentImageIndex] || ""}
                                 alt={`${title} screenshot`}
-                                className="rounded-xl w-full object-cover shadow-md"
+                                className="rounded-xl shadow-md object-cover max-w-full max-h-full"
+                                style={{ width: "auto", height: "700px" }}
                               />
+
+                              {/* Left arrow */}
+                              {imageUrls?.length > 1 && (
+                                <button
+                                  onClick={() =>
+                                    setCurrentImageIndex((prev) =>
+                                      prev === 0
+                                        ? imageUrls.length - 1
+                                        : prev - 1
+                                    )
+                                  }
+                                  className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg hover:scale-105 transition-all duration-200 ease-in-out"
+                                  aria-label="Previous Image"
+                                >
+                                  <ChevronLeft className="w-6 h-6" />
+                                </button>
+                              )}
+
+                              {/* Right arrow */}
+                              {imageUrls?.length > 1 && (
+                                <button
+                                  onClick={() =>
+                                    setCurrentImageIndex((prev) =>
+                                      prev === imageUrls.length - 1
+                                        ? 0
+                                        : prev + 1
+                                    )
+                                  }
+                                  className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg hover:scale-105 transition-all duration-200 ease-in-out"
+                                  aria-label="Next Image"
+                                >
+                                  <ChevronRight className="w-6 h-6" />
+                                </button>
+                              )}
                             </div>
 
                             {/* Right: Text Content */}
