@@ -8,8 +8,7 @@ import {
   Linkedin,
   Instagram,
 } from "lucide-react";
-import Particles from "react-tsparticles";
-import { loadSlim } from "tsparticles-slim"; // or loadFull from "tsparticles" for the full version
+import StaticParticles from "./StaticParticles.tsx";
 
 // Custom hook to detect mobile
 const useIsMobile = () => {
@@ -80,9 +79,6 @@ export default function Home() {
   const [visibility, setVisibility] = useState(sections.map(() => false));
   const isMobile = useIsMobile();
   const [summaryExpanded, setSummaryExpanded] = useState(false);
-  const particlesInit = useCallback(async (engine) => {
-    await loadSlim(engine); // or loadFull(engine)
-  }, []);
 
   // Use scroll progress of the whole page
   const { scrollYProgress } = useScroll();
@@ -143,89 +139,7 @@ export default function Home() {
 
   return (
     <div className="relative bg-white font-sans">
-      <Particles
-        init={particlesInit}
-        options={{
-          particles: {
-            number: {
-              value: 15,
-              density: {
-                enable: true,
-                value_area: 800,
-              },
-            },
-            color: {
-              value: "#525252",
-            },
-            shape: {
-              type: "polygon",
-              stroke: {
-                width: 0,
-                color: "#000000",
-              },
-              polygon: {
-                nb_sides: 4,
-              },
-            },
-            opacity: {
-              value: 0.5,
-              random: false,
-              anim: {
-                enable: false,
-                speed: 1,
-                opacity_min: 0.1,
-                sync: false,
-              },
-            },
-            size: {
-              value: 3,
-              random: true,
-              anim: {
-                enable: false,
-                speed: 40,
-                size_min: 0.1,
-                sync: false,
-              },
-            },
-            line_linked: {
-              enable: true,
-              distance: 180,
-              color: "#5a5a5a",
-              opacity: 0.4,
-              width: 1,
-            },
-            move: {
-              enable: true,
-              speed: 1,
-              direction: "none",
-              random: false,
-              straight: false,
-              out_mode: "out",
-              bounce: false,
-              attract: {
-                enable: false,
-                rotateX: 600,
-                rotateY: 1200,
-              },
-            },
-          },
-          interactivity: {
-            detect_on: "canvas",
-            events: {
-              onhover: {
-                enable: false, // DISABLED for better performance
-                mode: "repulse",
-              },
-              onclick: {
-                enable: false,
-                mode: "push",
-              },
-              resize: true,
-            },
-          },
-          retina_detect: false,
-        }}
-      />
+      <StaticParticles />
 
       <main className="max-w-6xl mx-auto px-10 pt-40 md:pt-20 pb-10 md:pt-1 relative z-10">
         {/* Hero Section */}

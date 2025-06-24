@@ -1,14 +1,9 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  AnimatePresence,
-} from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Github } from "lucide-react";
-import Particles from "react-tsparticles";
-import { loadSlim } from "tsparticles-slim"; // or loadFull from "tsparticles" for the full version
 import { ChevronLeft, ChevronRight } from "lucide-react"; // Ensure you're using Lucide or install it
+import StaticParticles from "./StaticParticles.tsx";
+import { Lock } from "lucide-react"; // Import the icon
 
 const projects = [
   {
@@ -32,8 +27,11 @@ const projects = [
       "JavaScript",
       "Expo",
       "Google Play",
-      "Chart.js",
-      "Node.js",
+      "Node.js (backend/API)",
+      "Push Notifications (Expo Notifications)",
+
+      "Google Play Console",
+      "CI/CD with Expo Application Services",
     ],
     features: [
       "Different structured 30-day workout challenges",
@@ -43,6 +41,11 @@ const projects = [
       "Published on Google Play Store",
       "Post-launch updates and active user base",
     ],
+    codeLink: "",
+    siteLink:
+      "https://play.google.com/store/apps/details?id=com.rovenkodev.FitnessGuru",
+    codeText: "Code Private",
+    siteText: "Check Out App",
   },
   {
     id: "githubinsights",
@@ -51,18 +54,36 @@ const projects = [
     backgroundColor: "#041E42",
     foregroundColor: "#e0e7ff",
     description:
-      "Web app to visualize GitHub repo data. Offers metrics like commits, contributors, and tech stack using secure token access.",
+      "GitHub Insights is a full-stack, real-time analytics dashboard for GitHub repositories. It leverages GitHub's REST API to fetch live metrics on commits, contributors, traffic, and language breakdowns. Users authenticate securely using GitHub OAuth, and data is visualized with interactive charts in a performant frontend.",
     thumbnail: "/images/portfolio/thumbnails/GithubInsightsThumbnail.jpg",
     imageUrls: [
       "/images/portfolio/GithubInsights/GithubInsightsLogin.png",
       "/images/portfolio/GithubInsights/GithubInsightsDachboard.png",
     ],
-    techStack: ["React", "Chart.js", "Node.js"],
-    features: [
-      "OAuth authentication",
-      "Interactive charts",
-      "Export reports as PDF",
+    techStack: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Chart.js",
+      "GitHub REST API",
+      "OAuth 2.0",
+      "Vercel",
     ],
+    features: [
+      "GitHub OAuth authentication via OAuth 2.0",
+      "Fetches real-time data using GitHub REST API v3",
+      "Interactive Chart.js visualizations for commits, contributors, traffic, and languages",
+      "Dynamic repository selection via authenticated user session",
+      "Optimized with server-side rendering and API routes (Next.js)",
+      "Responsive dashboard UI built with Tailwind CSS",
+      "Deployed on Vercel with edge caching and CI/CD integration",
+    ],
+    codeLink: "https://github.com/RobertRovenko/github-analytics-app",
+    siteLink: "https://github-analytics-app.vercel.app/",
+    codeText: "View Code",
+    siteText: "Visit Site",
   },
   {
     id: "jobboardsweden",
@@ -71,19 +92,38 @@ const projects = [
     backgroundColor: "#2E1963",
     foregroundColor: "#e0e7ff",
     description:
-      "Job board for software developers in Stockholm. Aggregates listings and offers filters to streamline the search.",
+      "Job Board Sweden is a full-stack platform tailored for software developers in Stockholm. It aggregates job listings from multiple sources (including public job APIs and custom scrapers), offers secure OAuth login, interactive analytics, and exports reports. Built with a React/Next.js frontend and a Node.js/TypeScript backend, it’s deployed on Vercel for fast, globally-distributed delivery.",
     thumbnail: "/images/portfolio/thumbnails/JobBoardSwedenThumbnail.jpg",
     imageUrls: [
       "/images/portfolio/jobboard/JobboardHomeScreen.png",
       "/images/portfolio/jobboard/JobboardJobDetails.png",
       "/images/portfolio/jobboard/JobboardAbout.png",
     ],
-    techStack: ["React", "Chart.js", "Node.js"],
-    features: [
-      "OAuth authentication",
-      "Interactive charts",
-      "Export reports as PDF",
+    techStack: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Tailwind CSS",
+      "React Query",
+      "SWR",
+      "OAuth 2.0",
+      "Serverless Functions (Vercel)",
+      "REST API integration",
+      "Puppeteer / Cheerio (for scraping)",
+      "Chart.js or Recharts",
+      "PDFKit for PDF exports",
     ],
+    features: [
+      "Interactive data visualizations (jobs by category, location, trend analysis)",
+      "Responsive UI with Tailwind CSS",
+      "Incremental static generation & API routes via Next.js",
+      "Deployed on Vercel with serverless edge functions",
+    ],
+    codeLink: "https://github.com/RobertRovenko/JobBoard",
+    siteLink: "https://job-board-sweden.vercel.app/",
+    codeText: "Check Code",
+    siteText: "Visit Site",
   },
   {
     id: "offstage",
@@ -92,19 +132,37 @@ const projects = [
     backgroundColor: "#111827",
     foregroundColor: "#e0e7ff",
     description:
-      "Subscription-based social platform for creators to monetize and share exclusive content with fans.",
+      "Offstage is a subscription-based social platform enabling creators to monetize exclusive content for their fans. It offers seamless user onboarding, content feeds, and payment management on a sleek, secure web interface.",
     thumbnail: "/images/portfolio/thumbnails/OffstageThumbnail.jpg",
     imageUrls: [
       "/images/portfolio/Offstage/OffstageHomePage1.png",
       "/images/portfolio/Offstage/OffstageHomePage2.png",
       "/images/portfolio/Offstage/OffstageAbout.png",
     ],
-    techStack: ["React", "Chart.js", "Node.js"],
-    features: [
-      "OAuth authentication",
-      "Interactive charts",
-      "Export reports as PDF",
+    techStack: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Node.js + Express",
+      "Stripe API",
+      "Tailwind CSS",
+      "MongoDB",
+      "GitHub Pages",
     ],
+    features: [
+      "Creator onboarding with tiered subscription plans",
+      "Secure JWT-based user authentication",
+      "Content feed with text, images, and video support",
+      "Subscription management + Stripe-based payments",
+      "Admin dashboard for creators (analytics, posts)",
+      "Responsive UI with Tailwind CSS",
+      "SEO-optimized marketing pages deployed on GitHub Pages",
+    ],
+    codeLink: "https://github.com/RobertRovenko/RobertRovenko.github.io",
+    siteLink: "https://robertrovenko.github.io/",
+    codeText: "View Code",
+    siteText: "Visit Site",
   },
   {
     id: "qrcodegenerator",
@@ -113,35 +171,91 @@ const projects = [
     backgroundColor: "#F5F5F7",
     foregroundColor: "black",
     description:
-      "SaaS tool to create custom QR codes with styling, logos, and themes. Built with React and deployed on Vercel.",
+      "QR Code Generator is a SaaS web tool that enables users to create customized QR codes with colors, logos, and download options. The app uses a React frontend, a Node.js API for QR generation, and integrates a popular styling library for advanced design options.",
     thumbnail: "/images/portfolio/thumbnails/QrCodeGeneratorThumbnails.jpg",
     imageUrls: ["/images/portfolio/QRCode/QRCodeHomeScreen.png"],
-    techStack: ["React", "Chart.js", "Node.js"],
-    features: [
-      "OAuth authentication",
-      "Interactive charts",
-      "Export reports as PDF",
+    techStack: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Node.js + Express",
+      "qr-code-styling",
+      "Tailwind CSS",
+      "Vercel",
     ],
+    features: [
+      "User-friendly React UI with live QR styling",
+      "Custom colors, dot shapes & embedded logo support via qr‑code‑styling library",
+      "On-demand QR code generation via Node.js/Express API",
+      "Image download in SVG and PNG formats",
+      "Responsive design powered by Tailwind CSS",
+      "Deployed on Vercel with serverless functions",
+    ],
+    codeLink: "https://github.com/RobertRovenko/qrcodegenerator",
+    siteLink: "https://qrcode-sweden.vercel.app/",
+    codeText: "View Code",
+    siteText: "Visit Site",
+  },
+  {
+    id: "modularfinance",
+    title: "Modular Finance",
+    type: "programmed",
+    backgroundColor: "#F5F5F7",
+    foregroundColor: "black",
+    description:
+      "Redesign and coded implementation of the Modular Finance newsletter. The project involved creating a clean, minimal UI in Figma followed by a responsive React-based frontend with email-friendly styling and modular components.",
+    thumbnail: "/images/portfolio/ModularFinance/ModularFinance1.png",
+    imageUrls: [
+      "/images/portfolio/ModularFinance/ModularFinance1.png",
+      "/images/portfolio/ModularFinance/ModularFinance2.png",
+    ],
+    techStack: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Email Templates",
+      "Vercel",
+    ],
+    features: [
+      "Full redesign in Figma with focus on readability and brand consistency",
+      "Responsive React frontend optimized for email clients",
+      "Modular components for easy content updates",
+      "Styled with Tailwind CSS for rapid UI development",
+      "Deployment on Vercel for fast hosting",
+      "Code versioned and maintained on GitHub",
+    ],
+    codeLink: "https://github.com/RobertRovenko/MFNexamplepage",
+    siteLink:
+      "https://www.figma.com/design/wmB32HmQfri8T8RKQtPVVo/Design-Case-MFN-2024?node-id=0-1&p=f&t=88zvWHtjPJ1Vfbja-0",
+    codeText: "View Code",
+    siteText: "Visit Figma",
   },
   {
     id: "fragranceshop",
     title: "E-Commerce Fragrance Shop",
-    type: "designed",
+    type: "programmed",
     backgroundColor: "#F5F5F7",
     foregroundColor: "black",
     description:
-      "Online store concept for fragrances with modern UI and secure payment integration.",
+      "Static e-commerce site concept for fragrances featuring a modern UI with interactive elements, built primarily using HTML, CSS, and vanilla JavaScript.",
     thumbnail: "/images/portfolio/thumbnails/rovenkofragranceshopmen.png",
     imageUrls: [
       "/images/portfolio/FragranceShopSweden/FragranceMen.png",
       "/images/portfolio/FragranceShopSweden/FragranceWomen.png",
     ],
-    techStack: ["React", "Chart.js", "Node.js"],
+    techStack: ["HTML", "CSS", "JavaScript", "Github Pages"],
     features: [
-      "OAuth authentication",
-      "Interactive charts",
-      "Export reports as PDF",
+      "Responsive design with CSS Flexbox and Grid",
+      "Interactive UI components (e.g., product filters, dropdowns, modals) using vanilla JavaScript",
+      "Simple shopping cart functionality simulated with JavaScript",
+      "Image carousels/sliders",
+      "Static hosting via GitHub Pages",
     ],
+    codeLink: "https://github.com/RobertRovenko/FragranceWebsite",
+    siteLink: "https://robertrovenko.github.io/FragranceWebsite/",
+    codeText: "View Code",
+    siteText: "Visit Site",
   },
   {
     id: "movietheater",
@@ -150,19 +264,26 @@ const projects = [
     backgroundColor: "#F5F5F7",
     foregroundColor: "black",
     description:
-      "Mobile app to browse movie listings and purchase tickets directly from your phone.",
+      "Mobile app design concept for browsing movie listings and purchasing tickets directly from your phone. Crafted with a focus on clean UX/UI and smooth navigation.",
     thumbnail: "/images/portfolio/thumbnails/TicketPurchaseThumbnail.png",
     imageUrls: [
       "/images/portfolio/MovieTicket/MovieTicket1.png",
       "/images/portfolio/MovieTicket/MovieTicket2.png",
       "/images/portfolio/MovieTicket/MovieTicket3.png",
     ],
-    techStack: ["React", "Chart.js", "Node.js"],
+    techStack: ["Figma"],
     features: [
-      "OAuth authentication",
-      "Interactive charts",
-      "Export reports as PDF",
+      "Interactive mobile UI/UX flows",
+      "Clear movie listing and filtering screens",
+      "Intuitive ticket selection and purchase process",
+      "User profile and booking history screens",
+      "High-fidelity prototype with clickable elements",
     ],
+    codeLink: "",
+    siteLink:
+      "https://www.figma.com/design/zf3c2UsaWWRZSkusYLk0MM/Untitled?node-id=0-1&p=f&t=OVC2W7E2sgWbErX8-0",
+    codeText: "Code Private",
+    siteText: "Visit Figma",
   },
   {
     id: "tacoplatedate",
@@ -171,7 +292,7 @@ const projects = [
     backgroundColor: "#F5F5F7",
     foregroundColor: "black",
     description:
-      "Food delivery app concept for quick taco orders. Fully designed and prototyped by me.",
+      "Food delivery app concept focused on quick and easy taco orders. Fully designed and prototyped with attention to color theory, typography, and user experience.",
     thumbnail: "/images/portfolio/thumbnails/TacoPlateDateThumbnail.jpg",
     imageUrls: [
       "/images/portfolio/TacoPlateDate/TacoPlateDateHomeScreen.png",
@@ -181,12 +302,18 @@ const projects = [
       "/images/portfolio/TacoPlateDate/TacoPlateDatePurchase.png",
       "/images/portfolio/TacoPlateDate/TacoPlateDateRegister.png",
     ],
-    techStack: ["React", "Chart.js", "Node.js"],
+    techStack: ["Figma"],
     features: [
-      "OAuth authentication",
-      "Interactive charts",
-      "Export reports as PDF",
+      "Comprehensive UI/UX design with wireframes and high-fidelity mockups",
+      "Interactive clickable prototype showcasing full user flow",
+      "Use of color theory and typography for brand consistency",
+      "Screens include product browsing, order editing, checkout, and registration",
     ],
+    codeLink: "",
+    siteLink:
+      "https://www.figma.com/design/G3vUbDfmY1lAk0aBE0BllZ/Untitled?t=OVC2W7E2sgWbErX8-0",
+    codeText: "Code Private",
+    siteText: "Visit Figma",
   },
   {
     id: "forsakringskassan",
@@ -194,36 +321,24 @@ const projects = [
     type: "designed",
     backgroundColor: "#F5F5F7",
     foregroundColor: "black",
-    description: "Modern Figma redesign of the Försäkringskassan landing page.",
+    description:
+      "Modern redesign prototype of the Försäkringskassan landing page, created entirely in Figma focusing on UX improvements and visual refresh.",
     thumbnail: "/images/portfolio/thumbnails/ForsakringskassanThumbnail.jpg",
     imageUrls: ["/images/portfolio/Forsakringskassan/Forsakringskassan.png"],
-    techStack: ["React", "Chart.js", "Node.js"],
+    techStack: ["Figma"],
     features: [
-      "OAuth authentication",
-      "Interactive charts",
-      "Export reports as PDF",
+      "High-fidelity visual redesign",
+      "Focus on improved usability and accessibility",
+      "Interactive prototype showcasing landing page flow",
+      "Consistent branding and modern UI elements",
     ],
+    codeLink: "",
+    siteLink:
+      "https://www.figma.com/design/zf3c2UsaWWRZSkusYLk0MM/Untitled?t=OVC2W7E2sgWbErX8-0",
+    codeText: "Code Private",
+    siteText: "Visit Figma",
   },
-  {
-    id: "galleryapp",
-    title: "Gallery App",
-    type: "designed",
-    backgroundColor: "#F5F5F7",
-    foregroundColor: "black",
-    description:
-      "A minimalist gallery app UI made in Figma for browsing and viewing images.",
-    thumbnail: "/images/portfolio/ModularFinance/ModularFinance1.png",
-    imageUrls: [
-      "/images/portfolio/ModularFinance/ModularFinance1.png",
-      "/images/portfolio/ModularFinance/ModularFinance2.png",
-    ],
-    techStack: ["React", "Chart.js", "Node.js"],
-    features: [
-      "OAuth authentication",
-      "Interactive charts",
-      "Export reports as PDF",
-    ],
-  },
+
   {
     id: "freelancewebsite",
     title: "RovenkoDev Freelance Site",
@@ -231,15 +346,21 @@ const projects = [
     backgroundColor: "#F5F5F7",
     foregroundColor: "black",
     description:
-      "Personal freelance site concept for showcasing my development and design work.",
+      "Personal freelance website concept designed in Figma to showcase development and design projects with a clean, professional UI.",
     thumbnail: "/images/portfolio/thumbnails/FreelanceThumbnail.jpg",
     imageUrls: ["/images/portfolio/FreelanceWeb/FreelancePage.png"],
-    techStack: ["React", "Chart.js", "Node.js"],
+    techStack: ["Figma"],
     features: [
-      "OAuth authentication",
-      "Interactive charts",
-      "Export reports as PDF",
+      "Clean and modern UI/UX design",
+      "Focus on portfolio presentation and client engagement",
+      "High-fidelity clickable prototype",
+      "Responsive layout concepts",
     ],
+    codeLink: "",
+    siteLink:
+      "https://www.figma.com/design/zf3c2UsaWWRZSkusYLk0MM/Untitled?node-id=0-1&p=f&t=0ymlgW95aWhSi5DF-0",
+    codeText: "Code Private",
+    siteText: "Visit Figma",
   },
 ];
 
@@ -257,9 +378,6 @@ export default function Portfolio() {
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
-  const particlesInit = useCallback(async (engine) => {
-    await loadSlim(engine); // or loadFull(engine)
   }, []);
 
   const [expandedCard, setExpandedCard] = useState(null); // ✅ valid JS
@@ -326,89 +444,8 @@ export default function Portfolio() {
 
   return (
     <div className="relative bg-white font-sans text-gray-900 min-h-screen ">
-      <Particles
-        init={particlesInit}
-        options={{
-          particles: {
-            number: {
-              value: 15,
-              density: {
-                enable: true,
-                value_area: 800,
-              },
-            },
-            color: {
-              value: "#5a5a5a",
-            },
-            shape: {
-              type: "polygon",
-              stroke: {
-                width: 0,
-                color: "#000000",
-              },
-              polygon: {
-                nb_sides: 4,
-              },
-            },
-            opacity: {
-              value: 0.5,
-              random: false,
-              anim: {
-                enable: false,
-                speed: 1,
-                opacity_min: 0.1,
-                sync: false,
-              },
-            },
-            size: {
-              value: 3,
-              random: true,
-              anim: {
-                enable: false,
-                speed: 40,
-                size_min: 0.1,
-                sync: false,
-              },
-            },
-            line_linked: {
-              enable: true,
-              distance: 180,
-              color: "#5a5a5a",
-              opacity: 0.4,
-              width: 1,
-            },
-            move: {
-              enable: true,
-              speed: 1,
-              direction: "none",
-              random: false,
-              straight: false,
-              out_mode: "out",
-              bounce: false,
-              attract: {
-                enable: false,
-                rotateX: 600,
-                rotateY: 1200,
-              },
-            },
-          },
-          interactivity: {
-            detect_on: "canvas",
-            events: {
-              onhover: {
-                enable: false, // DISABLED for better performance
-                mode: "repulse",
-              },
-              onclick: {
-                enable: false,
-                mode: "push",
-              },
-              resize: true,
-            },
-          },
-          retina_detect: false,
-        }}
-      />
+      <StaticParticles />
+
       <main className="max-w-7xl mx-auto px-0 pt-40 md:pt-20 md:pb-20 pb-10 relative z-10">
         {/* Hero Section */}
         <section className="w-full flex flex-col  px-12 md:flex-row items-center justify-center h-auto md:h-[500px] gap-8 md:gap-0 mb-16 md:mb-0">
@@ -521,6 +558,10 @@ export default function Portfolio() {
                   backgroundColor,
                   foregroundColor,
                   techStack,
+                  siteText,
+                  codeText,
+                  codeLink,
+                  siteLink,
                 },
                 i
               ) => {
@@ -636,15 +677,18 @@ export default function Portfolio() {
                             {/* Right: Text Content */}
                             <div className="md:w-1/2 w-full space-y-6">
                               <h3
-                                className="text-2xl font-bold"
+                                className="text-3xl font-bold"
                                 style={{ color: foregroundColor || "#1e3a8a" }}
                               >
                                 {title}
                               </h3>
+
                               {description && (
                                 <p
-                                  className="text-base leading-relaxed"
-                                  style={{ color: foregroundColor || "#333" }}
+                                  className="text-lg leading-loose"
+                                  style={{
+                                    color: foregroundColor || "#2d2d2d",
+                                  }}
                                 >
                                   {description}
                                 </p>
@@ -652,8 +696,10 @@ export default function Portfolio() {
 
                               {features && (
                                 <ul
-                                  className="list-disc pl-6 text-sm space-y-1"
-                                  style={{ color: foregroundColor || "#444" }}
+                                  className="list-disc pl-6 text-base space-y-2 leading-relaxed"
+                                  style={{
+                                    color: foregroundColor || "#3a3a3a",
+                                  }}
                                 >
                                   {features.map((feat, idx) => (
                                     <li key={idx}>{feat}</li>
@@ -662,47 +708,67 @@ export default function Portfolio() {
                               )}
 
                               {techStack && (
-                                <div
-                                  className="text-sm"
-                                  style={{ color: foregroundColor || "#555" }}
-                                >
+                                <div className="text-sm flex flex-wrap gap-2 items-center">
                                   <strong
                                     style={{
                                       color: foregroundColor || "#4f46e5",
                                     }}
                                   >
                                     Tech Stack:
-                                  </strong>{" "}
-                                  {techStack.join(", ")}
+                                  </strong>
+                                  <div className="flex flex-wrap gap-2">
+                                    {techStack.map((tech, i) => (
+                                      <span
+                                        key={i}
+                                        className="bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-medium"
+                                      >
+                                        {tech}
+                                      </span>
+                                    ))}
+                                  </div>
                                 </div>
                               )}
 
                               <div className="flex flex-wrap gap-3 pt-2">
-                                <a
-                                  href={`https://github.com/RobertRovenko/${id}`}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="px-5 py-2 text-sm font-medium bg-indigo-600 text-white rounded-full shadow hover:bg-indigo-700 transition"
-                                  style={{ color: "#fff" }}
-                                >
-                                  View Code
-                                </a>
+                                {!codeLink ? (
+                                  <button
+                                    disabled
+                                    className="flex items-center gap-2 px-6 py-3 text-base font-medium bg-gray-400 text-white opacity-70 rounded-full cursor-not-allowed"
+                                  >
+                                    {codeText || "View Code"}
+                                    {codeText === "Code Private" && (
+                                      <Lock size={18} />
+                                    )}
+                                  </button>
+                                ) : (
+                                  <a
+                                    href={codeLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-2 px-6 py-3 text-base font-medium bg-indigo-600 text-white rounded-full shadow hover:bg-indigo-700 transition"
+                                  >
+                                    {codeText || "View Code"}
+                                    {codeText === "Code Private" && (
+                                      <Lock size={18} />
+                                    )}
+                                  </a>
+                                )}
 
-                                <a
-                                  href={`https://${id}.rovenko.dev`}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="px-5 py-2 text-sm font-medium border border-indigo-600 rounded-full transition hover:bg-indigo-700"
-                                  onMouseEnter={() => setIsHover(true)}
-                                  onMouseLeave={() => setIsHover(false)}
-                                  style={{
-                                    color: isHover
-                                      ? "white"
-                                      : foregroundColor || "#4f46e5",
-                                  }}
-                                >
-                                  Visit Site
-                                </a>
+                                {siteLink && (
+                                  <a
+                                    href={siteLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-2 px-6 py-3 text-base font-medium bg-indigo-600 text-white rounded-full shadow hover:bg-indigo-700 transition"
+                                    onMouseEnter={() => setIsHover(true)}
+                                    onMouseLeave={() => setIsHover(false)}
+                                    style={{
+                                      color: "white",
+                                    }}
+                                  >
+                                    {siteText || "Visit Site"}
+                                  </a>
+                                )}
                               </div>
                             </div>
                           </div>
