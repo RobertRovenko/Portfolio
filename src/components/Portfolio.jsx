@@ -95,9 +95,9 @@ const projects = [
       "Job Board Sweden is a full-stack platform tailored for software developers in Stockholm. It aggregates job listings from multiple sources (including public job APIs and custom scrapers), offers secure OAuth login, interactive analytics, and exports reports. Built with a React/Next.js frontend and a Node.js/TypeScript backend, it’s deployed on Vercel for fast, globally-distributed delivery.",
     thumbnail: "/images/portfolio/thumbnails/JobBoardSwedenThumbnail.jpg",
     imageUrls: [
-      "/images/portfolio/jobboard/JobboardHomeScreen.png",
-      "/images/portfolio/jobboard/JobboardJobDetails.png",
-      "/images/portfolio/jobboard/JobboardAbout.png",
+      "/images/portfolio/Jobboard/JobboardHomeScreen.png",
+      "/images/portfolio/Jobboard/JobboardJobDetails.png",
+      "/images/portfolio/Jobboard/JobboardAbout.png",
     ],
     techStack: [
       "React",
@@ -110,9 +110,6 @@ const projects = [
       "OAuth 2.0",
       "Serverless Functions (Vercel)",
       "REST API integration",
-      "Puppeteer / Cheerio (for scraping)",
-      "Chart.js or Recharts",
-      "PDFKit for PDF exports",
     ],
     features: [
       "Interactive data visualizations (jobs by category, location, trend analysis)",
@@ -346,7 +343,7 @@ const projects = [
     backgroundColor: "#F5F5F7",
     foregroundColor: "black",
     description:
-      "Personal freelance website concept designed in Figma to showcase development and design projects with a clean, professional UI.",
+      "Originally designed in Figma as a concept, this freelance website was later programmed and launched as my personal portfolio to showcase real development work and validate client projects. I transitioned my marketing efforts and client acquisition to platforms like Upwork and Fiverr, using this site as a central proof of work.",
     thumbnail: "/images/portfolio/thumbnails/FreelanceThumbnail.jpg",
     imageUrls: ["/images/portfolio/FreelanceWeb/FreelancePage.png"],
     techStack: ["Figma"],
@@ -545,7 +542,7 @@ export default function Portfolio() {
           </div>
 
           {/* Project Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-40 md:gap-10">
             {filteredProjects.map(
               (
                 {
@@ -581,19 +578,19 @@ export default function Portfolio() {
                       <motion.div
                         layout="position"
                         onClick={() => setExpandedCard(id)}
-                        className={`group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300  cursor-pointer ${
+                        className={`group bg-white ounded-none md:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300  cursor-pointer ${
                           expandedCard === id ? "md:col-span-2 col-span-1" : ""
                         }`}
                       >
                         {thumbnail && (
                           <motion.div
                             layout
-                            className="overflow-hidden rounded-2xl"
+                            className="overflow-hidden rounded-none md:rounded-2xl border-t border-gray-500 md:border-none"
                           >
                             <img
                               src={thumbnail}
                               alt={`${title} thumbnail`}
-                              className="rounded-xl object-cover shadow-md w-full h-96"
+                              className="rounded-none md:rounded-xl object-cover shadow-md w-full h-96"
                             />
                           </motion.div>
                         )}
@@ -616,7 +613,27 @@ export default function Portfolio() {
                         </motion.div>
                       </motion.div>
                     ) : (
-                      <motion.div layout="position">
+                      <motion.div layout="position" className="relative">
+                        <button
+                          onClick={() => setExpandedCard(null)}
+                          className="absolute top-4 right-4 z-10 text-gray-500 hover:text-gray-800 bg-white/80 hover:bg-white rounded-full p-2 shadow"
+                          aria-label="Close"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M6 18L18 6M6 6l12 12"
+                            />
+                          </svg>
+                        </button>
                         <motion.div
                           key="expanded"
                           initial={{ opacity: 0, height: 0 }}
@@ -641,7 +658,7 @@ export default function Portfolio() {
                               backgroundColor: backgroundColor || "#ffffff",
                               color: foregroundColor || "#000000",
                             }}
-                            className="flex flex-col md:flex-row gap-8 items-start p-6 rounded-2xl shadow-sm"
+                            className="flex flex-col md:flex-row gap-8 items-start p-6 rounded-none md:rounded-2xl shadow-sm"
                           >
                             <div
                               className="md:w-1/2 w-full relative flex justify-center items-center"
