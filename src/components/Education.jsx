@@ -269,7 +269,7 @@ Received two scholarships for Best Thesis & Academic Achievement.`,
                       Technology/Engineering <br /> Nordens Teknikerinstitut
                     </>
                   ),
-                  imageUrl: "/images/education/NTIstud.jpg",
+                  imageUrl: "/images/education/NtiStud.jpg",
                   content: `Graduated from NTI with a diploma in Technology/Civil Engineering
 Specialized in programming, software design, and game development`,
                 }}
