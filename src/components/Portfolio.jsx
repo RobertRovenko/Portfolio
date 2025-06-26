@@ -12,7 +12,7 @@ const projects = [
     type: "programmed",
     description:
       "30 Day Fitness is a mobile application designed to help users achieve their fitness goals through structured 30-day workout challenges. Originally developed as my final project and thesis at university, the app has since grown into a successful product on the Google Play Store.",
-    thumbnail: "/images/portfolio/thumbnails/30DayFitnessThumbnail.jpg",
+    thumbnail: "/images/portfolio/thumbnails/30DayFitnessThumbnail.png",
     imageUrls: [
       "/images/portfolio/30DF/30dayfitnessdemonstration4.png",
       "/images/portfolio/30DF/30dayfitnessdemonstration3.png",
@@ -93,7 +93,7 @@ const projects = [
     foregroundColor: "#e0e7ff",
     description:
       "Job Board Sweden is a full-stack platform tailored for software developers in Stockholm. It aggregates job listings from multiple sources (including public job APIs and custom scrapers), offers secure OAuth login, interactive analytics, and exports reports. Built with a React/Next.js frontend and a Node.js/TypeScript backend, it’s deployed on Vercel for fast, globally-distributed delivery.",
-    thumbnail: "/images/portfolio/thumbnails/JobBoardSwedenThumbnail.jpg",
+    thumbnail: "/images/portfolio/thumbnails/JobBoardThumbnail.jpg",
     imageUrls: [
       "/images/portfolio/Jobboard/JobboardHomeScreen.png",
       "/images/portfolio/Jobboard/JobboardJobDetails.png",
@@ -201,7 +201,7 @@ const projects = [
     foregroundColor: "black",
     description:
       "Redesign and coded implementation of the Modular Finance newsletter. The project involved creating a clean, minimal UI in Figma followed by a responsive React-based frontend with email-friendly styling and modular components.",
-    thumbnail: "/images/portfolio/ModularFinance/ModularFinance1.png",
+    thumbnail: "/images/portfolio/thumbnails/ModularFinanceThumbnail.jpg",
     imageUrls: [
       "/images/portfolio/ModularFinance/ModularFinance1.png",
       "/images/portfolio/ModularFinance/ModularFinance2.png",
@@ -339,25 +339,24 @@ const projects = [
   {
     id: "freelancewebsite",
     title: "RovenkoDev Freelance Site",
-    type: "designed",
+    type: "programmed",
     backgroundColor: "#F5F5F7",
     foregroundColor: "black",
     description:
       "Originally designed in Figma as a concept, this freelance website was later programmed and launched as my personal portfolio to showcase real development work and validate client projects. I transitioned my marketing efforts and client acquisition to platforms like Upwork and Fiverr, using this site as a central proof of work.",
     thumbnail: "/images/portfolio/thumbnails/FreelanceThumbnail.jpg",
-    imageUrls: ["/images/portfolio/FreelanceWeb/FreelancePage.png"],
-    techStack: ["Figma"],
+    imageUrls: ["/images/portfolio/Thumbnails/FreelancePortfolio.png"],
+    techStack: ["React.js", "JavaScript", "Tailwind CSS", "Figma", "Vercel"],
     features: [
       "Clean and modern UI/UX design",
       "Focus on portfolio presentation and client engagement",
       "High-fidelity clickable prototype",
       "Responsive layout concepts",
     ],
-    codeLink: "",
-    siteLink:
-      "https://www.figma.com/design/zf3c2UsaWWRZSkusYLk0MM/Untitled?node-id=0-1&p=f&t=0ymlgW95aWhSi5DF-0",
-    codeText: "Code Private",
-    siteText: "Visit Figma",
+    codeLink: "https://github.com/RobertRovenko/Portfolio",
+    siteLink: "https://www.robertrovenko.com/",
+    codeText: "View Code",
+    siteText: "Visit Site",
   },
 ];
 
@@ -668,7 +667,7 @@ export default function Portfolio() {
                                 src={imageUrls?.[index] || ""}
                                 alt={`${title} screenshot`}
                                 className="rounded-xl shadow-md object-cover max-w-full max-h-full"
-                                style={{ width: "auto", height: "700px" }}
+                                style={{ width: "auto", height: "650px" }}
                               />
 
                               {imageUrls?.length > 1 && (
@@ -798,6 +797,26 @@ export default function Portfolio() {
             )}
           </div>
         </section>
+        <div className="mt-24 flex justify-center">
+          <div className="bg-indigo-50 border border-indigo-200 rounded-2xl p-8 max-w-2xl w-full text-center shadow-md">
+            <h3 className="text-2xl font-bold text-indigo-700 mb-3">
+              Want to see more?
+            </h3>
+            <p className="text-gray-700 text-lg mb-6">
+              Check out even more of my projects and code contributions on
+              GitHub.
+            </p>
+            <a
+              href="https://github.com/RobertRovenko"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white font-medium text-base rounded-full shadow hover:bg-indigo-700 transition-all duration-200"
+            >
+              <Github className="w-5 h-5" />
+              Visit My GitHub
+            </a>
+          </div>
+        </div>
       </main>
     </div>
   );
