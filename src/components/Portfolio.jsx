@@ -440,8 +440,6 @@ export default function Portfolio() {
 
   return (
     <div className="relative bg-white font-sans text-gray-900 min-h-screen ">
-      <StaticParticles />
-
       <main className="max-w-7xl mx-auto px-0 pt-40 md:pt-20 md:pb-20 pb-10 relative z-10">
         {/* Hero Section */}
         <section className="w-full flex flex-col  px-12 md:flex-row items-center justify-center h-auto md:h-[500px] gap-8 md:gap-0 mb-16 md:mb-0">

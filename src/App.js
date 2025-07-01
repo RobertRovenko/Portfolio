@@ -7,7 +7,7 @@ import EducationPage from "./components/Education";
 import PortfolioPage from "./components/Portfolio";
 import { Navigate } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop"; // import it
-
+import Career from "./components/Career";
 function App() {
   return (
     <Router>
@@ -19,6 +19,7 @@ function App() {
           <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="/education" element={<EducationPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/career" element={<Career />} />
         </Routes>
         <Footer />
       </div>

@@ -74,8 +74,6 @@ function getAltText(title) {
 export default function EducationPage() {
   return (
     <div className="relative font-sans bg-white">
-      <StaticParticles />
-
       <main className="max-w-6xl mx-auto px-12 pt-40 md:pt-20 md:pb-20 pb-10 relative z-10">
         {/* Hero Section */}
         <section className="w-full flex flex-col md:flex-row items-center justify-center h-auto md:h-[500px] gap-8 md:gap-0 mb-40 md:mb-0">
