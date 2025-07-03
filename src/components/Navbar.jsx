@@ -18,7 +18,7 @@ export default function Navbar() {
           to="/"
           className="text-2xl font-semibold tracking-tight text-gray-900 hover:opacity-80 transition cursor-pointer"
         >
-          rovenko
+          rovenkodev
         </Link>
 
         {/* Desktop nav */}

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown } from "lucide-react";
-import StaticParticles from "./StaticParticles.tsx";
+import { Github, Linkedin } from "lucide-react";
 
 // Mobile detection hook
 const useIsMobile = () => {
@@ -19,7 +18,7 @@ const useIsMobile = () => {
 const careerSections = [
   {
     id: "xr-solutions",
-    title: "Internship at XR Solutions",
+    title: "Lead Fullstack Developer @ XR Solutions",
     duration: "November 2023 - April 2024",
     paragraphs: [
       "I started my internship as a Fullstack iOS Developer, where I gained practical experience and contributed to the development of XR software for an iOS Native app.",
@@ -37,7 +36,7 @@ const careerSections = [
   },
   {
     id: "rovenkodev",
-    title: "CEO and Founder of RovenkoDev",
+    title: "Founder & Fullstack Developer @ RovenkoDev",
     duration: "December 2017 – Present",
     paragraphs: [
       "As a passionate and self-driven developer, I founded RovenkoDev to refine my coding skills and build high-quality digital products. Through this venture, I have developed visually appealing, maintainable, and scalable web and mobile applications for clients and personal projects.",
@@ -138,30 +137,96 @@ export default function Career() {
   }, []);
 
   return (
-    <div className="relative bg-white font-sans min-h-screen overflow-x-hidden">
-      <div className="absolute inset-0 -z-10">
-        <StaticParticles />
-      </div>
+    <div className="relative bg-white font-sans text-gray-900 min-h-screen">
+      <main className="max-w-7xl mx-auto pt-40 md:pt-20 md:pb-20 pb-10 relative z-10 px-4 sm:px-8">
+        {/* Hero Section */}
+        <section className="w-full flex flex-col  px-12 md:flex-row items-center justify-center h-auto md:h-[500px] gap-8 md:gap-0 mb-16 md:mb-0">
+          {/* Left side — Text */}
+          <motion.div
+            className="relative z-10 flex-1 space-y-6 text-center bg-white md:text-left"
+            initial="hidden"
+            animate="show"
+            variants={{
+              hidden: {},
+              show: { transition: { staggerChildren: 0.2 } },
+            }}
+          >
+            <motion.h1
+              className="text-5xl sm:text-6xl font-bold tracking-tight"
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                show: { opacity: 1, y: 0 },
+              }}
+            >
+              Work Experience
+            </motion.h1>
 
-      <main className="relative z-10 max-w-6xl mx-auto px-10 pt-40 pb-20">
-        {/* Hero title */}
-        <section className="text-center mb-16">
-          <motion.h1
-            className="text-5xl sm:text-6xl font-bold bg-black text-transparent bg-clip-text"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+            <motion.p
+              className="text-xl sm:text-2xl text-gray-700"
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                show: { opacity: 1, y: 0 },
+              }}
+            >
+              Learn more about me on my LinkedIn and Github!
+            </motion.p>
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0 },
+              }}
+            ></motion.div>
+
+            <motion.div
+              className="flex flex-wrap gap-4 justify-center md:justify-start"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0 },
+              }}
+            >
+              <a
+                href="https://www.linkedin.com/in/robert-falkb%C3%A4ck/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 px-5 py-2 border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium"
+              >
+                <Linkedin
+                  size={20}
+                  className="transition-transform duration-300 group-hover:scale-110"
+                />
+                LinkedIn
+              </a>
+
+              <a
+                href="https://github.com/RobertRovenko"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 px-5 py-2 border-2 border-gray-800 text-gray-800 rounded-full hover:bg-gray-800 hover:text-white transition-all duration-300 font-medium"
+              >
+                <Github
+                  size={20}
+                  className="transition-transform duration-300 group-hover:scale-110"
+                />
+                GitHub
+              </a>
+            </motion.div>
+          </motion.div>
+
+          {/* Right side — Rotating Phone */}
+          <motion.div
+            style={{
+              rotateY: 180,
+              rotateX,
+            }}
+            className="mt-10 md:mt-0 md:ml-12 pointer-events-none"
           >
-            Career Highlights
-          </motion.h1>
-          <motion.p
-            className="text-xl text-gray-700 mt-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            A detailed journey through my professional development.
-          </motion.p>
+            <img
+              src="/images/portfolio/portfolioillustration.png"
+              alt="App Preview"
+              className="w-[250px] h-auto object-contain"
+            />
+          </motion.div>
         </section>
 
         {/* Career Sections */}
@@ -178,43 +243,52 @@ export default function Career() {
                   : { opacity: 0, y: 40 }
               }
               transition={{ duration: 0.4, ease: "easeOut", delay: idx * 0.1 }}
-              className={`flex flex-col md:flex-row ${
-                idx % 2 === 0 ? "md:flex-row-reverse" : ""
-              } items-center gap-12 mb-24`}
+              className="w-full mb-24 px-4 sm:px-6 md:px-12"
             >
-              {imageUrl && (
-                <motion.div
-                  className="w-full max-w-md overflow-hidden rounded-2xl shadow-lg"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <img
-                    src={imageUrl}
-                    alt={title}
-                    className="w-full object-cover"
-                    loading="lazy"
-                  />
-                </motion.div>
-              )}
-
-              <motion.div
-                className="max-w-xl space-y-3"
-                initial={{ opacity: 0, x: -20 }}
-                animate={
-                  isMobile || visibility[idx]
-                    ? { opacity: 1, y: 0 }
-                    : { opacity: 0, y: 40 }
-                }
-                transition={{ delay: 0.2 }}
+              <div
+                className={`w-full max-w-screen-lg mx-auto flex flex-col md:flex-row items-center gap-12 ${
+                  idx % 2 === 0 ? "md:flex-row-reverse" : ""
+                }`}
               >
-                <h2 className="text-3xl font-bold text-indigo-600">{title}</h2>
-                <p className="text-indigo-500 italic">{duration}</p>
-                {paragraphs.map((p, i) => (
-                  <p key={i} className="text-lg text-gray-700 leading-relaxed">
-                    {p}
-                  </p>
-                ))}
-              </motion.div>
+                {imageUrl && (
+                  <motion.div
+                    className="w-full max-w-md overflow-hidden rounded-2xl shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <img
+                      src={imageUrl}
+                      alt={title}
+                      className="w-full object-cover"
+                      loading="lazy"
+                    />
+                  </motion.div>
+                )}
+
+                <motion.div
+                  className="max-w-xl space-y-3"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={
+                    isMobile || visibility[idx]
+                      ? { opacity: 1, y: 0 }
+                      : { opacity: 0, y: 40 }
+                  }
+                  transition={{ delay: 0.2 }}
+                >
+                  <h2 className="text-3xl font-bold text-indigo-600 break-words">
+                    {title}
+                  </h2>
+                  <p className="text-indigo-500 italic">{duration}</p>
+                  {paragraphs.map((p, i) => (
+                    <p
+                      key={i}
+                      className="text-lg text-gray-700 leading-relaxed break-words"
+                    >
+                      {p}
+                    </p>
+                  ))}
+                </motion.div>
+              </div>
             </motion.section>
           )
         )}
