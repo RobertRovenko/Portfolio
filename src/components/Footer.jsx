@@ -33,12 +33,6 @@ const Footer = () => {
             GitHub
           </a>
           <a
-            href="mailto:rovenkodev@gmail.com"
-            className="hover:text-neutral-800 transition"
-          >
-            Contact
-          </a>
-          <a
             href="https://play.google.com/store/apps/details?id=com.rovenkodev.FitnessGuru"
             className="hover:text-neutral-800 transition"
             target="_blank"
