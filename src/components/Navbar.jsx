@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
   const links = ["Home", "Education", "Portfolio", "Career", "Athlete"];
+
+  const isAthletePage = location.pathname === "/athlete";
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
@@ -11,26 +14,46 @@ export default function Navbar() {
   }, [isOpen]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-md shadow-sm border-b border-white/20">
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isAthletePage
+          ? "bg-transparent border-none shadow-none"
+          : "bg-white/30 backdrop-blur-md shadow-sm border-b border-white/20"
+      }`}
+    >
       <div className="max-full mx-auto px-6 py-5 flex items-center justify-between">
         {/* Logo */}
         <Link
           to="/"
-          className="text-2xl font-semibold tracking-tight text-gray-900 hover:opacity-80 transition cursor-pointer"
+          className={`text-2xl font-semibold tracking-tight transition cursor-pointer ${
+            isAthletePage
+              ? "text-white hover:text-gray-300"
+              : "text-gray-900 hover:opacity-80"
+          }`}
         >
           rovenkodev
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex gap-10 text-base font-medium text-gray-800">
+        <nav
+          className={`hidden md:flex gap-10 text-base font-medium transition-colors duration-300 ${
+            isAthletePage ? "text-white" : "text-gray-800"
+          }`}
+        >
           {links.map((item) => (
             <Link
               key={item}
               to={`/${item.toLowerCase()}`}
-              className="relative px-1 py-1 hover:text-black transition-transform transform hover:scale-105 duration-200 group"
+              className={`relative px-1 py-1 transition-transform transform hover:scale-105 duration-200 group ${
+                isAthletePage ? "hover:text-gray-300" : "hover:text-black"
+              }`}
             >
               {item}
-              <span className="absolute left-0 bottom-0 h-0.5 w-full scale-x-0 group-hover:scale-x-100 bg-black transition-transform origin-left duration-300" />
+              <span
+                className={`absolute left-0 bottom-0 h-0.5 w-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ${
+                  isAthletePage ? "bg-white" : "bg-black"
+                }`}
+              />
             </Link>
           ))}
         </nav>
@@ -39,7 +62,9 @@ export default function Navbar() {
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-900 focus:outline-none"
+            className={`focus:outline-none transition-colors ${
+              isAthletePage ? "text-white" : "text-gray-900"
+            }`}
             aria-label="Toggle Menu"
           >
             <svg
@@ -67,12 +92,18 @@ export default function Navbar() {
               setIsOpen(false);
             }
           }}
-          className="fixed inset-0 z-50 bg-white h-screen flex flex-col items-center justify-center space-y-0 text-xl font-semibold text-gray-900 transition-all duration-300 md:hidden"
+          className={`fixed inset-0 z-50 h-screen flex flex-col items-center justify-center space-y-0 text-xl font-semibold transition-all duration-300 md:hidden ${
+            isAthletePage ? "bg-black/90 text-white" : "bg-white text-gray-900"
+          }`}
         >
           <button
             onClick={() => setIsOpen(false)}
             aria-label="Close menu"
-            className="absolute top-6 right-6 text-gray-900 hover:text-black focus:outline-none"
+            className={`absolute top-6 right-6 focus:outline-none ${
+              isAthletePage
+                ? "text-white hover:text-gray-300"
+                : "text-gray-900 hover:text-black"
+            }`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +126,9 @@ export default function Navbar() {
               key={item}
               to={`/${item.toLowerCase()}`}
               onClick={() => setIsOpen(false)}
-              className="hover:text-black transition-transform transform hover:scale-105 duration-200 py-5 px-6 block"
+              className={`py-5 px-6 block transition-transform transform hover:scale-105 duration-200 ${
+                isAthletePage ? "hover:text-gray-300" : "hover:text-black"
+              }`}
             >
               {item}
             </Link>

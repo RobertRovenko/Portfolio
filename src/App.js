@@ -8,6 +8,7 @@ import PortfolioPage from "./components/Portfolio";
 import { Navigate } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop"; // import it
 import Career from "./components/Career";
+import Athlete from "./components/Athlete";
 function App() {
   return (
     <Router>
@@ -20,6 +21,7 @@ function App() {
           <Route path="/education" element={<EducationPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/career" element={<Career />} />
+          <Route path="/athlete" element={<Athlete />} />
         </Routes>
         <Footer />
       </div>

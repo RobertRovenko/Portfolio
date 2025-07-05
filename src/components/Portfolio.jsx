@@ -439,13 +439,13 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="relative bg-white font-sans text-gray-900 min-h-screen ">
+    <div className="relative bg-gray-100 font-sans text-gray-900 min-h-screen ">
       <main className="max-w-7xl mx-auto px-0 pt-40 md:pt-20 md:pb-20 pb-10 relative z-10">
         {/* Hero Section */}
         <section className="w-full flex flex-col  px-12 md:flex-row items-center justify-center h-auto md:h-[500px] gap-8 md:gap-0 mb-16 md:mb-0">
           {/* Left side — Text */}
           <motion.div
-            className="relative z-10 flex-1 space-y-6 text-center bg-white md:text-left"
+            className="relative z-10 flex-1 space-y-6 text-center bg-gray-100 md:text-left"
             initial="hidden"
             animate="show"
             variants={{
@@ -492,7 +492,7 @@ export default function Portfolio() {
                 href="#portfolio"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
-                className="border border-indigo-600 text-indigo-600 px-6 py-3 rounded-full text-sm font-semibold bg-white flex items-center justify-center gap-2 hover:bg-indigo-600 hover:text-white transition"
+                className="border border-indigo-600 text-indigo-600 px-6 py-3 rounded-full text-sm font-semibold bg-gray-100 flex items-center justify-center gap-2 hover:bg-indigo-600 hover:text-white transition"
               >
                 <ArrowRight size={16} /> Projects
               </motion.a>
@@ -530,7 +530,7 @@ export default function Portfolio() {
                 className={`px-5 py-2 rounded-full border text-sm font-medium transition ${
                   filter === cat
                     ? "bg-indigo-600 text-white shadow"
-                    : "text-indigo-600 bg-white border-indigo-600 hover:bg-indigo-100"
+                    : "text-indigo-600 bg-gray-100 border-indigo-600 hover:bg-indigo-100"
                 }`}
               >
                 {cat[0].toUpperCase() + cat.slice(1)}
@@ -575,6 +575,7 @@ export default function Portfolio() {
                       <motion.div
                         layout="position"
                         onClick={() => setExpandedCard(id)}
+                        {...(!isMobile && { whileHover: { scale: 1.05 } })}
                         className={`group bg-white ounded-none md:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300  cursor-pointer ${
                           expandedCard === id ? "md:col-span-2 col-span-1" : ""
                         }`}

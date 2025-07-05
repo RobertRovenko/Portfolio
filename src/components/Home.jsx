@@ -141,7 +141,7 @@ export default function Home() {
     <div className="relative bg-white font-sans">
       <StaticParticles />
 
-      <main className="max-w-6xl mx-auto px-10 pt-40 md:pt-20 pb-10 md:pt-1 relative z-10">
+      <main className="max-w-6xl mx-auto px-10 pt-40 md:pt-5 pb-10 md:pt-1 relative z-10">
         {/* Hero Section */}
         <section className="w-full flex flex-col md:flex-row items-center justify-center h-[800px]">
           {/* Left side — Text */}
