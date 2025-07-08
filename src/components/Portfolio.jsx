@@ -41,10 +41,10 @@ const projects = [
       "Published on Google Play Store",
       "Post-launch updates and active user base",
     ],
-    codeLink: "",
+    codeLink: "https://www.30dayfitness.robertrovenko.com/",
     siteLink:
       "https://play.google.com/store/apps/details?id=com.rovenkodev.FitnessGuru",
-    codeText: "Code Private",
+    codeText: "Visit Site",
     siteText: "Check Out App",
   },
   {
