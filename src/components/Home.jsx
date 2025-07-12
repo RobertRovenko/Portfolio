@@ -23,6 +23,21 @@ const useIsMobile = () => {
 
   return isMobile;
 };
+
+const getAge = (birthDate) => {
+  const today = new Date();
+  const birth = new Date(birthDate);
+  let age = today.getFullYear() - birth.getFullYear();
+  const monthDiff = today.getMonth() - birth.getMonth();
+  const dayDiff = today.getDate() - birth.getDate();
+
+  // Adjust if birthday hasn't occurred yet this year
+  if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+    age--;
+  }
+  return age;
+};
+
 const techStack = [
   "React",
   "JavaScript",
@@ -40,7 +55,9 @@ const sections = [
     id: "about",
     title: "About Me",
     paragraphs: [
-      "Hello, I’m Robert, a 23-year-old programming enthusiast and experienced developer, recently graduated from Stockholm Institute of Technology. With a passion for technology, I specialize in frontend and full-stack development, thriving on the excitement of crafting innovative digital solutions.",
+      `Hello, I’m Robert, a ${getAge(
+        "2001-07-11"
+      )}-year-old programming enthusiast and experienced developer, recently graduated from Stockholm Institute of Technology. With a passion for technology, I specialize in frontend and full-stack development, thriving on the excitement of crafting innovative digital solutions.`,
       "My journey has been marked by numerous achievements, including founding my own coding studio, Rovenkodev, and receiving two scholarships: Bästa Studieresultat and Bästa Examensarbete. My love for learning drives me to stay at the forefront of this ever-evolving field. Join me as I explore the boundless possibilities of programming and development.",
     ],
     imageUrl: "/images/home/robertstipendriumbild.jpg",
