@@ -9,6 +9,8 @@ import { Navigate } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop"; // import it
 import Career from "./components/Career";
 import Athlete from "./components/Athlete";
+import Irma from "./components/Irma";
+
 function App() {
   return (
     <Router>
@@ -22,6 +24,7 @@ function App() {
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/career" element={<Career />} />
           <Route path="/athlete" element={<Athlete />} />
+          <Route path="/irma" element={<Irma />} />
         </Routes>
         <Footer />
       </div>

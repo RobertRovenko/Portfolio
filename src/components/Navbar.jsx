@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+
   const links = ["Home", "Education", "Portfolio", "Career", "Athlete"];
 
   const isAthletePage = location.pathname === "/athlete";
@@ -12,7 +13,9 @@ export default function Navbar() {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
     return () => (document.body.style.overflow = "auto");
   }, [isOpen]);
-
+  if (location.pathname === "/Irma") {
+    return null;
+  }
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${

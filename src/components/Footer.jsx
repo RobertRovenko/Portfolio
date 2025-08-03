@@ -6,7 +6,9 @@ const Footer = () => {
   const location = useLocation();
 
   const isAthletePage = location.pathname === "/athlete";
-
+  if (location.pathname === "/Irma") {
+    return null;
+  }
   return (
     <footer
       className={`relative z-50 w-full ${
