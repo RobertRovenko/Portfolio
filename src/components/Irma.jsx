@@ -56,13 +56,34 @@ const Irma = () => {
           {flowerSVG}
         </h1>
 
-        <div className="rounded-3xl p-2 bg-gradient-to-r from-pink-400 via-pink-600 to-pink-400 shadow-2xl border-8 border-pink-300 max-w-xl w-full">
-          <video
-            src="/videos/irma.mp4"
-            controls
-            autoPlay
-            loop
-            className="rounded-2xl shadow-xl border-4 border-pink-700"
+        {/* Frame wrapper (only visible on desktop and up) */}
+        <div
+          className="hidden sm:inline-block rounded-3xl bg-gradient-to-r from-pink-400 via-pink-600 to-pink-400 shadow-2xl border-8 border-pink-300 max-w-[640px] mx-auto"
+          style={{ width: "100%", maxWidth: "640px" }}
+        >
+          <iframe
+            title="vimeo-player"
+            src="https://player.vimeo.com/video/1106947059?h=fde17626b4&autoplay=1&loop=1&muted=1"
+            width="100%"
+            height="480"
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            className="rounded-2xl w-full"
+          />
+        </div>
+
+        {/* Video only (no frame, only on mobile) */}
+        <div className="sm:hidden max-w-full mx-auto">
+          <iframe
+            title="vimeo-player"
+            src="https://player.vimeo.com/video/1106947059?h=fde17626b4&autoplay=1&loop=1&muted=1"
+            width="100%"
+            height="240"
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            className="w-full"
           />
         </div>
 
