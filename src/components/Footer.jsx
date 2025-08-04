@@ -6,7 +6,7 @@ const Footer = () => {
   const location = useLocation();
 
   const isAthletePage = location.pathname === "/athlete";
-  if (location.pathname === "/Irma") {
+  if (location.pathname === "/irma") {
     return null;
   }
   return (

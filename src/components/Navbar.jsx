@@ -13,7 +13,7 @@ export default function Navbar() {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
     return () => (document.body.style.overflow = "auto");
   }, [isOpen]);
-  if (location.pathname === "/Irma") {
+  if (location.pathname === "/irma") {
     return null;
   }
   return (
