@@ -345,7 +345,7 @@ const projects = [
     description:
       "Originally designed in Figma as a concept, this freelance website was later programmed and launched as my personal portfolio to showcase real development work and validate client projects. I transitioned my marketing efforts and client acquisition to platforms like Upwork and Fiverr, using this site as a central proof of work.",
     thumbnail: "/images/portfolio/thumbnails/FreelanceThumbnail.jpg",
-    imageUrls: ["/images/portfolio/Thumbnails/FreelancePortfolio.png"],
+    imageUrls: ["/images/portfolio/thumbnails/FreelancePortfolio.png"],
     techStack: ["React.js", "JavaScript", "Tailwind CSS", "Figma", "Vercel"],
     features: [
       "Clean and modern UI/UX design",
