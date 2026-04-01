@@ -1,4 +1,5 @@
 {
-  "rewrites": [{ "source": "/((?!app-ads\\.txt).*)", "destination": "/index.html" }],
+  "cleanUrls": true,
+  "trailingSlash": false,
   "buildCommand": "CI= npm run build"
 }
