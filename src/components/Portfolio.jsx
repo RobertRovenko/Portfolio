@@ -48,6 +48,52 @@ const projects = [
     siteText: "Check Out App",
   },
   {
+    id: "quizzypop",
+    title: "QuizzyPop",
+    type: "programmed",
+    description:
+      "QuizzyPop is an engaging trivia application that challenges users with a variety of questions across different categories. Built with React Native, it offers a fun and interactive way to test knowledge and improve skills.",
+    thumbnail: "/images/portfolio/thumbnails/QuizzyPopThumbnail.png",
+    imageUrls: [
+      "/images/portfolio/QuizzyPop/Demo1.png",
+      "/images/portfolio/QuizzyPop/Demo2.png",
+      "/images/portfolio/QuizzyPop/Demo3.png",
+      "/images/portfolio/QuizzyPop/Demo4.png",
+      "/images/portfolio/QuizzyPop/Demo5.png",
+      "/images/portfolio/QuizzyPop/Demo6.png",
+    ],
+    backgroundColor: "#001220",
+    foregroundColor: "#e0e7ff",
+    techStack: [
+      "React Native",
+      "TypeScript",
+      "JavaScript",
+      "Expo",
+      "Google Play",
+      "Node.js (backend/API)",
+      "Push Notifications (Expo Notifications)",
+      "Revenue Cat",
+      "Admob",
+      "Supabase",
+      "Google Play Console",
+      "Google Cloud Console",
+      "CI/CD with Expo Application Services",
+    ],
+    features: [
+      "Addictive fast-paced trivia gameplay",
+      "Interactive achievement and progression system",
+      "Cross-platform hybrid mobile app built with Expo",
+      "Intuitive and sleek UI/UX",
+      "Published on Google Play Store",
+      "Post-launch updates and active user base",
+    ],
+    codeLink: "https://www.quizzypop.robertrovenko.com/",
+    siteLink:
+      "https://play.google.com/store/apps/details?id=com.rovenkodev.quizzypop",
+    codeText: "Visit Site",
+    siteText: "Check Out App",
+  },
+  {
     id: "githubinsights",
     title: "GitHub Insights",
     type: "programmed",
@@ -365,7 +411,7 @@ export default function Portfolio() {
   const [isHover, setIsHover] = React.useState(false);
   const [visibility, setVisibility] = useState(projects.map(() => false));
   const [isMobile, setIsMobile] = useState(
-    typeof window !== "undefined" ? window.innerWidth < 768 : false
+    typeof window !== "undefined" ? window.innerWidth < 768 : false,
   );
 
   useEffect(() => {
@@ -401,7 +447,7 @@ export default function Portfolio() {
             return copy;
           });
         },
-        { threshold: 0.1 }
+        { threshold: 0.1 },
       );
       if (ref.current) observer.observe(ref.current);
       return observer;
@@ -417,7 +463,7 @@ export default function Portfolio() {
   const expandRefs = useRef([]);
   useEffect(() => {
     expandRefs.current = filteredProjects.map(
-      (_, i) => expandRefs.current[i] || React.createRef()
+      (_, i) => expandRefs.current[i] || React.createRef(),
     );
   }, [filteredProjects]);
 
@@ -471,7 +517,7 @@ export default function Portfolio() {
               }}
             >
               iOS, Android & Web Projects. <br />
-              Find more projects on my github!
+              All made by Robert Falkbäck
             </motion.p>
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
@@ -557,7 +603,7 @@ export default function Portfolio() {
                   codeLink,
                   siteLink,
                 },
-                i
+                i,
               ) => {
                 const index = currentImageIndices[id] || 0;
 
@@ -656,7 +702,7 @@ export default function Portfolio() {
                               backgroundColor: backgroundColor || "#ffffff",
                               color: foregroundColor || "#000000",
                             }}
-                            className="flex flex-col md:flex-row gap-8 items-start p-6 rounded-none md:rounded-2xl shadow-sm"
+                            className="flex flex-col md:flex-row gap-8 items-start p-6 rounded-none md:rounded-2xl shadow-sm border-2 border-gray-300"
                           >
                             <div
                               className="md:w-1/2 w-full relative flex justify-center items-center"
@@ -792,7 +838,7 @@ export default function Portfolio() {
                     )}
                   </div>
                 );
-              }
+              },
             )}
           </div>
         </section>
