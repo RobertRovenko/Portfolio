@@ -50,12 +50,20 @@ const Footer = () => {
             GitHub
           </a>
           <a
-            href="https://play.google.com/store/apps/details?id=com.rovenkodev.FitnessGuru"
+            href="https://www.30dayfitness.robertrovenko.com/"
             className="hover:text-neutral-400 transition"
             target="_blank"
             rel="noopener noreferrer"
           >
             30 Day Fitness
+          </a>
+          <a
+            href="https://www.quizzypop.robertrovenko.com/"
+            className="hover:text-neutral-400 transition"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            QuizzyPop
           </a>
         </div>
       </div>

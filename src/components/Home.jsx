@@ -9,7 +9,7 @@ import {
   Instagram,
 } from "lucide-react";
 import StaticParticles from "./StaticParticles.tsx";
-
+import { Link } from "react-router-dom";
 // Custom hook to detect mobile
 const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -56,7 +56,7 @@ const sections = [
     title: "About Me",
     paragraphs: [
       `Hello, I’m Robert, a ${getAge(
-        "2001-07-11"
+        "2001-07-11",
       )}-year-old programming enthusiast and experienced developer, recently graduated from Stockholm Institute of Technology. With a passion for technology, I specialize in frontend and full-stack development, thriving on the excitement of crafting innovative digital solutions.`,
       "My journey has been marked by numerous achievements, including founding my own coding studio, Rovenkodev, and receiving two scholarships: Bästa Studieresultat and Bästa Examensarbete. My love for learning drives me to stay at the forefront of this ever-evolving field. Join me as I explore the boundless possibilities of programming and development.",
     ],
@@ -134,7 +134,7 @@ export default function Home() {
             return copy;
           });
         },
-        { threshold: 0.2 }
+        { threshold: 0.2 },
       );
       if (ref.current) observer.observe(ref.current);
       return observer;
@@ -199,23 +199,29 @@ export default function Home() {
                 show: { opacity: 1, y: 0 },
               }}
             >
-              <motion.a
-                href="portfolio"
+              <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
-                className="bg-indigo-600 text-white px-6 py-3 rounded-full text-sm font-semibold flex items-center justify-center gap-2 hover:bg-indigo-700 transition"
               >
-                <ArrowRight size={16} /> View Portfolio
-              </motion.a>
+                <Link
+                  to="/portfolio"
+                  className="bg-indigo-600 text-white px-6 py-3 rounded-full text-sm font-semibold flex items-center justify-center gap-2 hover:bg-indigo-700 transition"
+                >
+                  <ArrowRight size={16} /> View Portfolio
+                </Link>
+              </motion.div>
 
-              <motion.a
-                href="education"
+              <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
-                className="border border-indigo-600 text-indigo-600 bg-white px-6 py-3 rounded-full text-sm font-semibold flex items-center justify-center gap-2 hover:bg-indigo-600 hover:text-white transition"
               >
-                <GraduationCap size={16} /> Education
-              </motion.a>
+                <Link
+                  to="/education"
+                  className="border border-indigo-600 text-indigo-600 bg-white px-6 py-3 rounded-full text-sm font-semibold flex items-center justify-center gap-2 hover:bg-indigo-600 hover:text-white transition"
+                >
+                  <GraduationCap size={16} /> Education
+                </Link>
+              </motion.div>
             </motion.div>
 
             <section className="mt-16 w-full">

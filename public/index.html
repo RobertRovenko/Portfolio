@@ -1,21 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Title: default fallback before React Helmet kicks in -->
-    <title>Robert Falkbäck Rovenko – Fullstack Developer</title>
+    <!-- Primary Title -->
+    <title>
+      Robert Falkbäck (Rovenko) – Software Developer & Founder of RovenkoDev
+    </title>
 
-    <!-- Basic SEO meta description -->
+    <!-- SEO Meta Description -->
     <meta
       name="description"
-      content="Robert Falkbäck Rovenko is a Fullstack developer skilled in building web, iOS, and Android applications using React, JavaScript, Swift, Kotlin, and UX/UI design."
+      content="Robert Falkbäck, also known internationally as Robert Rovenko, is a Swedish software developer and entrepreneur. Founder of RovenkoDev, creator of apps including 30 Day Fitness and QuizzyPop on Google Play."
     />
 
-    <!-- Favicon: replace with your favicon path once you create one -->
+    <!-- Keywords (lightweight, not critical but still fine) -->
+    <meta
+      name="keywords"
+      content="Robert Falkbäck, Robert Rovenko, RovenkoDev, software developer Sweden, fullstack developer, 30 Day Fitness app, QuizzyPop, Android developer, React developer"
+    />
+
+    <!-- Canonical URL (IMPORTANT for identity clarity) -->
+    <link rel="canonical" href="https://yourdomain.com" />
+
+    <!-- Favicon -->
     <link rel="icon" href="/images/RobertRovenkoLogo.png" />
+
+    <!-- Open Graph (for Google, LinkedIn, Discord, etc.) -->
+    <meta
+      property="og:title"
+      content="Robert Falkbäck (Rovenko) – Software Developer & Founder of RovenkoDev"
+    />
+    <meta
+      property="og:description"
+      content="Swedish software developer and entrepreneur. Founder of RovenkoDev and creator of apps like 30 Day Fitness and QuizzyPop."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourdomain.com" />
+    <meta
+      property="og:image"
+      content="https://yourdomain.com/images/og-image.png"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Robert Falkbäck (Rovenko) – Software Developer & Founder of RovenkoDev"
+    />
+    <meta
+      name="twitter:description"
+      content="Founder of RovenkoDev and creator of apps like 30 Day Fitness and QuizzyPop."
+    />
+    <meta
+      name="twitter:image"
+      content="https://yourdomain.com/images/og-image.png"
+    />
+
+    <!-- ⭐ Structured Data (THIS is what AI + Google LOVE) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "name": "Robert Falkbäck",
+            "alternateName": ["Robert Rovenko"],
+            "birthDate": "2001",
+            "nationality": "Swedish",
+            "url": "https://yourdomain.com",
+            "image": "https://yourdomain.com/images/robert.jpg",
+            "jobTitle": "Software Developer & Entrepreneur",
+            "description": "Swedish software developer and entrepreneur, founder of RovenkoDev and creator of mobile applications including 30 Day Fitness and QuizzyPop.",
+            "sameAs": [
+              "https://play.google.com/store/apps/developer?id=RovenkoDev"
+            ],
+            "worksFor": {
+              "@type": "Organization",
+              "name": "RovenkoDev"
+            }
+          },
+          {
+            "@type": "Organization",
+            "name": "RovenkoDev",
+            "url": "https://yourdomain.com",
+            "logo": "https://yourdomain.com/images/RobertRovenkoLogo.png",
+            "founder": {
+              "@type": "Person",
+              "name": "Robert Falkbäck"
+            },
+            "description": "Independent software development studio founded by Robert Falkbäck (also known as Robert Rovenko)."
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "30 Day Fitness",
+            "applicationCategory": "HealthApplication",
+            "operatingSystem": "Android",
+            "author": {
+              "@type": "Organization",
+              "name": "RovenkoDev"
+            }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "QuizzyPop",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Android",
+            "author": {
+              "@type": "Organization",
+              "name": "RovenkoDev"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
+
   <body>
     <div id="root"></div>
   </body>
