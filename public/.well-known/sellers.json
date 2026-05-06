@@ -4,7 +4,8 @@
       "seller_id": "pub-1555784587312566",
       "name": "Robert Falkbäck Rovenko",
       "domain": "robertrovenko.com",
-      "seller_type": "PUBLISHER"
+      "seller_type": "PUBLISHER",
+      "is_confidential": false
     }
   ]
 }
