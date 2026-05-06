@@ -4,6 +4,10 @@
   "buildCommand": "CI= npm run build",
   "rewrites": [
     {
+      "source": "/.well-known/(.*)",
+      "destination": "/public/.well-known/$1"
+    },
+    {
       "source": "/(.*)",
       "destination": "/"
     }
