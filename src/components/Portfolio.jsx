@@ -485,13 +485,13 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="relative bg-gray-100 font-sans text-gray-900 min-h-screen ">
+    <div className="relative bg-white font-sans text-gray-900 min-h-screen ">
       <main className="max-w-7xl mx-auto px-0 pt-40 md:pt-20 md:pb-20 pb-10 relative z-10">
         {/* Hero Section */}
         <section className="w-full flex flex-col  px-12 md:flex-row items-center justify-center h-auto md:h-[500px] gap-8 md:gap-0 mb-16 md:mb-0">
           {/* Left side — Text */}
           <motion.div
-            className="relative z-10 flex-1 space-y-6 text-center bg-gray-100 md:text-left"
+            className="relative z-10 flex-1 space-y-6 text-center  md:text-left"
             initial="hidden"
             animate="show"
             variants={{
@@ -516,8 +516,8 @@ export default function Portfolio() {
                 show: { opacity: 1, y: 0 },
               }}
             >
-              iOS, Android & Web Projects. <br />
-              All made by Robert Falkbäck
+              Apps built from idea to production. <br />
+              React, React Native, Swift, and everything in between. <br />
             </motion.p>
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
@@ -538,7 +538,7 @@ export default function Portfolio() {
                 href="#portfolio"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
-                className="border border-indigo-600 text-indigo-600 px-6 py-3 rounded-full text-sm font-semibold bg-gray-100 flex items-center justify-center gap-2 hover:bg-indigo-600 hover:text-white transition"
+                className="border border-indigo-600 text-indigo-600 px-6 py-3 rounded-full text-sm font-semibold bg-white-100 flex items-center justify-center gap-2 hover:bg-indigo-600 hover:text-white transition"
               >
                 <ArrowRight size={16} /> Projects
               </motion.a>
@@ -556,7 +556,7 @@ export default function Portfolio() {
             <img
               src="/images/portfolio/portfolioillustration.png"
               alt="App Preview"
-              className="w-[250px] h-auto object-contain"
+              className="w-[400px] h-auto object-contain"
             />
           </motion.div>
         </section>
@@ -576,7 +576,7 @@ export default function Portfolio() {
                 className={`px-5 py-2 rounded-full border text-sm font-medium transition ${
                   filter === cat
                     ? "bg-indigo-600 text-white shadow"
-                    : "text-indigo-600 bg-gray-100 border-indigo-600 hover:bg-indigo-100"
+                    : "text-indigo-600 bg-white-100 border-indigo-600 hover:bg-indigo-100"
                 }`}
               >
                 {cat[0].toUpperCase() + cat.slice(1)}
