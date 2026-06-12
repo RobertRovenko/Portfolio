@@ -132,6 +132,46 @@ const projects = [
     siteText: "Visit Site",
   },
   {
+    id: "horrormaze",
+    title: "Horror Maze",
+    type: "programmed",
+    description:
+      "A short but atmospheric horror experience originally created as a school project in 2019. Preserved in my portfolio to showcase my journey from an aspiring developer to a full-time software engineer.",
+    thumbnail: "/images/portfolio/HorrorMaze/HorrorMaze1.png",
+    imageUrls: [
+      "/images/portfolio/HorrorMaze/HorrorMaze1.png",
+      "/images/portfolio/HorrorMaze/HorrorMaze2.png",
+      "/images/portfolio/HorrorMaze/HorrorMaze3.png",
+      "/images/portfolio/HorrorMaze/HorrorMaze4.png",
+    ],
+    backgroundColor: "#0B0B0F",
+    foregroundColor: "#E5E7EB",
+    techStack: ["Unreal Engine 4", "Blueprints", "Level Design"],
+    features: [
+      "First-person horror experience",
+      "Atmospheric maze environment",
+      "Created as a school project in 2019",
+      "Represents the beginning of my development journey",
+    ],
+    codeLink: "",
+    codeText: "Code Private",
+    siteLink: "https://rovenkodev.itch.io/horrormaze",
+    siteText: "Download Game",
+
+    embed: (
+      <iframe
+        frameBorder="0"
+        src="https://itch.io/embed/4669046?bg_color=000000&fg_color=ffffff&link_color=e10404&border_color=000000"
+        width="552"
+        height="167"
+      >
+        <a href="https://rovenkodev.itch.io/horrormaze">
+          HorrorMaze by rovenkodev
+        </a>
+      </iframe>
+    ),
+  },
+  {
     id: "jobboardsweden",
     title: "Job Board Sweden",
     type: "programmed",
@@ -602,6 +642,7 @@ export default function Portfolio() {
                   codeText,
                   codeLink,
                   siteLink,
+                  embed,
                 },
                 i,
               ) => {
@@ -831,6 +872,11 @@ export default function Portfolio() {
                                   </a>
                                 )}
                               </div>
+                              {embed && (
+                                <div className="pt-8 flex justify-center">
+                                  {embed}
+                                </div>
+                              )}
                             </div>
                           </div>
                         </motion.div>
