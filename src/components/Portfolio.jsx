@@ -137,12 +137,12 @@ const projects = [
     type: "programmed",
     description:
       "A short but atmospheric horror experience originally created as a school project in 2019. Preserved in my portfolio to showcase my journey from an aspiring developer to a full-time software engineer.",
-    thumbnail: "/images/portfolio/HorrorMaze/HorrorMaze1.png",
+    thumbnail: "/images/portfolio/HorrorMaze/horrormaze1.png",
     imageUrls: [
-      "/images/portfolio/HorrorMaze/HorrorMaze1.png",
-      "/images/portfolio/HorrorMaze/HorrorMaze2.png",
-      "/images/portfolio/HorrorMaze/HorrorMaze3.png",
-      "/images/portfolio/HorrorMaze/HorrorMaze4.png",
+      "/images/portfolio/HorrorMaze/horrormaze1.png",
+      "/images/portfolio/HorrorMaze/horrormaze2.png",
+      "/images/portfolio/HorrorMaze/horrormaze3.png",
+      "/images/portfolio/HorrorMaze/horrormaze4.png",
     ],
     backgroundColor: "#0B0B0F",
     foregroundColor: "#E5E7EB",
