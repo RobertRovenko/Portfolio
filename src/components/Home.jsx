@@ -114,9 +114,7 @@ const StackCard = ({ card, index, total, progress }) => {
               src={card.imageUrl}
               alt={card.title}
               className={`w-full h-auto lg:h-full max-h-none lg:max-h-full object-contain lg:object-cover rounded-2xl sm:rounded-3xl hover:scale-105 transition-transform duration-300 ${
-                card.id === "about"
-                  ? "object-top lg:object-center"
-                  : "object-center"
+                card.id === "about" ? "object-top" : "object-center"
               }`}
             />
           </div>
