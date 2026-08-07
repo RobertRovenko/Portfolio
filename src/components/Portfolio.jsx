@@ -1,51 +1,58 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Github } from "lucide-react";
-import { ChevronLeft, ChevronRight } from "lucide-react"; // Ensure you're using Lucide or install it
-import StaticParticles from "./StaticParticles.tsx";
-import { Lock } from "lucide-react"; // Import the icon
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Lock } from "lucide-react";
 
 const projects = [
   {
-    id: "30dayfitness",
-    title: "30 Day Fitness",
+    id: "foodlens",
+    title: "FoodLens",
     type: "programmed",
     description:
-      "30 Day Fitness is a mobile application designed to help users achieve their fitness goals through structured 30-day workout challenges. Originally developed as my final project and thesis at university, the app has since grown into a successful product on the Google Play Store.",
-    thumbnail: "/images/portfolio/thumbnails/30DayFitnessThumbnail.png",
+      "FoodLens is a mobile nutrition and food-scanning application that helps users make more informed food choices. Users can scan food barcodes to receive a personalized FoodLens Score from 1–100 based on nutritional data, NOVA classification, Nutri-Score, and other health-related factors. The app also features a locally running, offline AI recipe chatbot built around a knowledge base of 12,000 recipes.",
+    thumbnail: "/images/portfolio/thumbnails/FoodLensThumbnail.png",
     imageUrls: [
-      "/images/portfolio/30DF/30dayfitnessdemonstration4.png",
-      "/images/portfolio/30DF/30dayfitnessdemonstration3.png",
-      "/images/portfolio/30DF/30dayfitnessdemonstration2.png",
-      "/images/portfolio/30DF/30dayfitnessdemonstration1.png",
+      "/images/portfolio/FoodLens/FoodLensDemo1.png",
+      "/images/portfolio/FoodLens/FoodLensDemo2.png",
+      "/images/portfolio/FoodLens/FoodLensDemo3.png",
+      "/images/portfolio/FoodLens/FoodLensDemo4.png",
+      "/images/portfolio/FoodLens/FoodLensDemo5.png",
+      "/images/portfolio/FoodLens/FoodLensDemo6.png",
+      "/images/portfolio/FoodLens/FoodLensDemo7.png",
     ],
-    backgroundColor: "#1D1A2F",
+    backgroundColor: "#001220",
     foregroundColor: "#e0e7ff",
     techStack: [
       "React Native",
       "TypeScript",
       "JavaScript",
       "Expo",
+      "Node.js",
+      "Nutrition APIs",
+      "Barcode Scanning",
+      "AI / LLM",
+      "Offline AI",
       "Google Play",
-      "Node.js (backend/API)",
-      "Push Notifications (Expo Notifications)",
-
       "Google Play Console",
       "CI/CD with Expo Application Services",
     ],
     features: [
-      "Different structured 30-day workout challenges",
-      "Interactive charts to track progress",
-      "Cross-platform hybrid mobile app with Expo",
-      "Intuitive and sleek UI/UX",
+      "Barcode scanning for food products",
+      "FoodLens health score from 1–100",
+      "Custom nutrition scoring algorithm",
+
+      "AI recipe knowledge base containing 12,000 recipes",
+
+      "Built from concept to production in two weeks",
       "Published on Google Play Store",
-      "Post-launch updates and active user base",
     ],
-    codeLink: "https://www.30dayfitness.robertrovenko.com/",
+    codeLink:
+      "https://play.google.com/store/apps/details?id=com.rovenkodev.foodlens",
     siteLink:
-      "https://play.google.com/store/apps/details?id=com.rovenkodev.FitnessGuru",
-    codeText: "Visit Site",
-    siteText: "Check Out App",
+      "https://play.google.com/store/apps/details?id=com.rovenkodev.foodlens",
+    codeText: "Website",
+    siteText: "Play Store",
   },
   {
     id: "quizzypop",
@@ -90,6 +97,49 @@ const projects = [
     codeLink: "https://www.quizzypop.robertrovenko.com/",
     siteLink:
       "https://play.google.com/store/apps/details?id=com.rovenkodev.quizzypop",
+    codeText: "Visit Site",
+    siteText: "Check Out App",
+  },
+  {
+    id: "30dayfitness",
+    title: "30 Day Fitness",
+    type: "programmed",
+    description:
+      "30 Day Fitness is a mobile application designed to help users achieve their fitness goals through structured 30-day workout challenges. Originally developed as my final project and thesis at university, the app has since grown into a successful product on the Google Play Store.",
+    thumbnail: "/images/portfolio/thumbnails/30DayFitnessT.png",
+    imageUrls: [
+      "/images/portfolio/30DFDemo/3DDemo1.png",
+      "/images/portfolio/30DFDemo/3DDemo2.png",
+      "/images/portfolio/30DFDemo/3DDemo3.png",
+      "/images/portfolio/30DFDemo/3DDemo4.png",
+      "/images/portfolio/30DFDemo/3DDemo5.png",
+      "/images/portfolio/30DFDemo/3DDemo6.png",
+    ],
+    backgroundColor: "#001220",
+    foregroundColor: "#e0e7ff",
+    techStack: [
+      "React Native",
+      "TypeScript",
+      "JavaScript",
+      "Expo",
+      "Google Play",
+      "Node.js (backend/API)",
+      "Push Notifications (Expo Notifications)",
+
+      "Google Play Console",
+      "CI/CD with Expo Application Services",
+    ],
+    features: [
+      "Different structured 30-day workout challenges",
+      "Interactive charts to track progress",
+      "Cross-platform hybrid mobile app with Expo",
+      "Intuitive and sleek UI/UX",
+      "Published on Google Play Store",
+      "Post-launch updates and active user base",
+    ],
+    codeLink: "https://www.30dayfitness.robertrovenko.com/",
+    siteLink:
+      "https://play.google.com/store/apps/details?id=com.rovenkodev.FitnessGuru",
     codeText: "Visit Site",
     siteText: "Check Out App",
   },
@@ -160,6 +210,7 @@ const projects = [
 
     embed: (
       <iframe
+        title="Horror Maze Game Preview"
         frameBorder="0"
         src="https://itch.io/embed/4669046?bg_color=000000&fg_color=ffffff&link_color=e10404&border_color=000000"
         width="552"
@@ -178,7 +229,7 @@ const projects = [
     backgroundColor: "#2E1963",
     foregroundColor: "#e0e7ff",
     description:
-      "Job Board Sweden is a full-stack platform tailored for software developers in Stockholm. It aggregates job listings from multiple sources (including public job APIs and custom scrapers), offers secure OAuth login, interactive analytics, and exports reports. Built with a React/Next.js frontend and a Node.js/TypeScript backend, it’s deployed on Vercel for fast, globally-distributed delivery.",
+      "Job Board Sweden is a full-stack platform tailored for software developers in Stockholm. It aggregates job listings from multiple sources (including public job APIs and custom scrapers), offers secure OAuth login, interactive analytics, and exports reports. Built with a React/Next.js frontend and a Node.js/TypeScript backend, it's deployed on Vercel for fast, globally-distributed delivery.",
     thumbnail: "/images/portfolio/thumbnails/JobBoardThumbnail.jpg",
     imageUrls: [
       "/images/portfolio/Jobboard/JobboardHomeScreen.png",
@@ -447,12 +498,21 @@ const projects = [
 ];
 
 export default function Portfolio() {
-  const refs = useRef(projects.map(() => React.createRef()));
-  const [isHover, setIsHover] = React.useState(false);
-  const [visibility, setVisibility] = useState(projects.map(() => false));
+  const expandRefs = useRef([]);
+  const [expandedCard, setExpandedCard] = useState(null);
+  const maxChars = 150;
+  const [filter, setFilter] = useState("all");
   const [isMobile, setIsMobile] = useState(
     typeof window !== "undefined" ? window.innerWidth < 768 : false,
   );
+  const [currentImageIndices, setCurrentImageIndices] = useState({});
+
+  // Hero scroll rotation
+  const { scrollYProgress } = useScroll();
+  const rotateX = useTransform(scrollYProgress, [0, 1], [0, 20]);
+
+  const filteredProjects =
+    filter === "all" ? projects : projects.filter((p) => p.type === filter);
 
   useEffect(() => {
     const handleResize = () => {
@@ -462,52 +522,11 @@ export default function Portfolio() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const [expandedCard, setExpandedCard] = useState(null); // ✅ valid JS
-  const maxChars = 150; // or whatever limit you want
-
-  // Hero scroll rotation
-  const { scrollYProgress } = useScroll();
-  const rotateY = useTransform(scrollYProgress, [0, 1], [-0, 250]);
-  const rotateX = useTransform(scrollYProgress, [0, 1], [-0, 20]);
-  const [filter, setFilter] = useState("all");
-
-  const filteredProjects =
-    filter === "all" ? projects : projects.filter((p) => p.type === filter);
-
-  useEffect(() => {
-    if (isMobile) return;
-
-    const observers = refs.current.map((ref, i) => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          setVisibility((prev) => {
-            if (prev[i] === entry.isIntersecting) return prev;
-            const copy = [...prev];
-            copy[i] = entry.isIntersecting;
-            return copy;
-          });
-        },
-        { threshold: 0.1 },
-      );
-      if (ref.current) observer.observe(ref.current);
-      return observer;
-    });
-
-    return () => {
-      observers.forEach((observer, i) => {
-        if (refs.current[i].current)
-          observer.unobserve(refs.current[i].current);
-      });
-    };
-  }, [isMobile]);
-  const expandRefs = useRef([]);
   useEffect(() => {
     expandRefs.current = filteredProjects.map(
       (_, i) => expandRefs.current[i] || React.createRef(),
     );
   }, [filteredProjects]);
-
-  const [currentImageIndices, setCurrentImageIndices] = useState({});
 
   const handleImageChange = (projectId, direction) => {
     setCurrentImageIndices((prev) => {
@@ -603,7 +622,7 @@ export default function Portfolio() {
 
         {/* Portfolio Projects Section */}
         <section id="portfolio" className="mt-0 mb-16 z-10">
-          <h2 className="text-4xl font-bold text-indigo-600 mb-10 text-center">
+          <h2 className="text-4xl font-bold text-[#1E3A5F] mb-10 text-center">
             Portfolio
           </h2>
 
@@ -683,7 +702,7 @@ export default function Portfolio() {
                         <motion.div layout className="p-6">
                           <motion.h3
                             layout
-                            className="text-2xl font-bold text-indigo-700 mb-2"
+                            className="text-2xl font-bold text-[#1E3A5F] mb-2"
                           >
                             {title}
                           </motion.h3>
@@ -862,8 +881,6 @@ export default function Portfolio() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-2 px-6 py-3 text-base font-medium bg-indigo-600 text-white rounded-full shadow hover:bg-indigo-700 transition"
-                                    onMouseEnter={() => setIsHover(true)}
-                                    onMouseLeave={() => setIsHover(false)}
                                     style={{
                                       color: "white",
                                     }}
