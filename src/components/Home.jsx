@@ -74,10 +74,10 @@ const StackCard = ({ card, index, total, progress }) => {
   const scale = useTransform(progress, [startRange, 1], [1, targetScale]);
 
   return (
-    <div className="sticky top-16 sm:top-24 h-[85vh] sm:h-[82vh] lg:h-[78vh] flex items-center justify-center mb-12">
+    <div className="sticky top-16 sm:top-24 h-auto lg:h-[78vh] flex items-center justify-center mb-12">
       <motion.div
         style={{ scale }}
-        className="w-full max-w-6xl h-full bg-[#001a2b] border border-white/10 rounded-3xl p-6 sm:p-10 lg:p-12 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.4)] relative overflow-hidden text-white"
+        className="w-full max-w-6xl h-auto lg:h-full bg-[#001a2b] border border-white/10 rounded-3xl p-6 sm:p-10 lg:p-12 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.4)] relative overflow-hidden text-white"
       >
         {/* HEADER */}
         <div className="flex-shrink-0 flex items-center justify-between border-b border-white/10 pb-4">
@@ -109,11 +109,11 @@ const StackCard = ({ card, index, total, progress }) => {
           </div>
 
           {/* IMAGE SIDE */}
-          <div className="lg:col-span-5 h-full w-full min-h-0 flex items-center justify-center">
+          <div className="lg:col-span-5 h-auto lg:h-full w-full min-h-0 flex items-center justify-center">
             <img
               src={card.imageUrl}
               alt={card.title}
-              className={`w-full h-full max-h-full object-cover rounded-2xl sm:rounded-3xl hover:scale-105 transition-transform duration-300 ${
+              className={`w-full h-auto lg:h-full max-h-none lg:max-h-full object-contain lg:object-cover rounded-2xl sm:rounded-3xl hover:scale-105 transition-transform duration-300 ${
                 card.id === "about"
                   ? "object-top lg:object-center"
                   : "object-center"
