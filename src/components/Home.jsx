@@ -293,7 +293,7 @@ export default function Home() {
 
               <div className="flex items-center gap-3">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/RobertRovenko"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-[#00cc8e] hover:text-[#00cc8e] transition-colors"
@@ -304,7 +304,7 @@ export default function Home() {
                   </svg>
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/robert-falkb%C3%A4ck/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-[#00cc8e] hover:text-[#00cc8e] transition-colors"
