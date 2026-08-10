@@ -56,7 +56,7 @@ export default function Education() {
       <div className="max-w-7xl mx-auto px-4 sm:px-12 pt-6 sm:pt-16 pb-28 sm:pb-40 space-y-20 sm:space-y-36">
         <header
           id="hero"
-          className="w-full pb-4 sm:pb-8 pt-20 scroll-mt-20 sm:scroll-mt-32"
+          className="w-full pb-4 sm:pb-8 pt-2 sm:pt-20 scroll-mt-0 sm:scroll-mt-32"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             {/* Left Column: Heading & Intro */}
@@ -81,12 +81,9 @@ export default function Education() {
               </p>
             </div>
 
-            {/* Right Column: Image (Added lg:pt-6 to nudge down on desktop) */}
             {/* Right Column: Image */}
             <div className="lg:col-span-5 flex flex-col items-center lg:items-end lg:pt-16">
-              {/* Postcard Container */}
               <div className="group bg-white p-3 sm:p-4 rounded-sm border border-slate-200/80 shadow-md transition-all duration-500 ease-out lg:-rotate-2 lg:hover:rotate-0 lg:hover:-translate-y-2 lg:hover:shadow-2xl max-w-xs sm:max-w-sm w-full cursor-pointer">
-                {/* Photo Frame */}
                 <div className="overflow-hidden bg-slate-100">
                   <img
                     src="/images/education/hsexam.jpg"
@@ -94,8 +91,6 @@ export default function Education() {
                     className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                 </div>
-
-                {/* Postcard Caption */}
                 <p className="mt-3 text-[10px] sm:text-xs font-mono text-slate-500 uppercase tracking-widest text-center">
                   Graduation — Class of 2020
                 </p>
@@ -109,7 +104,6 @@ export default function Education() {
           id="sti"
           className="py-12 sm:py-24 border-b border-slate-200 scroll-mt-4"
         >
-          {/* Section Header */}
           <div className="flex items-center justify-between pb-4 sm:pb-6 mb-8 sm:mb-12 border-b border-slate-200 text-xs sm:text-sm uppercase tracking-wide text-slate-500">
             <span className="font-semibold text-slate-900">
               Higher Education Degree
@@ -118,7 +112,6 @@ export default function Education() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-            {/* Left Column: Clean Paper Diploma Frame */}
             <div className="lg:col-span-5 flex flex-col items-center lg:items-start order-2 lg:order-1">
               <div className="w-full max-w-sm group">
                 <div className="relative aspect-[210/297] w-full bg-white border border-slate-200 shadow-sm transition-shadow duration-300 sm:group-hover:shadow-md">
@@ -134,7 +127,6 @@ export default function Education() {
               </div>
             </div>
 
-            {/* Right Column: Degree Details & Curriculum */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8 order-1 lg:order-2">
               <div className="space-y-2 sm:space-y-3">
                 <div className="flex items-center justify-between text-xs sm:text-sm text-slate-500 uppercase tracking-wider">
@@ -262,7 +254,6 @@ export default function Education() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             <div className="lg:col-span-7 pb-2 lg:pb-0">
-              {/* Mobile Layout */}
               <div className="flex flex-col gap-8 lg:hidden">
                 <div className="space-y-3">
                   <div className="space-y-1">
@@ -308,7 +299,6 @@ export default function Education() {
                 </div>
               </div>
 
-              {/* Desktop Layout */}
               <div className="hidden lg:flex gap-8 w-full items-center justify-center">
                 <div
                   className="flex-1 transition-all duration-700 ease-in-out"
@@ -378,7 +368,6 @@ export default function Education() {
               </div>
             </div>
 
-            {/* Right Content */}
             <div className="hidden lg:block lg:col-span-5 space-y-8 mt-6 lg:mt-0">
               <div
                 className={`space-y-2 transition-all duration-700 ease-in-out cursor-pointer ${
@@ -617,7 +606,6 @@ export default function Education() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 items-start">
-            {/* Royal Letter */}
             <div
               className={`space-y-3 sm:space-y-4 flex flex-col items-center text-center transition-all duration-500 ease-in-out ${
                 hoveredHonor === 2 || hoveredHonor === 3
@@ -650,7 +638,6 @@ export default function Education() {
               </div>
             </div>
 
-            {/* UF Launch Document */}
             <div
               className={`space-y-3 sm:space-y-4 flex flex-col items-center text-center transition-all duration-500 ease-in-out ${
                 hoveredHonor === 1 || hoveredHonor === 3
@@ -684,7 +671,6 @@ export default function Education() {
               </div>
             </div>
 
-            {/* UF Trade Fair Photo */}
             <div
               className={`space-y-3 sm:space-y-4 flex flex-col items-center text-center transition-all duration-500 ease-in-out ${
                 hoveredHonor === 1 || hoveredHonor === 2
@@ -797,7 +783,6 @@ export default function Education() {
             <span>King · Knowit · Microsoft</span>
           </div>
 
-          {/* King Visit */}
           <div className="mb-12 sm:mb-16">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-stretch">
               <div className="md:col-span-8">
@@ -848,7 +833,6 @@ export default function Education() {
             </div>
           </div>
 
-          {/* Knowit & Microsoft Visits */}
           <div>
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-stretch">
               <div className="md:col-span-4">
@@ -913,14 +897,21 @@ export default function Education() {
       </div>
 
       {/* ================= FLOATING ACTIVE COLOR PILL NAVIGATION ================= */}
-      <div className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-50 max-w-[95vw]">
-        <nav className="bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-2xl rounded-full p-1 sm:p-1.5 flex items-center gap-0.5 sm:gap-1 overflow-x-auto text-[10px] sm:text-xs font-mono font-medium uppercase tracking-wider whitespace-nowrap scrollbar-none">
+      {/* ================= FLOATING ACTIVE COLOR PILL NAVIGATION ================= */}
+      <div className="fixed bottom-4 sm:bottom-6 left-4 right-4 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 sm:w-auto z-50 flex justify-center">
+        <nav className="bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-2xl rounded-full p-1 sm:p-1.5 flex items-center gap-0.5 sm:gap-1 overflow-x-auto text-[10px] sm:text-xs font-mono font-medium uppercase tracking-wider whitespace-nowrap scrollbar-none max-w-full">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
             return (
               <a
                 key={item.id}
                 href={`#${item.id}`}
+                onClick={(e) => {
+                  if (item.id === "hero") {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                }}
                 className={`px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full transition-all duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 ${
                   isActive
                     ? "bg-slate-900 text-stone-100 shadow-sm font-semibold scale-105"
