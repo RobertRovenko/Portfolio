@@ -8,6 +8,7 @@ export default function Navbar() {
   const links = ["Home", "Education", "Portfolio", "Career", "Athlete"];
 
   const isHomePage = location.pathname === "/" || location.pathname === "/home";
+  const isEducationPage = location.pathname === "/education";
   const isAthletePage = location.pathname === "/athlete";
   const isDarkPage = isHomePage || isAthletePage;
 
@@ -22,8 +23,12 @@ export default function Navbar() {
 
   return (
     <header
-      className={`w-full z-50 transition-all duration-300 ${
-        isHomePage ? "relative bg-[#001220]" : "fixed top-0 left-0"
+      className={`w-full z-[60] transition-all duration-300 ${
+        isHomePage
+          ? "relative bg-[#001220]"
+          : isEducationPage
+            ? "relative sm:fixed sm:top-0 sm:left-0"
+            : "fixed top-0 left-0"
       } ${
         isAthletePage
           ? "bg-transparent border-none shadow-none"
@@ -103,7 +108,7 @@ export default function Navbar() {
               setIsOpen(false);
             }
           }}
-          className={`fixed inset-0 z-50 h-screen flex flex-col items-center justify-center space-y-0 text-xl font-semibold transition-all duration-300 md:hidden ${
+          className={`fixed inset-0 z-[70] h-screen flex flex-col items-center justify-center space-y-0 text-xl font-semibold transition-all duration-300 md:hidden ${
             isDarkPage ? "bg-[#001220] text-white" : "bg-white text-gray-900"
           }`}
         >

@@ -237,7 +237,7 @@ export default function Home() {
                 src="/images/home/leftheroimage.png"
                 alt="Left Hero Feature"
                 className="
-                  translate-y-20 sm:translate-y-28 lg:translate-y-36 
+                  translate-y-4 sm:translate-y-8 lg:translate-y-36 
                   w-[180px] sm:w-[240px] lg:w-[300px] h-auto
                   max-w-none 
                   object-contain 
