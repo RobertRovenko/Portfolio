@@ -54,8 +54,10 @@ export default function Education() {
   return (
     <div className="bg-[#FAF9F6] text-stone-900 min-h-screen font-sans selection:bg-stone-900 selection:text-stone-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-12 pt-6 sm:pt-16 pb-28 sm:pb-40 space-y-20 sm:space-y-36">
-        {/* ================= 1. HERO / INTRO ================= */}
-        <header id="hero" className="w-full py-4 sm:py-8 scroll-mt-4">
+        <header
+          id="hero"
+          className="w-full pb-4 sm:pb-8 pt-20 scroll-mt-20 sm:scroll-mt-32"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             {/* Left Column: Heading & Intro */}
             <div className="lg:col-span-7 space-y-4 sm:space-y-6">
@@ -67,7 +69,7 @@ export default function Education() {
               </p>
 
               <h1 className="text-3xl sm:text-6xl lg:text-7xl font-serif text-slate-950 tracking-tight leading-[1.12] sm:leading-[1.08] font-normal">
-                Education, Diplomas &{" "}
+                Education, Diplomas & <br></br>
                 <span className="italic text-slate-600 block sm:inline">
                   Certificates
                 </span>
@@ -79,16 +81,25 @@ export default function Education() {
               </p>
             </div>
 
+            {/* Right Column: Image (Added lg:pt-6 to nudge down on desktop) */}
             {/* Right Column: Image */}
-            <div className="lg:col-span-5 flex flex-col items-center lg:items-end">
-              <img
-                src="/images/education/hsexam.jpg"
-                alt="Graduation Ceremony"
-                className="w-full h-auto max-w-xs sm:max-w-md object-cover"
-              />
-              <p className="mt-3 text-[10px] sm:text-xs font-mono text-slate-400 uppercase tracking-widest text-center lg:text-right">
-                Graduation — Class of 2020
-              </p>
+            <div className="lg:col-span-5 flex flex-col items-center lg:items-end lg:pt-16">
+              {/* Postcard Container */}
+              <div className="group bg-white p-3 sm:p-4 rounded-sm border border-slate-200/80 shadow-md transition-all duration-500 ease-out lg:-rotate-2 lg:hover:rotate-0 lg:hover:-translate-y-2 lg:hover:shadow-2xl max-w-xs sm:max-w-sm w-full cursor-pointer">
+                {/* Photo Frame */}
+                <div className="overflow-hidden bg-slate-100">
+                  <img
+                    src="/images/education/hsexam.jpg"
+                    alt="Graduation Ceremony"
+                    className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                </div>
+
+                {/* Postcard Caption */}
+                <p className="mt-3 text-[10px] sm:text-xs font-mono text-slate-500 uppercase tracking-widest text-center">
+                  Graduation — Class of 2020
+                </p>
+              </div>
             </div>
           </div>
         </header>
@@ -240,7 +251,7 @@ export default function Education() {
         {/* Academic Scholarships Section */}
         <section
           id="scholarships"
-          className="py-12 sm:py-24 border-b border-slate-200 scroll-mt-4"
+          className="py-12 sm:py-24 border-b border-slate-200 scroll-mt-12 sm:scroll-mt-24"
         >
           <div className="flex items-center justify-between pb-4 sm:pb-6 mb-8 sm:mb-10 border-b border-slate-200 text-xs sm:text-sm uppercase tracking-wide text-slate-500">
             <span className="font-semibold text-slate-900">
@@ -424,7 +435,7 @@ export default function Education() {
         {/* ================= 4. OPEN UNIVERSITY / GOOGLE CERTIFICATE ================= */}
         <section
           id="open-university"
-          className="py-12 sm:py-24 border-b border-slate-200 scroll-mt-4"
+          className="py-12 sm:py-24 border-b border-slate-200 scroll-mt-12 sm:scroll-mt-24"
         >
           <div className="flex items-center justify-between pb-4 sm:pb-6 mb-8 sm:mb-12 border-b border-slate-200 text-xs sm:text-sm uppercase tracking-wide text-slate-500">
             <span className="font-semibold text-slate-900">
