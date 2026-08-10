@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 // Nav items placed outside the component to prevent ESLint hook dependency warnings
 const navItems = [
@@ -16,14 +16,14 @@ export default function Education() {
   const [hoveredDiploma, setHoveredDiploma] = useState(null);
   const [hoveredHonor, setHoveredHonor] = useState(null);
   const [activeSection, setActiveSection] = useState("hero");
-
+  const navItemRefs = useRef({});
   // Robust IntersectionObserver to auto-highlight active section on scroll
   useEffect(() => {
     const visibleSections = new Set();
 
     const observerOptions = {
       root: null,
-      rootMargin: "-5% 0px -50% 0px", // Trigger zone calibrated for tight top scroll margins
+      rootMargin: "-5% 0px -50% 0px",
       threshold: 0,
     };
 
@@ -36,7 +36,6 @@ export default function Education() {
         }
       });
 
-      // Highlight the first visible section matching navItems order
       const active = navItems.find((item) => visibleSections.has(item.id));
       if (active) {
         setActiveSection(active.id);
@@ -51,12 +50,24 @@ export default function Education() {
     return () => observer.disconnect();
   }, []);
 
+  // 2. Auto-scroll the navbar to center the active pill
+  useEffect(() => {
+    const activeEl = navItemRefs.current[activeSection];
+    if (activeEl) {
+      activeEl.scrollIntoView({
+        behavior: "smooth",
+        inline: "center", // Keeps active pill centered horizontally inside <nav>
+        block: "nearest", // Prevents vertical page shifts while scrolling the nav
+      });
+    }
+  }, [activeSection]);
+
   return (
     <div className="bg-[#FAF9F6] text-stone-900 min-h-screen font-sans selection:bg-stone-900 selection:text-stone-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-12 pt-6 sm:pt-16 pb-28 sm:pb-40 space-y-20 sm:space-y-36">
         <header
           id="hero"
-          className="w-full pb-4 sm:pb-8 pt-2 sm:pt-20 scroll-mt-0 sm:scroll-mt-32"
+          className="w-full pb-4 sm:pb-8 pt-2 sm:pt-10 scroll-mt-0 sm:scroll-mt-32"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             {/* Left Column: Heading & Intro */}
@@ -899,20 +910,21 @@ export default function Education() {
       {/* ================= FLOATING ACTIVE COLOR PILL NAVIGATION ================= */}
       {/* ================= FLOATING ACTIVE COLOR PILL NAVIGATION ================= */}
       <div className="fixed bottom-4 sm:bottom-6 left-4 right-4 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 sm:w-auto z-50 flex justify-center">
-        <nav className="bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-2xl rounded-full p-1 sm:p-1.5 flex items-center gap-0.5 sm:gap-1 overflow-x-auto text-[10px] sm:text-xs font-mono font-medium uppercase tracking-wider whitespace-nowrap scrollbar-none max-w-full">
+        <nav className="bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-2xl rounded-full p-1.5 sm:p-2 flex items-center gap-1 sm:gap-1.5 overflow-x-auto text-[10px] sm:text-xs font-mono font-medium uppercase tracking-wider whitespace-nowrap no-scrollbar max-w-full">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
             return (
               <a
                 key={item.id}
                 href={`#${item.id}`}
+                ref={(el) => (navItemRefs.current[item.id] = el)}
                 onClick={(e) => {
                   if (item.id === "hero") {
                     e.preventDefault();
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }
                 }}
-                className={`px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full transition-all duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 ${
+                className={`px-3 sm:px-4 py-2 sm:py-2.5 rounded-full transition-all duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2 ${
                   isActive
                     ? "bg-slate-900 text-stone-100 shadow-sm font-semibold scale-105"
                     : "text-slate-600 sm:hover:text-slate-950 sm:hover:bg-slate-100/70"
@@ -925,7 +937,7 @@ export default function Education() {
         </nav>
       </div>
 
-      {/* CSS Rules for Smooth Scrolling & Disabling Mobile Touch Hover/Highlight */}
+      {/* CSS Rules */}
       <style
         dangerouslySetInnerHTML={{
           __html: `
@@ -934,6 +946,15 @@ export default function Education() {
         }
         * {
           -webkit-tap-highlight-color: transparent;
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
         }
         @media (hover: none) {
           *:hover {
