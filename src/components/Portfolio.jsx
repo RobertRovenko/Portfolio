@@ -13,13 +13,13 @@ const projects = [
       "FoodLens is a mobile nutrition and food-scanning application that helps users make more informed food choices. Users can scan food barcodes to receive a personalized FoodLens Score from 1–100 based on nutritional data, NOVA classification, Nutri-Score, and other health-related factors. The app also features a locally running, offline AI recipe chatbot built around a knowledge base of 12,000 recipes.",
     thumbnail: "/images/portfolio/thumbnails/FoodLensThumbnail.png",
     imageUrls: [
-      "/images/portfolio/FoodLens/FoodLensDemo1.png",
-      "/images/portfolio/FoodLens/FoodLensDemo2.png",
-      "/images/portfolio/FoodLens/FoodLensDemo3.png",
-      "/images/portfolio/FoodLens/FoodLensDemo4.png",
-      "/images/portfolio/FoodLens/FoodLensDemo5.png",
-      "/images/portfolio/FoodLens/FoodLensDemo6.png",
-      "/images/portfolio/FoodLens/FoodLensDemo7.png",
+      "/images/portfolio/FoodLens/foodlensdemo1.png",
+      "/images/portfolio/FoodLens/foodlensdemo2.png",
+      "/images/portfolio/FoodLens/foodlensdemo3.png",
+      "/images/portfolio/FoodLens/foodlensdemo4.png",
+      "/images/portfolio/FoodLens/foodlensdemo5.png",
+      "/images/portfolio/FoodLens/foodlensdemo6.png",
+      "/images/portfolio/FoodLens/foodlensdemo7.png",
     ],
     backgroundColor: "#001220",
     foregroundColor: "#e0e7ff",
@@ -41,9 +41,7 @@ const projects = [
       "Barcode scanning for food products",
       "FoodLens health score from 1–100",
       "Custom nutrition scoring algorithm",
-
       "AI recipe knowledge base containing 12,000 recipes",
-
       "Built from concept to production in two weeks",
       "Published on Google Play Store",
     ],
@@ -125,7 +123,6 @@ const projects = [
       "Google Play",
       "Node.js (backend/API)",
       "Push Notifications (Expo Notifications)",
-
       "Google Play Console",
       "CI/CD with Expo Application Services",
     ],
@@ -211,10 +208,8 @@ const projects = [
     embed: (
       <iframe
         title="Horror Maze Game Preview"
-        frameBorder="0"
+        className="w-full max-w-[552px] h-[167px] border-0"
         src="https://itch.io/embed/4669046?bg_color=000000&fg_color=ffffff&link_color=e10404&border_color=000000"
-        width="552"
-        height="167"
       >
         <a href="https://rovenkodev.itch.io/horrormaze">
           HorrorMaze by rovenkodev
@@ -544,107 +539,136 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="relative bg-white font-sans text-gray-900 min-h-screen ">
-      <main className="max-w-7xl mx-auto px-0 pt-40 md:pt-20 md:pb-20 pb-10 relative z-10">
-        {/* Hero Section */}
-        <section className="w-full flex flex-col  px-12 md:flex-row items-center justify-center h-auto md:h-[500px] gap-8 md:gap-0 mb-16 md:mb-0">
-          {/* Left side — Text */}
-          <motion.div
-            className="relative z-10 flex-1 space-y-6 text-center  md:text-left"
-            initial="hidden"
-            animate="show"
-            variants={{
-              hidden: {},
-              show: { transition: { staggerChildren: 0.2 } },
-            }}
-          >
-            <motion.h1
-              className="text-5xl sm:text-6xl font-bold tracking-tight"
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                show: { opacity: 1, y: 0 },
-              }}
-            >
-              Portfolio & Projects
-            </motion.h1>
+    <div className="relative bg-white font-sans text-gray-900 min-h-screen px-4 sm:px-6 md:px-8">
+      <main className="max-w-7xl mx-auto pt-24 md:pt-20 md:pb-20 pb-10 relative z-10">
+        {/* Featured Apps Hero Section — Dark Canvas Rethink */}
+        {/* Featured Apps Hero Section — Performance Optimized */}
+        <section className="relative w-full min-h-[500px] md:min-h-[600px] px-6 md:px-12 py-12 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 rounded-3xl bg-[#001220] text-white overflow-hidden my-8">
+          {/* Left side — Copy & CTAs */}
+          <div className="relative z-20 flex-1 max-w-xl text-center md:text-left">
+            {/* Headline */}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] text-white">
+              Featured <br />
+              <span className="relative inline-block mt-2">
+                <span className="relative z-10 text-[#BAFF3D]">
+                  Apps & Projects.
+                </span>
+              </span>
+            </h1>
 
-            <motion.p
-              className="text-xl sm:text-2xl text-gray-700"
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                show: { opacity: 1, y: 0 },
-              }}
-            >
-              Apps built from idea to production. <br />
-              React, React Native, Swift, and everything in between. <br />
-            </motion.p>
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                show: { opacity: 1, y: 0 },
-              }}
-            >
-              <motion.a
-                href="https://github.com/RobertRovenko"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                className="bg-indigo-600 text-white px-6 py-3 rounded-full text-sm font-semibold flex items-center justify-center gap-2 hover:bg-indigo-700 transition"
-              >
-                <Github size={16} /> View Github
-              </motion.a>
-              <motion.a
+            {/* Subtitle */}
+            <p className="mt-5 text-base sm:text-lg leading-relaxed max-w-lg mx-auto md:mx-0 text-slate-300 font-normal">
+              A curated collection of production-ready mobile and web
+              applications built with React Native, TypeScript, Expo, and Swift,
+              ranging from SaaS and utilities to interactive games.
+              <span className="block mt-3 text-white font-semibold">
+                Designed & developed by{" "}
+                <span className="text-[#BAFF3D]">Robert Falkbäck</span>
+              </span>
+            </p>
+
+            {/* Fast CTAs */}
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              {/* Primary Button */}
+              <a
                 href="#portfolio"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                className="border border-indigo-600 text-indigo-600 px-6 py-3 rounded-full text-sm font-semibold bg-white-100 flex items-center justify-center gap-2 hover:bg-indigo-600 hover:text-white transition"
+                className="group px-8 py-4 rounded-full text-sm font-bold flex items-center justify-center gap-2 bg-[#BAFF3D] text-[#001220] shadow-md shadow-[#BAFF3D]/10 hover:bg-[#a8f52c] transition-colors duration-150"
               >
-                <ArrowRight size={16} /> Projects
-              </motion.a>
-            </motion.div>
-          </motion.div>
+                <span>Browse All Apps</span>
+                <ArrowRight
+                  size={18}
+                  className="group-hover:translate-x-1 transition-transform duration-150"
+                />
+              </a>
 
-          {/* Right side — Rotating Phone */}
-          <motion.div
-            style={{
-              rotateY: 180,
-              rotateX,
-            }}
-            className="mt-10 md:mt-0 md:ml-12 pointer-events-none"
-          >
-            <img
-              src="/images/portfolio/portfolioillustration.png"
-              alt="App Preview"
-              className="w-[400px] h-auto object-contain"
-            />
-          </motion.div>
+              {/* Secondary Button */}
+              <a
+                href="https://github.com/RobertRovenko"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-transparent border-2 border-slate-700 text-white px-8 py-4 rounded-full text-sm font-bold flex items-center justify-center gap-2 hover:bg-white hover:text-[#001220] hover:border-white transition-all duration-150"
+              >
+                <Github size={18} />
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          {/* Right side — Clean, Static 3-App Fan (Fast CSS-only Hover) */}
+          <div className="relative z-10 flex-1 w-full max-w-lg flex items-center justify-center md:justify-end">
+            <div className="relative flex items-center justify-center w-full h-[360px] sm:h-[480px]">
+              {/* Left Mockup: 30 Day Fitness */}
+              <div className="absolute left-0 sm:left-2 z-10 w-[150px] sm:w-[200px] md:w-[220px] -rotate-6 drop-shadow-xl cursor-pointer transition-transform duration-200 ease-out hover:rotate-0 hover:scale-105 hover:z-30">
+                <img
+                  src="/images/portfolio/30dayfitnesshero.png"
+                  alt="30 Day Fitness App Mockup"
+                  className="w-full h-auto object-contain"
+                  loading="eager"
+                />
+              </div>
+
+              {/* Center Mockup: FoodLens */}
+              <div className="absolute z-20 w-[170px] sm:w-[220px] md:w-[240px] drop-shadow-2xl cursor-pointer transition-transform duration-200 ease-out hover:scale-105 hover:z-30">
+                <img
+                  src="/images/portfolio/foodlenshero.png"
+                  alt="FoodLens App Mockup"
+                  className="w-full h-auto object-contain"
+                  loading="eager"
+                />
+              </div>
+
+              {/* Right Mockup: QuizzyPop */}
+              <div className="absolute right-0 sm:right-2 z-10 w-[150px] sm:w-[200px] md:w-[220px] rotate-6 drop-shadow-xl cursor-pointer transition-transform duration-200 ease-out hover:rotate-0 hover:scale-105 hover:z-30">
+                <img
+                  src="/images/portfolio/quizzypophero.png"
+                  alt="QuizzyPop App Mockup"
+                  className="w-full h-auto object-contain"
+                  loading="eager"
+                />
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* Portfolio Projects Section */}
         <section id="portfolio" className="mt-0 mb-16 z-10">
-          <h2 className="text-4xl font-bold text-[#1E3A5F] mb-10 text-center">
-            Portfolio
-          </h2>
+          <div>
+            {/* Section Heading */}
+            <h2
+              style={{ color: "#001220" }}
+              className="text-3xl sm:text-5xl font-black tracking-tight mb-8 md:mb-10 text-center"
+            >
+              Portfolio
+            </h2>
 
-          {/* Filter Buttons */}
-          <div className="flex justify-center space-x-4 mb-12">
-            {["all", "programmed", "designed"].map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setFilter(cat)}
-                className={`px-5 py-2 rounded-full border text-sm font-medium transition ${
-                  filter === cat
-                    ? "bg-indigo-600 text-white shadow"
-                    : "text-indigo-600 bg-white-100 border-indigo-600 hover:bg-indigo-100"
-                }`}
-              >
-                {cat[0].toUpperCase() + cat.slice(1)}
-              </button>
-            ))}
+            {/* Filter Buttons */}
+            <div className="flex justify-center flex-wrap gap-2.5 sm:gap-4 mb-10 md:mb-12">
+              {["all", "programmed", "designed"].map((cat) => {
+                const isActive = filter === cat;
+                const label =
+                  cat === "all"
+                    ? "All Projects"
+                    : cat.charAt(0).toUpperCase() + cat.slice(1);
+
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setFilter(cat)}
+                    className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold border-2 transition-all duration-150 ${
+                      isActive
+                        ? "bg-[#001220] text-[#BAFF3D] border-[#001220] shadow-sm"
+                        : "bg-white text-[#001220] border-slate-200 hover:border-[#001220] hover:bg-slate-50"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* Project Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-40 md:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
             {filteredProjects.map(
               (
                 {
@@ -681,34 +705,34 @@ export default function Portfolio() {
                       <motion.div
                         layout="position"
                         onClick={() => setExpandedCard(id)}
-                        {...(!isMobile && { whileHover: { scale: 1.05 } })}
-                        className={`group bg-white ounded-none md:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300  cursor-pointer ${
+                        {...(!isMobile && { whileHover: { scale: 1.02 } })}
+                        className={`group bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer ${
                           expandedCard === id ? "md:col-span-2 col-span-1" : ""
                         }`}
                       >
                         {thumbnail && (
                           <motion.div
                             layout
-                            className="overflow-hidden rounded-none md:rounded-2xl border-t border-gray-500 md:border-none"
+                            className="overflow-hidden rounded-t-2xl md:rounded-t-2xl border-b border-gray-100"
                           >
                             <img
                               src={thumbnail}
                               alt={`${title} thumbnail`}
-                              className="rounded-none md:rounded-xl object-cover shadow-md w-full h-96"
+                              className="rounded-t-2xl md:rounded-t-xl object-cover shadow-md w-full h-56 sm:h-72 md:h-96"
                             />
                           </motion.div>
                         )}
 
-                        <motion.div layout className="p-6">
+                        <motion.div layout className="p-5 sm:p-6">
                           <motion.h3
                             layout
-                            className="text-2xl font-bold text-[#1E3A5F] mb-2"
+                            className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-2"
                           >
                             {title}
                           </motion.h3>
                           <motion.p
                             layout
-                            className="text-base text-gray-800 line-clamp-4"
+                            className="text-sm sm:text-base text-gray-800 line-clamp-4"
                           >
                             {description.length > maxChars
                               ? description.slice(0, maxChars) + "..."
@@ -762,43 +786,46 @@ export default function Portfolio() {
                               backgroundColor: backgroundColor || "#ffffff",
                               color: foregroundColor || "#000000",
                             }}
-                            className="flex flex-col md:flex-row gap-8 items-start p-6 rounded-none md:rounded-2xl shadow-sm border-2 border-gray-300"
+                            className="flex flex-col md:flex-row gap-6 md:gap-8 items-center p-4 sm:p-6 md:p-8 rounded-2xl shadow-sm border-2 border-gray-300"
                           >
-                            <div
-                              className="md:w-1/2 w-full relative flex justify-center items-center"
-                              style={{ minHeight: "200px" }}
-                            >
+                            {/* Left: Fixed Image Frame */}
+                            <div className="md:w-1/2 w-full relative flex justify-center items-center h-[360px] sm:h-[480px] md:h-[580px]">
                               <img
                                 src={imageUrls?.[index] || ""}
                                 alt={`${title} screenshot`}
-                                className="rounded-xl shadow-md object-cover max-w-full max-h-full"
-                                style={{ width: "auto", height: "650px" }}
+                                className="rounded-xl shadow-md object-contain w-full h-full"
                               />
 
                               {imageUrls?.length > 1 && (
                                 <button
-                                  onClick={() => handleImageChange(id, "prev")}
-                                  className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg hover:scale-105 transition-all duration-200 ease-in-out"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleImageChange(id, "prev");
+                                  }}
+                                  className="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-1.5 sm:p-2 shadow-lg hover:scale-105 transition-all duration-200 ease-in-out"
                                   aria-label="Previous Image"
                                 >
-                                  <ChevronLeft className="w-6 h-6" />
+                                  <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                                 </button>
                               )}
                               {imageUrls?.length > 1 && (
                                 <button
-                                  onClick={() => handleImageChange(id, "next")}
-                                  className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg hover:scale-105 transition-all duration-200 ease-in-out"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleImageChange(id, "next");
+                                  }}
+                                  className="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-1.5 sm:p-2 shadow-lg hover:scale-105 transition-all duration-200 ease-in-out"
                                   aria-label="Next Image"
                                 >
-                                  <ChevronRight className="w-6 h-6" />
+                                  <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                                 </button>
                               )}
                             </div>
 
                             {/* Right: Text Content */}
-                            <div className="md:w-1/2 w-full space-y-6">
+                            <div className="md:w-1/2 w-full space-y-5 md:space-y-6">
                               <h3
-                                className="text-3xl font-bold"
+                                className="text-2xl sm:text-3xl font-bold"
                                 style={{ color: foregroundColor || "#1e3a8a" }}
                               >
                                 {title}
@@ -806,7 +833,7 @@ export default function Portfolio() {
 
                               {description && (
                                 <p
-                                  className="text-lg leading-loose"
+                                  className="text-base sm:text-lg leading-relaxed sm:leading-loose"
                                   style={{
                                     color: foregroundColor || "#2d2d2d",
                                   }}
@@ -817,7 +844,7 @@ export default function Portfolio() {
 
                               {features && (
                                 <ul
-                                  className="list-disc pl-6 text-base space-y-2 leading-relaxed"
+                                  className="list-disc pl-5 sm:pl-6 text-sm sm:text-base space-y-1.5 sm:space-y-2 leading-relaxed"
                                   style={{
                                     color: foregroundColor || "#3a3a3a",
                                   }}
@@ -829,7 +856,7 @@ export default function Portfolio() {
                               )}
 
                               {techStack && (
-                                <div className="text-sm flex flex-wrap gap-2 items-center">
+                                <div className="text-sm flex flex-col sm:flex-row gap-2 items-start sm:items-center">
                                   <strong
                                     style={{
                                       color: foregroundColor || "#4f46e5",
@@ -837,11 +864,11 @@ export default function Portfolio() {
                                   >
                                     Tech Stack:
                                   </strong>
-                                  <div className="flex flex-wrap gap-2">
+                                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                                     {techStack.map((tech, i) => (
                                       <span
                                         key={i}
-                                        className="bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-medium"
+                                        className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs sm:text-sm font-medium"
                                       >
                                         {tech}
                                       </span>
@@ -850,11 +877,11 @@ export default function Portfolio() {
                                 </div>
                               )}
 
-                              <div className="flex flex-wrap gap-3 pt-2">
+                              <div className="flex flex-col sm:flex-row flex-wrap gap-3 pt-2">
                                 {!codeLink ? (
                                   <button
                                     disabled
-                                    className="flex items-center gap-2 px-6 py-3 text-base font-medium bg-gray-400 text-white opacity-70 rounded-full cursor-not-allowed"
+                                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 text-base font-medium bg-gray-400 text-white opacity-70 rounded-full cursor-not-allowed"
                                   >
                                     {codeText || "View Code"}
                                     {codeText === "Code Private" && (
@@ -866,7 +893,7 @@ export default function Portfolio() {
                                     href={codeLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-2 px-6 py-3 text-base font-medium bg-indigo-600 text-white rounded-full shadow hover:bg-indigo-700 transition"
+                                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 text-base font-medium bg-indigo-600 text-white rounded-full shadow hover:bg-indigo-700 transition"
                                   >
                                     {codeText || "View Code"}
                                     {codeText === "Code Private" && (
@@ -880,7 +907,7 @@ export default function Portfolio() {
                                     href={siteLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-2 px-6 py-3 text-base font-medium bg-indigo-600 text-white rounded-full shadow hover:bg-indigo-700 transition"
+                                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 text-base font-medium bg-indigo-600 text-white rounded-full shadow hover:bg-indigo-700 transition"
                                     style={{
                                       color: "white",
                                     }}
@@ -890,7 +917,7 @@ export default function Portfolio() {
                                 )}
                               </div>
                               {embed && (
-                                <div className="pt-8 flex justify-center">
+                                <div className="pt-4 sm:pt-8 flex justify-center w-full overflow-hidden">
                                   {embed}
                                 </div>
                               )}
@@ -905,26 +932,6 @@ export default function Portfolio() {
             )}
           </div>
         </section>
-        <div className="mt-24 flex justify-center">
-          <div className="bg-indigo-50 border border-indigo-200 rounded-2xl p-8 max-w-2xl w-full text-center shadow-md">
-            <h3 className="text-2xl font-bold text-indigo-700 mb-3">
-              Want to see more?
-            </h3>
-            <p className="text-gray-700 text-lg mb-6">
-              Check out even more of my projects and code contributions on
-              GitHub.
-            </p>
-            <a
-              href="https://github.com/RobertRovenko"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white font-medium text-base rounded-full shadow hover:bg-indigo-700 transition-all duration-200"
-            >
-              <Github className="w-5 h-5" />
-              Visit My GitHub
-            </a>
-          </div>
-        </div>
       </main>
     </div>
   );
