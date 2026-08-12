@@ -15,6 +15,7 @@ import {
   Minimize2,
   Target,
   Zap,
+  Globe,
 } from "lucide-react";
 
 const careerSections = [
@@ -33,6 +34,24 @@ const careerSections = [
     impact:
       "Achieved a ~20% impression-to-install conversion rate on Google Play (significantly outperforming industry benchmarks), maintaining 60+ daily active users. Implemented recurring revenue via RevenueCat in-app purchases and Google AdMob. Boosted performance by refactoring state management, eliminating unnecessary re-renders, and shrinking app bundle sizes.",
     imageUrl: "/images/career/apppublisher.png",
+    links: [
+      {
+        label: "Google Play Dev Profile",
+        url: "https://play.google.com/store/apps/dev?id=6638725637924776409",
+      },
+      {
+        label: "QuizzyPop",
+        url: "https://www.quizzypop.robertrovenko.com/",
+      },
+      {
+        label: "30 Day Fitness",
+        url: "https://www.30dayfitness.robertrovenko.com/",
+      },
+      {
+        label: "FoodLens",
+        url: "https://foodlens.robertrovenko.com/",
+      },
+    ],
     tags: [
       "React Native",
       "Supabase",
@@ -58,6 +77,12 @@ const careerSections = [
     impact:
       "Shipped a fully functional application on schedule, securing early market entry into spatial computing. Reduced overall app bundle size by 15% through smart API integration and performance tuning. Established scalable MVVM codebase architecture patterns and managed Agile sprints using Jira, Slack, and Figma.",
     imageUrl: "/images/career/xrsolutionswork.png",
+    links: [
+      {
+        label: "XR Solutions Website",
+        url: "https://xrsolutions.se/",
+      },
+    ],
     tags: [
       "iOS",
       "SwiftUI",
@@ -84,6 +109,7 @@ const careerSections = [
     impact:
       "Delivered the entire application three weeks ahead of schedule to high praise from the Product Owner. Pair programming served as a primary competitive advantage, catching bugs early, streamlining custom REST API integrations, and managing agile workflows via Trello and GitHub.",
     imageUrl: "/images/career/quire-portrait.png",
+    links: [],
     tags: [
       "React Native",
       "Expo",
@@ -98,7 +124,7 @@ const careerSections = [
   {
     id: "rovenkodev",
     number: "04",
-    title: "Founder & Fullstack Developer",
+    title: "Freelance Fullstack Developer",
     company: "RovenkoDev",
     duration: "Dec 2017 – Present",
     highlight: "Fullstack Web & Mobile Studio",
@@ -109,7 +135,21 @@ const careerSections = [
       "Balancing custom client engineering, UI/UX design, full-stack architecture, secure payment gateway integrations for e-commerce platforms, and technical consulting for external teams.",
     impact:
       "Architected and deployed production web applications and SaaS platforms—including GitHub Analytics App, QR Code Sweden, and Job Board Sweden. Successfully delivered full-stack client solutions covering performant web architectures, custom API integrations, and UI overhauls.",
-    imageUrl: "/images/career/rovenkodevwork.png",
+    imageUrl: "/images/career/rovenkodevwork2.png",
+    links: [
+      {
+        label: "GitHub Analytics App",
+        url: "https://github-analytics-app.vercel.app/",
+      },
+      {
+        label: "Job Board Sweden",
+        url: "https://job-board-sweden.vercel.app/",
+      },
+      {
+        label: "QR Code Sweden",
+        url: "https://qrcode-sweden.vercel.app/",
+      },
+    ],
     tags: [
       "React",
       "Next.js",
@@ -135,6 +175,12 @@ const careerSections = [
     impact:
       "Awarded two major scholarships: 'Bästa Studieresultat' (Best Study Results) and 'Bästa Examensarbete' (Best Thesis Work). Built a rock-solid foundation in Git version control, Agile methodologies, and cross-platform architecture.",
     imageUrl: "/images/career/MobileAppDeveloper.jpg",
+    links: [
+      {
+        label: "GitHub Projects & Code Repos",
+        url: "https://github.com/RobertRovenko",
+      },
+    ],
     tags: [
       "Swift",
       "Kotlin",
@@ -152,21 +198,27 @@ const careerSections = [
     number: "06",
     title: "Web Development Foundation",
     company: "Nordens Teknikerinstitut Gymnasiet",
-    duration: "2017 – 2021",
-    highlight: "Core Web & Engineering Basis",
+    duration: "2017 – 2020",
+    highlight: "Media Technology Specialization",
     icon: Layers,
     overview:
-      "A four-year technical foundation starting with vanilla HTML, CSS, and JavaScript, progressing into modern frameworks including React, Next.js, and Tailwind CSS.",
+      "A three-year gymnasium education specializing in media technology, building a solid foundation in vanilla HTML, CSS, and JavaScript, while exploring modern web frameworks and UI/UX design.",
     challenge:
-      "Transitioning from basic static web pages to dynamic, component-driven reactive applications while mastering responsive web standards and UI/UX design principles.",
+      "Transitioning from basic static web pages to dynamic, component-driven reactive applications while mastering responsive web standards and digital media principles.",
     impact:
       "Established a continuous learning mindset and deep architectural foundation that made transitioning into mobile app frameworks and full-stack software development effortless.",
     imageUrl: "/images/career/WebDevelopment.jpg",
+    links: [
+      {
+        label: "First ever site",
+        url: "https://robertrovenko.github.io/",
+      },
+    ],
     tags: [
       "HTML/CSS",
       "JavaScript",
       "React",
-      "Next.js",
+      "Media Technology",
       "Tailwind CSS",
       "UI/UX Design",
       "Responsive Design",
@@ -177,7 +229,7 @@ const careerSections = [
     number: "07",
     title: "Game Development Specialization",
     company: "Self-Taught & Education",
-    duration: "2017 – 2021",
+    duration: "2017 – 2020",
     highlight: "Unity, Unreal Engine & 3D Art",
     icon: Code2,
     overview:
@@ -187,6 +239,14 @@ const careerSections = [
     impact:
       "Expanded beyond code into digital visual arts—mastering Photoshop for 2D assets, as well as Blender and Maya for 3D modeling and animation. Performance techniques learned in game engines directly transferred to mobile app optimization.",
     imageUrl: "/images/career/GameDevelopment.jpg",
+    links: [
+      {
+        label: "HorrorMaze on Itch.io",
+        url: "https://rovenkodev.itch.io/horrormaze",
+      },
+    ],
+    embedIframe:
+      "https://itch.io/embed/4669046?border_width=0&bg_color=001220&fg_color=ffffff&link_color=ff1e44&border_color=001220",
     tags: [
       "Unity",
       "C#",
@@ -213,6 +273,7 @@ const careerSections = [
     impact:
       "Forged a step-by-step problem-solving mindset and strong structural engineering foundation that powered every subsequent project—from mobile apps to spatial computing.",
     imageUrl: "/images/career/ConsoleCoding.png",
+    links: [],
     tags: [
       "C#",
       "Java",
@@ -462,7 +523,7 @@ export default function Career() {
                     >
                       <div className="overflow-hidden">
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch py-2">
-                          {/* Narrative Column - Dictates row height */}
+                          {/* Narrative Column */}
                           <div className="lg:col-span-7 space-y-4">
                             {/* Challenge Block */}
                             <div className="bg-[#001220]/80 rounded-2xl p-5 sm:p-6 border border-white/10 space-y-2">
@@ -489,9 +550,56 @@ export default function Career() {
                                 {item.impact}
                               </p>
                             </div>
+
+                            {/* Live Deliverables & Project Links */}
+                            {item.links && item.links.length > 0 && (
+                              <div className="bg-[#001220]/80 rounded-2xl p-5 sm:p-6 border border-white/10 space-y-3">
+                                <div className="flex items-center gap-2 text-[#00cc8e]">
+                                  <Globe size={15} />
+                                  <span className="text-xs font-mono uppercase tracking-wider font-semibold">
+                                    Live Applications & Links
+                                  </span>
+                                </div>
+                                <div className="flex flex-wrap gap-2.5 pt-1">
+                                  {item.links.map((link) => (
+                                    <a
+                                      key={link.url}
+                                      href={link.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono text-[#00cc8e] bg-[#001a2b] hover:bg-[#00cc8e] hover:text-[#001220] border border-[#00cc8e]/30 hover:border-[#00cc8e] px-3.5 py-1.5 rounded-xl transition-all duration-200 group/link shadow-sm"
+                                    >
+                                      <span>{link.label}</span>
+                                      <ArrowUpRight
+                                        size={14}
+                                        className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform"
+                                      />
+                                    </a>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+
+                            {/* Itch.io Game Embed Widget */}
+                            {item.embedIframe && (
+                              <div className="pt-2">
+                                <iframe
+                                  frameBorder="0"
+                                  src={item.embedIframe}
+                                  width="550"
+                                  height="165"
+                                  className="rounded-2xl border border-white/10 max-w-full"
+                                  title={`${item.title} Game Embed`}
+                                >
+                                  <a href="https://rovenkodev.itch.io/horrormaze">
+                                    HorrorMaze by rovenkodev
+                                  </a>
+                                </iframe>
+                              </div>
+                            )}
                           </div>
 
-                          {/* Image Column - Natural Aspect Ratio, Zero Clipping */}
+                          {/* Image Column */}
                           {item.imageUrl && (
                             <div className="lg:col-span-5 relative flex items-center justify-center lg:justify-end">
                               <div className="w-full lg:absolute lg:inset-0 flex items-center justify-center lg:justify-end">
