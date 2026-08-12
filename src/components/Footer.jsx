@@ -7,6 +7,10 @@ const Footer = () => {
 
   const isAthletePage = location.pathname === "/athlete";
   const isHomePage = location.pathname === "/";
+  const isCareerPage = location.pathname === "/career";
+
+  // Combine Home & Career so they share the same dark design theme
+  const isDarkThemePage = isHomePage || isCareerPage;
 
   if (location.pathname === "/irma") {
     return null;
@@ -17,7 +21,7 @@ const Footer = () => {
       className={`relative z-50 w-full ${
         isAthletePage
           ? "bg-neutral-900 text-white border-none"
-          : isHomePage
+          : isDarkThemePage
             ? "bg-[#00182b] text-white border-t border-white/15 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
             : "bg-white text-neutral-600 border-t"
       }`}
@@ -25,27 +29,27 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
         <div
           className={`space-y-2 text-center sm:text-left ${
-            isAthletePage || isHomePage ? "text-white" : "text-neutral-800"
+            isAthletePage || isDarkThemePage ? "text-white" : "text-neutral-800"
           }`}
         >
           <p className="font-semibold">Robert Falkbäck Rovenko</p>
-          <p className={isHomePage ? "text-neutral-300" : ""}>
+          <p className={isDarkThemePage ? "text-neutral-300" : ""}>
             Frontend &amp; Fullstack Developer
           </p>
-          <p className={isHomePage ? "text-neutral-400 text-xs" : ""}>
+          <p className={isDarkThemePage ? "text-neutral-400 text-xs" : ""}>
             © {year} www.robertrovenko.com
           </p>
         </div>
 
         <div
           className={`flex flex-wrap justify-center sm:justify-end items-center gap-4 ${
-            isAthletePage || isHomePage ? "text-white" : "text-neutral-500"
+            isAthletePage || isDarkThemePage ? "text-white" : "text-neutral-500"
           }`}
         >
           <Link
             to="/portfolio"
             className={
-              isHomePage
+              isDarkThemePage
                 ? "hover:text-[#00cc8e] transition"
                 : "hover:text-neutral-400 transition"
             }
@@ -57,7 +61,7 @@ const Footer = () => {
           <a
             href="https://github.com/RobertRovenko"
             className={
-              isHomePage
+              isDarkThemePage
                 ? "hover:text-[#00cc8e] transition"
                 : "hover:text-neutral-400 transition"
             }
@@ -69,7 +73,7 @@ const Footer = () => {
           <a
             href="https://foodlens.robertrovenko.com/"
             className={
-              isHomePage
+              isDarkThemePage
                 ? "hover:text-[#00cc8e] transition"
                 : "hover:text-neutral-400 transition"
             }
@@ -81,7 +85,7 @@ const Footer = () => {
           <a
             href="https://www.30dayfitness.robertrovenko.com/"
             className={
-              isHomePage
+              isDarkThemePage
                 ? "hover:text-[#00cc8e] transition"
                 : "hover:text-neutral-400 transition"
             }
@@ -93,7 +97,7 @@ const Footer = () => {
           <a
             href="https://www.quizzypop.robertrovenko.com/"
             className={
-              isHomePage
+              isDarkThemePage
                 ? "hover:text-[#00cc8e] transition"
                 : "hover:text-neutral-400 transition"
             }

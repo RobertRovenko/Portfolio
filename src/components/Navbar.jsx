@@ -10,7 +10,10 @@ export default function Navbar() {
   const isHomePage = location.pathname === "/" || location.pathname === "/home";
   const isEducationPage = location.pathname === "/education";
   const isAthletePage = location.pathname === "/athlete";
-  const isDarkPage = isHomePage || isAthletePage;
+  const isCareerPage = location.pathname === "/career";
+
+  // Include Career page in dark page theme
+  const isDarkPage = isHomePage || isAthletePage || isCareerPage;
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
@@ -24,7 +27,7 @@ export default function Navbar() {
   return (
     <header
       className={`w-full z-[60] transition-all duration-300 ${
-        isHomePage
+        isHomePage || isCareerPage
           ? "relative bg-[#001220]"
           : isEducationPage
             ? "relative sm:fixed sm:top-0 sm:left-0"
@@ -32,7 +35,7 @@ export default function Navbar() {
       } ${
         isAthletePage
           ? "bg-transparent border-none shadow-none"
-          : isHomePage
+          : isHomePage || isCareerPage
             ? "border-b border-white/10"
             : "bg-white/30 backdrop-blur-md shadow-sm border-b border-white/20"
       }`}
