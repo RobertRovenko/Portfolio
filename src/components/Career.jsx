@@ -108,7 +108,7 @@ const careerSections = [
       "Delivering a feature-rich, complex mobile application on a tight schedule without compromising code quality. Adopted Extreme Programming (XP) practices—specifically mandatory pair programming—over traditional Scrum to enforce continuous code review and clear internal communication.",
     impact:
       "Delivered the entire application three weeks ahead of schedule to high praise from the Product Owner. Pair programming served as a primary competitive advantage, catching bugs early, streamlining custom REST API integrations, and managing agile workflows via Trello and GitHub.",
-    imageUrl: "/images/career/quire-portrait.png",
+    imageUrl: "/images/career/QuirePreview.png",
     links: [],
     tags: [
       "React Native",
@@ -174,7 +174,7 @@ const careerSections = [
       "Mastering native mobile development tools, backend engineering (Express, Node.js, MongoDB, Firebase), Object-Oriented Programming (OOP) in Java, and professional IDEs (VSCode, Xcode, Android Studio) under strict deadlines.",
     impact:
       "Awarded two major scholarships: 'Bästa Studieresultat' (Best Study Results) and 'Bästa Examensarbete' (Best Thesis Work). Built a rock-solid foundation in Git version control, Agile methodologies, and cross-platform architecture.",
-    imageUrl: "/images/career/MobileAppDeveloper.jpg",
+    imageUrl: "/images/career/MobileDegree.png",
     links: [
       {
         label: "GitHub Projects & Code Repos",
@@ -207,7 +207,7 @@ const careerSections = [
       "Transitioning from basic static web pages to dynamic, component-driven reactive applications while mastering responsive web standards and digital media principles.",
     impact:
       "Established a continuous learning mindset and deep architectural foundation that made transitioning into mobile app frameworks and full-stack software development effortless.",
-    imageUrl: "/images/career/WebDevelopment.jpg",
+    imageUrl: "/images/career/WebDev.png",
     links: [
       {
         label: "First ever site",
@@ -238,7 +238,7 @@ const careerSections = [
       "Solving complex game engineering problems including physics calculations, collision detection, state machines, and low-level memory/resource management.",
     impact:
       "Expanded beyond code into digital visual arts—mastering Photoshop for 2D assets, as well as Blender and Maya for 3D modeling and animation. Performance techniques learned in game engines directly transferred to mobile app optimization.",
-    imageUrl: "/images/career/GameDevelopment.jpg",
+    imageUrl: "/images/career/GameDev.png",
     links: [
       {
         label: "HorrorMaze on Itch.io",
@@ -606,7 +606,11 @@ export default function Career() {
                                 <img
                                   src={item.imageUrl}
                                   alt={item.title}
-                                  className="w-auto h-auto max-w-full max-h-[280px] sm:max-h-[360px] lg:max-h-full object-contain rounded-2xl border border-white/10 shadow-lg bg-[#001220]/50 block"
+                                  className={`w-auto h-auto max-w-full max-h-[280px] sm:max-h-[360px] lg:max-h-full object-contain rounded-2xl shadow-lg block ${
+                                    item.id === "quire"
+                                      ? "border-0"
+                                      : "border border-white/10"
+                                  }`}
                                   loading="lazy"
                                 />
                               </div>
