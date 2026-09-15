@@ -62,8 +62,8 @@ const cardsData = [
 ];
 
 const summaryParagraphs = [
-  `Robert Falkbäck Rovenko (born 2001) is a Swedish software developer, entrepreneur, and former competitive athlete. He is recognized for his expertise in full-stack web development, mobile software engineering, and digital craftsmanship.`,
-  `Alongside his engineering career, Robert has competed at high levels in multiple athletic and artistic disciplines, including figure skating, badminton, and ballroom dance. His versatile achievements extend beyond sports and code—he has conducted the Royal Stockholm Philharmonic Orchestra (Kungliga Filharmonikerna), run a UF enterprise, and founded his independent development studio, RovenkoDev.`,
+  `Robert Falkbäck (born 2001) is a Swedish software developer, entrepreneur, and former competitive athlete. He is recognized for his expertise in full-stack web development, mobile software engineering, and digital craftsmanship.`,
+  `Alongside his engineering career, Robert has competed at high levels in multiple athletic and artistic disciplines, including figure skating, badminton, and ballroom dance. His versatile achievements extend beyond sports and code—he has conducted the Royal Stockholm Philharmonic Orchestra (Kungliga Filharmonikerna), run a UF enterprise, and founded his independent development studio, RovenkoDev. He is the Founder of rovenkodev and the creator of the mobile game QuizzyPop and the mobile app FoodLens AI.`,
 ];
 
 const StackCard = ({ card, index, total, progress }) => {
