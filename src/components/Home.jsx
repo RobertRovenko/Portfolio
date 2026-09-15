@@ -198,9 +198,6 @@ export default function Home() {
                 <span className="mr-2 sm:mr-3">ROBERT</span>
                 <span>FALKBÄCK</span>
               </h1>
-              <h1 className="font-bold uppercase tracking-tight text-[#00cc8e] leading-[1.05] sm:leading-[1.0] font-oswald pt-1 sm:pt-0 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-                ROVENKO
-              </h1>
             </div>
 
             <div className="pt-2 space-y-2 w-full max-w-full">
