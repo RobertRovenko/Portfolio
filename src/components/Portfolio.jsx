@@ -492,6 +492,18 @@ const projects = [
   },
 ];
 
+// ============================================================
+// IMAGE PRELOADING UTILITY
+// ============================================================
+const preloadImage = (src) => {
+  if (!src) return;
+  const img = new Image();
+  img.src = src;
+};
+
+// ============================================================
+// MAIN PORTFOLIO COMPONENT
+// ============================================================
 export default function Portfolio() {
   const expandRefs = useRef([]);
   const [expandedCard, setExpandedCard] = useState(null);
@@ -509,6 +521,9 @@ export default function Portfolio() {
   const filteredProjects =
     filter === "all" ? projects : projects.filter((p) => p.type === filter);
 
+  // ============================================================
+  // RESPONSIVE RESIZE HANDLER
+  // ============================================================
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -517,12 +532,38 @@ export default function Portfolio() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // ============================================================
+  // UPDATE REFS WHEN FILTER CHANGES
+  // ============================================================
   useEffect(() => {
     expandRefs.current = filteredProjects.map(
       (_, i) => expandRefs.current[i] || React.createRef(),
     );
   }, [filteredProjects]);
 
+  // ============================================================
+  // IMAGE PRELOADING - PRELOAD NEXT & PREVIOUS IMAGES
+  // ============================================================
+  useEffect(() => {
+    // For each project with images, preload adjacent images
+    filteredProjects.forEach((project) => {
+      const currentIndex = currentImageIndices[project.id] || 0;
+      const total = project.imageUrls?.length || 0;
+
+      if (total <= 1) return;
+
+      const nextIndex = (currentIndex + 1) % total;
+      const prevIndex = (currentIndex - 1 + total) % total;
+
+      // Preload next and previous images
+      preloadImage(project.imageUrls[nextIndex]);
+      preloadImage(project.imageUrls[prevIndex]);
+    });
+  }, [currentImageIndices, filteredProjects]);
+
+  // ============================================================
+  // HANDLE IMAGE CAROUSEL NAVIGATION
+  // ============================================================
   const handleImageChange = (projectId, direction) => {
     setCurrentImageIndices((prev) => {
       const project = projects.find((p) => p.id === projectId);
@@ -541,8 +582,7 @@ export default function Portfolio() {
   return (
     <div className="relative bg-white font-sans text-gray-900 min-h-screen px-4 sm:px-6 md:px-8">
       <main className="max-w-7xl mx-auto pt-24 md:pt-20 md:pb-20 pb-10 relative z-10">
-        {/* Featured Apps Hero Section — Dark Canvas Rethink */}
-        {/* Featured Apps Hero Section — Performance Optimized */}
+        {/* Featured Apps Hero Section */}
         <section className="relative w-full min-h-[500px] md:min-h-[600px] px-6 md:px-12 py-12 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 rounded-3xl bg-[#001220] text-white overflow-hidden my-8">
           {/* Left side — Copy & CTAs */}
           <div className="relative z-20 flex-1 max-w-xl text-center md:text-left">
@@ -594,7 +634,7 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* Right side — Clean, Static 3-App Fan (Fast CSS-only Hover) */}
+          {/* Right side — Clean, Static 3-App Fan */}
           <div className="relative z-10 flex-1 w-full max-w-lg flex items-center justify-center md:justify-end">
             <div className="relative flex items-center justify-center w-full h-[360px] sm:h-[480px]">
               {/* Left Mockup: 30 Day Fitness */}
@@ -667,7 +707,7 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* Project Cards */}
+          {/* Project Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
             {filteredProjects.map(
               (
@@ -788,7 +828,7 @@ export default function Portfolio() {
                             }}
                             className="flex flex-col md:flex-row gap-6 md:gap-8 items-center p-4 sm:p-6 md:p-8 rounded-2xl shadow-sm border-2 border-gray-300"
                           >
-                            {/* Left: Fixed Image Frame */}
+                            {/* Left: Image Carousel */}
                             <div className="md:w-1/2 w-full relative flex justify-center items-center h-[360px] sm:h-[480px] md:h-[580px]">
                               <img
                                 src={imageUrls?.[index] || ""}
