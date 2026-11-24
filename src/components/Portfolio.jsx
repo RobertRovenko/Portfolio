@@ -6,20 +6,57 @@ import { Lock } from "lucide-react";
 
 const projects = [
   {
+    id: "bloxbreak",
+    title: "BloxBreak!",
+    type: "programmed",
+    backgroundColor: "#001220",
+    foregroundColor: "#e0e7ff",
+    description:
+      "BloxBreak is a block puzzle game where players strategically place and clear blocks to achieve high scores. Built as a polished mobile experience and published on the Google Play Store, it features addictive gameplay, smooth animations, and an intuitive touch interface.",
+    thumbnail: "/images/portfolio/thumbnails/BloxBreakThumbnail.webp",
+    imageUrls: [
+      "/images/portfolio/BloxBreak/BloxBreakDemo1.webp",
+      "/images/portfolio/BloxBreak/BloxBreakDemo2.webp",
+      "/images/portfolio/BloxBreak/BloxBreakDemo3.webp",
+      "/images/portfolio/BloxBreak/BloxBreakDemo4.webp",
+      "/images/portfolio/BloxBreak/BloxBreakDemo5.webp",
+    ],
+    techStack: [
+      "Unity",
+      "C#",
+      "Python",
+      "AI Tools (OpenCode in VS Code)",
+      "Google Play",
+      "Google Play Console",
+    ],
+    features: [
+      "Addictive block puzzle gameplay",
+      "Touch-optimized controls",
+      "Smooth animations and transitions",
+      "High score tracking",
+      "Published on Google Play Store",
+    ],
+    codeLink: "https://bloxbreak.robertrovenko.com/",
+    siteLink:
+      "https://play.google.com/store/apps/details?id=com.rovenkodev.blox",
+    codeText: "Visit Site",
+    siteText: "Check Out App",
+  },
+  {
     id: "foodlens",
     title: "FoodLens",
     type: "programmed",
     description:
       "FoodLens is a mobile nutrition and food-scanning application that helps users make more informed food choices. Users can scan food barcodes to receive a personalized FoodLens Score from 1–100 based on nutritional data, NOVA classification, Nutri-Score, and other health-related factors. The app also features a locally running, offline AI recipe chatbot built around a knowledge base of 12,000 recipes.",
-    thumbnail: "/images/portfolio/thumbnails/FoodLensThumbnail.png",
+    thumbnail: "/images/portfolio/thumbnails/FoodLensThumbnail.webp",
     imageUrls: [
-      "/images/portfolio/FoodLens/FoodLensDemo1.png",
-      "/images/portfolio/FoodLens/FoodLensDemo2.png",
-      "/images/portfolio/FoodLens/FoodLensDemo3.png",
-      "/images/portfolio/FoodLens/FoodLensDemo4.png",
-      "/images/portfolio/FoodLens/FoodLensDemo5.png",
-      "/images/portfolio/FoodLens/FoodLensDemo6.png",
-      "/images/portfolio/FoodLens/FoodLensDemo7.png",
+      "/images/portfolio/FoodLens/FoodLensDemo1.webp",
+      "/images/portfolio/FoodLens/FoodLensDemo2.webp",
+      "/images/portfolio/FoodLens/FoodLensDemo3.webp",
+      "/images/portfolio/FoodLens/FoodLensDemo4.webp",
+      "/images/portfolio/FoodLens/FoodLensDemo5.webp",
+      "/images/portfolio/FoodLens/FoodLensDemo6.webp",
+      "/images/portfolio/FoodLens/FoodLensDemo7.webp",
     ],
     backgroundColor: "#001220",
     foregroundColor: "#e0e7ff",
@@ -58,14 +95,14 @@ const projects = [
     type: "programmed",
     description:
       "QuizzyPop is an engaging trivia application that challenges users with a variety of questions across different categories. Built with React Native, it offers a fun and interactive way to test knowledge and improve skills.",
-    thumbnail: "/images/portfolio/thumbnails/QuizzyPopThumbnail.png",
+    thumbnail: "/images/portfolio/thumbnails/QuizzyPopThumbnail.webp",
     imageUrls: [
-      "/images/portfolio/QuizzyPop/Demo1.png",
-      "/images/portfolio/QuizzyPop/Demo2.png",
-      "/images/portfolio/QuizzyPop/Demo3.png",
-      "/images/portfolio/QuizzyPop/Demo4.png",
-      "/images/portfolio/QuizzyPop/Demo5.png",
-      "/images/portfolio/QuizzyPop/Demo6.png",
+      "/images/portfolio/QuizzyPop/Demo1.webp",
+      "/images/portfolio/QuizzyPop/Demo2.webp",
+      "/images/portfolio/QuizzyPop/Demo3.webp",
+      "/images/portfolio/QuizzyPop/Demo4.webp",
+      "/images/portfolio/QuizzyPop/Demo5.webp",
+      "/images/portfolio/QuizzyPop/Demo6.webp",
     ],
     backgroundColor: "#001220",
     foregroundColor: "#e0e7ff",
@@ -104,14 +141,13 @@ const projects = [
     type: "programmed",
     description:
       "30 Day Fitness is a mobile application designed to help users achieve their fitness goals through structured 30-day workout challenges. Originally developed as my final project and thesis at university, the app has since grown into a successful product on the Google Play Store.",
-    thumbnail: "/images/portfolio/thumbnails/30DayFitnessT.png",
+    thumbnail: "/images/portfolio/thumbnails/30DayFitnessT.webp",
     imageUrls: [
-      "/images/portfolio/30DFDemo/3DDemo1.png",
-      "/images/portfolio/30DFDemo/3DDemo2.png",
-      "/images/portfolio/30DFDemo/3DDemo3.png",
-      "/images/portfolio/30DFDemo/3DDemo4.png",
-      "/images/portfolio/30DFDemo/3DDemo5.png",
-      "/images/portfolio/30DFDemo/3DDemo6.png",
+      "/images/portfolio/30DFDemo/3DDemo1.webp",
+      "/images/portfolio/30DFDemo/3DDemo2.webp",
+      "/images/portfolio/30DFDemo/3DDemo3.webp",
+      "/images/portfolio/30DFDemo/3DDemo4.webp",
+      "/images/portfolio/30DFDemo/3DDemo5.webp",
     ],
     backgroundColor: "#001220",
     foregroundColor: "#e0e7ff",
@@ -148,10 +184,10 @@ const projects = [
     foregroundColor: "#e0e7ff",
     description:
       "GitHub Insights is a full-stack, real-time analytics dashboard for GitHub repositories. It leverages GitHub's REST API to fetch live metrics on commits, contributors, traffic, and language breakdowns. Users authenticate securely using GitHub OAuth, and data is visualized with interactive charts in a performant frontend.",
-    thumbnail: "/images/portfolio/thumbnails/GithubInsightsThumbnail.jpg",
+    thumbnail: "/images/portfolio/thumbnails/GithubInsightsThumbnail.webp",
     imageUrls: [
-      "/images/portfolio/GithubInsights/GithubInsightsLogin.png",
-      "/images/portfolio/GithubInsights/GithubInsightsDachboard.png",
+      "/images/portfolio/GithubInsights/GithubInsightsLogin.webp",
+      "/images/portfolio/GithubInsights/GithubInsightsDachboard.webp",
     ],
     techStack: [
       "React",
@@ -184,12 +220,12 @@ const projects = [
     type: "programmed",
     description:
       "A short but atmospheric horror experience originally created as a school project in 2019. Preserved in my portfolio to showcase my journey from an aspiring developer to a full-time software engineer.",
-    thumbnail: "/images/portfolio/HorrorMaze/horrormaze1.png",
+    thumbnail: "/images/portfolio/HorrorMaze/horrormaze1.webp",
     imageUrls: [
-      "/images/portfolio/HorrorMaze/horrormaze1.png",
-      "/images/portfolio/HorrorMaze/horrormaze2.png",
-      "/images/portfolio/HorrorMaze/horrormaze3.png",
-      "/images/portfolio/HorrorMaze/horrormaze4.png",
+      "/images/portfolio/HorrorMaze/horrormaze1.webp",
+      "/images/portfolio/HorrorMaze/horrormaze2.webp",
+      "/images/portfolio/HorrorMaze/horrormaze3.webp",
+      "/images/portfolio/HorrorMaze/horrormaze4.webp",
     ],
     backgroundColor: "#0B0B0F",
     foregroundColor: "#E5E7EB",
@@ -225,11 +261,11 @@ const projects = [
     foregroundColor: "#e0e7ff",
     description:
       "Job Board Sweden is a full-stack platform tailored for software developers in Stockholm. It aggregates job listings from multiple sources (including public job APIs and custom scrapers), offers secure OAuth login, interactive analytics, and exports reports. Built with a React/Next.js frontend and a Node.js/TypeScript backend, it's deployed on Vercel for fast, globally-distributed delivery.",
-    thumbnail: "/images/portfolio/thumbnails/JobBoardThumbnail.jpg",
+    thumbnail: "/images/portfolio/thumbnails/JobBoardThumbnail.webp",
     imageUrls: [
-      "/images/portfolio/Jobboard/JobboardHomeScreen.png",
-      "/images/portfolio/Jobboard/JobboardJobDetails.png",
-      "/images/portfolio/Jobboard/JobboardAbout.png",
+      "/images/portfolio/Jobboard/JobboardHomeScreen.webp",
+      "/images/portfolio/Jobboard/JobboardJobDetails.webp",
+      "/images/portfolio/Jobboard/JobboardAbout.webp",
     ],
     techStack: [
       "React",
@@ -262,11 +298,11 @@ const projects = [
     foregroundColor: "#e0e7ff",
     description:
       "Offstage is a subscription-based social platform enabling creators to monetize exclusive content for their fans. It offers seamless user onboarding, content feeds, and payment management on a sleek, secure web interface.",
-    thumbnail: "/images/portfolio/thumbnails/OffstageThumbnail.jpg",
+    thumbnail: "/images/portfolio/thumbnails/OffstageThumbnail.webp",
     imageUrls: [
-      "/images/portfolio/Offstage/OffstageHomePage1.png",
-      "/images/portfolio/Offstage/OffstageHomePage2.png",
-      "/images/portfolio/Offstage/OffstageAbout.png",
+      "/images/portfolio/Offstage/OffstageHomePage1.webp",
+      "/images/portfolio/Offstage/OffstageHomePage2.webp",
+      "/images/portfolio/Offstage/OffstageAbout.webp",
     ],
     techStack: [
       "React",
@@ -301,8 +337,8 @@ const projects = [
     foregroundColor: "black",
     description:
       "QR Code Generator is a SaaS web tool that enables users to create customized QR codes with colors, logos, and download options. The app uses a React frontend, a Node.js API for QR generation, and integrates a popular styling library for advanced design options.",
-    thumbnail: "/images/portfolio/thumbnails/QrCodeGeneratorThumbnails.jpg",
-    imageUrls: ["/images/portfolio/QRCode/QRCodeHomeScreen.png"],
+    thumbnail: "/images/portfolio/thumbnails/QrCodeGeneratorThumbnails.webp",
+    imageUrls: ["/images/portfolio/QRCode/QRCodeHomeScreen.webp"],
     techStack: [
       "React",
       "Next.js",
@@ -333,10 +369,10 @@ const projects = [
     foregroundColor: "black",
     description:
       "Redesign and coded implementation of the Modular Finance newsletter. The project involved creating a clean, minimal UI in Figma followed by a responsive React-based frontend with email-friendly styling and modular components.",
-    thumbnail: "/images/portfolio/thumbnails/ModularFinanceThumbnail.jpg",
+    thumbnail: "/images/portfolio/thumbnails/ModularFinanceThumbnail.webp",
     imageUrls: [
-      "/images/portfolio/ModularFinance/ModularFinance1.png",
-      "/images/portfolio/ModularFinance/ModularFinance2.png",
+      "/images/portfolio/ModularFinance/ModularFinance1.webp",
+      "/images/portfolio/ModularFinance/ModularFinance2.webp",
     ],
     techStack: [
       "React",
@@ -368,10 +404,10 @@ const projects = [
     foregroundColor: "black",
     description:
       "Static e-commerce site concept for fragrances featuring a modern UI with interactive elements, built primarily using HTML, CSS, and vanilla JavaScript.",
-    thumbnail: "/images/portfolio/thumbnails/rovenkofragranceshopmen.png",
+    thumbnail: "/images/portfolio/thumbnails/rovenkofragranceshopmen.webp",
     imageUrls: [
-      "/images/portfolio/FragranceShopSweden/FragranceMen.png",
-      "/images/portfolio/FragranceShopSweden/FragranceWomen.png",
+      "/images/portfolio/FragranceShopSweden/FragranceMen.webp",
+      "/images/portfolio/FragranceShopSweden/FragranceWomen.webp",
     ],
     techStack: ["HTML", "CSS", "JavaScript", "Github Pages"],
     features: [
@@ -394,11 +430,11 @@ const projects = [
     foregroundColor: "black",
     description:
       "Mobile app design concept for browsing movie listings and purchasing tickets directly from your phone. Crafted with a focus on clean UX/UI and smooth navigation.",
-    thumbnail: "/images/portfolio/thumbnails/TicketPurchaseThumbnail.png",
+    thumbnail: "/images/portfolio/thumbnails/TicketPurchaseThumbnail.webp",
     imageUrls: [
-      "/images/portfolio/MovieTicket/MovieTicket1.png",
-      "/images/portfolio/MovieTicket/MovieTicket2.png",
-      "/images/portfolio/MovieTicket/MovieTicket3.png",
+      "/images/portfolio/MovieTicket/MovieTicket1.webp",
+      "/images/portfolio/MovieTicket/MovieTicket2.webp",
+      "/images/portfolio/MovieTicket/MovieTicket3.webp",
     ],
     techStack: ["Figma"],
     features: [
@@ -422,14 +458,14 @@ const projects = [
     foregroundColor: "black",
     description:
       "Food delivery app concept focused on quick and easy taco orders. Fully designed and prototyped with attention to color theory, typography, and user experience.",
-    thumbnail: "/images/portfolio/thumbnails/TacoPlateDateThumbnail.jpg",
+    thumbnail: "/images/portfolio/thumbnails/TacoPlateDateThumbnail.webp",
     imageUrls: [
-      "/images/portfolio/TacoPlateDate/TacoPlateDateHomeScreen.png",
-      "/images/portfolio/TacoPlateDate/TacoPlateDateList.png",
-      "/images/portfolio/TacoPlateDate/TacoPlateDateEdit.png",
-      "/images/portfolio/TacoPlateDate/TacoPlateDateCheckout.png",
-      "/images/portfolio/TacoPlateDate/TacoPlateDatePurchase.png",
-      "/images/portfolio/TacoPlateDate/TacoPlateDateRegister.png",
+      "/images/portfolio/TacoPlateDate/TacoPlateDateHomeScreen.webp",
+      "/images/portfolio/TacoPlateDate/TacoPlateDateList.webp",
+      "/images/portfolio/TacoPlateDate/TacoPlateDateEdit.webp",
+      "/images/portfolio/TacoPlateDate/TacoPlateDateCheckout.webp",
+      "/images/portfolio/TacoPlateDate/TacoPlateDatePurchase.webp",
+      "/images/portfolio/TacoPlateDate/TacoPlateDateRegister.webp",
     ],
     techStack: ["Figma"],
     features: [
@@ -452,8 +488,8 @@ const projects = [
     foregroundColor: "black",
     description:
       "Modern redesign prototype of the Försäkringskassan landing page, created entirely in Figma focusing on UX improvements and visual refresh.",
-    thumbnail: "/images/portfolio/thumbnails/ForsakringskassanThumbnail.jpg",
-    imageUrls: ["/images/portfolio/Forsakringskassan/Forsakringskassan.png"],
+    thumbnail: "/images/portfolio/thumbnails/ForsakringskassanThumbnail.webp",
+    imageUrls: ["/images/portfolio/Forsakringskassan/Forsakringskassan.webp"],
     techStack: ["Figma"],
     features: [
       "High-fidelity visual redesign",
@@ -476,8 +512,8 @@ const projects = [
     foregroundColor: "black",
     description:
       "Originally designed in Figma as a concept, this freelance website was later programmed and launched as my personal portfolio to showcase real development work and validate client projects. I transitioned my marketing efforts and client acquisition to platforms like Upwork and Fiverr, using this site as a central proof of work.",
-    thumbnail: "/images/portfolio/thumbnails/FreelanceThumbnail.jpg",
-    imageUrls: ["/images/portfolio/thumbnails/FreelancePortfolio.png"],
+    thumbnail: "/images/portfolio/thumbnails/FreelanceThumbnail.webp",
+    imageUrls: ["/images/portfolio/thumbnails/FreelancePortfolio.webp"],
     techStack: ["React.js", "JavaScript", "Tailwind CSS", "Figma", "Vercel"],
     features: [
       "Clean and modern UI/UX design",
@@ -490,6 +526,7 @@ const projects = [
     codeText: "View Code",
     siteText: "Visit Site",
   },
+
 ];
 
 // ============================================================
@@ -542,24 +579,24 @@ export default function Portfolio() {
   }, [filteredProjects]);
 
   // ============================================================
-  // IMAGE PRELOADING - PRELOAD NEXT & PREVIOUS IMAGES
+  // IMAGE PRELOADING - PRELOAD NEXT & PREVIOUS IMAGES (only for
+  // the currently expanded project, to avoid downloading every
+  // project's images up front)
   // ============================================================
   useEffect(() => {
-    // For each project with images, preload adjacent images
-    filteredProjects.forEach((project) => {
-      const currentIndex = currentImageIndices[project.id] || 0;
-      const total = project.imageUrls?.length || 0;
+    if (!expandedCard) return;
+    const project = projects.find((p) => p.id === expandedCard);
+    if (!project) return;
+    const total = project.imageUrls?.length || 0;
+    if (total <= 1) return;
 
-      if (total <= 1) return;
+    const currentIndex = currentImageIndices[project.id] || 0;
+    const nextIndex = (currentIndex + 1) % total;
+    const prevIndex = (currentIndex - 1 + total) % total;
 
-      const nextIndex = (currentIndex + 1) % total;
-      const prevIndex = (currentIndex - 1 + total) % total;
-
-      // Preload next and previous images
-      preloadImage(project.imageUrls[nextIndex]);
-      preloadImage(project.imageUrls[prevIndex]);
-    });
-  }, [currentImageIndices, filteredProjects]);
+    preloadImage(project.imageUrls[nextIndex]);
+    preloadImage(project.imageUrls[prevIndex]);
+  }, [expandedCard, currentImageIndices]);
 
   // ============================================================
   // HANDLE IMAGE CAROUSEL NAVIGATION
@@ -640,30 +677,33 @@ export default function Portfolio() {
               {/* Left Mockup: 30 Day Fitness */}
               <div className="absolute left-0 sm:left-2 z-10 w-[150px] sm:w-[200px] md:w-[220px] -rotate-6 drop-shadow-xl cursor-pointer transition-transform duration-200 ease-out hover:rotate-0 hover:scale-105 hover:z-30">
                 <img
-                  src="/images/portfolio/30dayfitnesshero.png"
-                  alt="30 Day Fitness App Mockup"
-                  className="w-full h-auto object-contain"
-                  loading="eager"
+                  src="/images/portfolio/30dayfitnesshero.webp"
+                   alt="30 Day Fitness App Mockup"
+                   className="w-full h-auto object-contain"
+                   loading="lazy"
+                   decoding="async"
                 />
               </div>
 
               {/* Center Mockup: FoodLens */}
               <div className="absolute z-20 w-[170px] sm:w-[220px] md:w-[240px] drop-shadow-2xl cursor-pointer transition-transform duration-200 ease-out hover:scale-105 hover:z-30">
                 <img
-                  src="/images/portfolio/foodlenshero.png"
+                  src="/images/portfolio/foodlenshero.webp"
                   alt="FoodLens App Mockup"
                   className="w-full h-auto object-contain"
                   loading="eager"
+                   decoding="async"
                 />
               </div>
 
               {/* Right Mockup: QuizzyPop */}
               <div className="absolute right-0 sm:right-2 z-10 w-[150px] sm:w-[200px] md:w-[220px] rotate-6 drop-shadow-xl cursor-pointer transition-transform duration-200 ease-out hover:rotate-0 hover:scale-105 hover:z-30">
                 <img
-                  src="/images/portfolio/quizzypophero.png"
+                  src="/images/portfolio/quizzypophero.webp"
                   alt="QuizzyPop App Mockup"
                   className="w-full h-auto object-contain"
-                  loading="eager"
+                  loading="lazy"
+                   decoding="async"
                 />
               </div>
             </div>
@@ -758,6 +798,8 @@ export default function Portfolio() {
                             <img
                               src={thumbnail}
                               alt={`${title} thumbnail`}
+                              loading="lazy"
+                              decoding="async"
                               className="rounded-t-2xl md:rounded-t-xl object-cover shadow-md w-full h-56 sm:h-72 md:h-96"
                             />
                           </motion.div>
@@ -833,6 +875,8 @@ export default function Portfolio() {
                               <img
                                 src={imageUrls?.[index] || ""}
                                 alt={`${title} screenshot`}
+                                loading="lazy"
+                                decoding="async"
                                 className="rounded-xl shadow-md object-contain w-full h-full"
                               />
 
@@ -908,7 +952,7 @@ export default function Portfolio() {
                                     {techStack.map((tech, i) => (
                                       <span
                                         key={i}
-                                        className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs sm:text-sm font-medium"
+                                        className="bg-indigo-100 text-indigo-900 px-3 py-1 rounded-full text-xs sm:text-sm font-bold shadow-sm border border-indigo-200"
                                       >
                                         {tech}
                                       </span>
@@ -948,9 +992,6 @@ export default function Portfolio() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 text-base font-medium bg-indigo-600 text-white rounded-full shadow hover:bg-indigo-700 transition"
-                                    style={{
-                                      color: "white",
-                                    }}
                                   >
                                     {siteText || "Visit Site"}
                                   </a>
